@@ -1,5 +1,5 @@
 //
-//  HomeWorkSetupViewController.swift
+//  DrivingViewController.swift
 //  Slug
 //
 //  Created by Andrew Charkin on 3/21/15.
@@ -8,19 +8,19 @@
 
 import UIKit
 
-class HomeWorkSetupViewController: UIViewController {
+class DrivingViewController: UIViewController {
 
-  @IBOutlet weak var homeLabel: UILabel!
-  
-  override func viewWillAppear(animated: Bool) {
-    self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    super.viewWillAppear(animated)
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    super.viewWillAppear(animated)
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 
     /*
     // MARK: - Navigation
