@@ -10,9 +10,45 @@ import UIKit
 
 let tableCell = "tableCell"
 
+struct Driver {
+  let name: String
+  let company: String
+  let departureTime: String
+  
+  init(name: String, company: String, departureTime: String) {
+    self.name = name
+    self.company = company
+    self.departureTime = departureTime
+  }
+}
+
 class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet weak var tableView: UITableView!
+  
+  var drivers:[Driver] = [
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
+    Driver(name: "Bob", company: "Google", departureTime: "9:04")
+  ]
   
   override func viewDidLoad() {
       super.viewDidLoad()
@@ -21,18 +57,17 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.tableView.tableFooterView = UIView()
   }
 
-  override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
-  }
-  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 10
+    return drivers.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(tableCell, forIndexPath: indexPath) as UITableViewCell
-    cell.backgroundColor = UIColor.blueColor()
+    
+    let driver = self.drivers[indexPath.row]
+    
+    cell.textLabel?.text = driver.name
+    cell.detailTextLabel?.text = driver.departureTime
     
     return cell
   }
