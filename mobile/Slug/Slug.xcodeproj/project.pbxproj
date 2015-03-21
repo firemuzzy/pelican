@@ -14,6 +14,8 @@
 		3391A80A1ABE178500EDCF65 /* WorkPickerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A8091ABE178500EDCF65 /* WorkPickerCollectionViewController.swift */; };
 		3391A8101ABE1E2D00EDCF65 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A80F1ABE1E2D00EDCF65 /* LobbyViewController.swift */; };
 		3391A8141ABE1E4F00EDCF65 /* DrivingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A8131ABE1E4F00EDCF65 /* DrivingViewController.swift */; };
+		3391A8161ABE323100EDCF65 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3391A8151ABE323100EDCF65 /* Accounts.framework */; };
+		3391A8181ABE323700EDCF65 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3391A8171ABE323700EDCF65 /* Social.framework */; };
 		33FD8FF11ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */; };
 		3F808CB61ABDFABF000CB5F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F808CB51ABDFABF000CB5F2 /* AppDelegate.swift */; };
 		3F808CB81ABDFABF000CB5F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F808CB71ABDFABF000CB5F2 /* ViewController.swift */; };
@@ -55,6 +57,8 @@
 		3391A8091ABE178500EDCF65 /* WorkPickerCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkPickerCollectionViewController.swift; path = controllers/WorkPickerCollectionViewController.swift; sourceTree = "<group>"; };
 		3391A80F1ABE1E2D00EDCF65 /* LobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LobbyViewController.swift; path = controllers/LobbyViewController.swift; sourceTree = "<group>"; };
 		3391A8131ABE1E4F00EDCF65 /* DrivingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrivingViewController.swift; path = controllers/DrivingViewController.swift; sourceTree = "<group>"; };
+		3391A8151ABE323100EDCF65 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		3391A8171ABE323700EDCF65 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeWorkSetupViewController.swift; path = controllers/HomeWorkSetupViewController.swift; sourceTree = "<group>"; };
 		3F808CB01ABDFABF000CB5F2 /* Slug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F808CB41ABDFABF000CB5F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3391A8181ABE323700EDCF65 /* Social.framework in Frameworks */,
+				3391A8161ABE323100EDCF65 /* Accounts.framework in Frameworks */,
 				3F808D061ABE025E000CB5F2 /* libsqlite3.dylib in Frameworks */,
 				3F808D041ABE0257000CB5F2 /* SystemConfiguration.framework in Frameworks */,
 				3F808D021ABE024E000CB5F2 /* StoreKit.framework in Frameworks */,
@@ -142,6 +148,8 @@
 		3F808CA71ABDFABF000CB5F2 = {
 			isa = PBXGroup;
 			children = (
+				3391A8171ABE323700EDCF65 /* Social.framework */,
+				3391A8151ABE323100EDCF65 /* Accounts.framework */,
 				3F808D051ABE025E000CB5F2 /* libsqlite3.dylib */,
 				3F808D031ABE0257000CB5F2 /* SystemConfiguration.framework */,
 				3F808D011ABE024D000CB5F2 /* StoreKit.framework */,
