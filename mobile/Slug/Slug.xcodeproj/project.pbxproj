@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33FD8FF11ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */; };
 		3F808CB61ABDFABF000CB5F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F808CB51ABDFABF000CB5F2 /* AppDelegate.swift */; };
 		3F808CB81ABDFABF000CB5F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F808CB71ABDFABF000CB5F2 /* ViewController.swift */; };
 		3F808CBB1ABDFABF000CB5F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F808CB91ABDFABF000CB5F2 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeWorkSetupViewController.swift; path = controllers/HomeWorkSetupViewController.swift; sourceTree = "<group>"; };
 		3F808CB01ABDFABF000CB5F2 /* Slug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F808CB41ABDFABF000CB5F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F808CB51ABDFABF000CB5F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33FD8FEE1ABDFF2D004D5D5A /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		33FD8FEF1ABDFF32004D5D5A /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		3F808CA71ABDFABF000CB5F2 = {
 			isa = PBXGroup;
 			children = (
@@ -77,11 +94,10 @@
 		3F808CB21ABDFABF000CB5F2 /* Slug */ = {
 			isa = PBXGroup;
 			children = (
-				3F808CB51ABDFABF000CB5F2 /* AppDelegate.swift */,
+				33FD8FEF1ABDFF32004D5D5A /* views */,
+				33FD8FEE1ABDFF2D004D5D5A /* controllers */,
 				3F808CB71ABDFABF000CB5F2 /* ViewController.swift */,
 				3F808CB91ABDFABF000CB5F2 /* Main.storyboard */,
-				3F808CBC1ABDFABF000CB5F2 /* Images.xcassets */,
-				3F808CBE1ABDFABF000CB5F2 /* LaunchScreen.xib */,
 				3F808CB31ABDFABF000CB5F2 /* Supporting Files */,
 			);
 			path = Slug;
@@ -90,6 +106,9 @@
 		3F808CB31ABDFABF000CB5F2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3F808CB51ABDFABF000CB5F2 /* AppDelegate.swift */,
+				3F808CBC1ABDFABF000CB5F2 /* Images.xcassets */,
+				3F808CBE1ABDFABF000CB5F2 /* LaunchScreen.xib */,
 				3F808CB41ABDFABF000CB5F2 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -214,6 +233,7 @@
 			files = (
 				3F808CB81ABDFABF000CB5F2 /* ViewController.swift in Sources */,
 				3F808CB61ABDFABF000CB5F2 /* AppDelegate.swift in Sources */,
+				33FD8FF11ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +427,7 @@
 				3F808CD11ABDFABF000CB5F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F808CD21ABDFABF000CB5F2 /* Build configuration list for PBXNativeTarget "SlugTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +436,7 @@
 				3F808CD41ABDFABF000CB5F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
