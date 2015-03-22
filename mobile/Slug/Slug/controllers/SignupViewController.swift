@@ -27,21 +27,21 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    self.emailField.resignFirstResponder()
+//    self.emailField.resignFirstResponder()
   }
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     let email = textField.text
     let user = SlugUser(firstName: "Name", lastName: "Name", email: email, password: "")
     
-    self.performSegueWithIdentifier("SegueToHomeWorkSetup", sender:self)
+//    self.performSegueWithIdentifier("SegueToHomeWorkSetup", sender:self)
     
-//    user.parseObj.signUpInBackgroundWithBlock { (didSignUp, error) -> Void in
-//      
-//      if didSignUp {
-//        self.performSegueWithIdentifier("SegueToHomeWorkSetup", sender:self)
-//      }
-//    }
+    user.parseObj.signUpInBackgroundWithBlock { (didSignUp, error) -> Void in
+      
+      if didSignUp {
+        self.performSegueWithIdentifier("SegueToHomeWorkSetup", sender:self)
+      }
+    }
     
     return true
   }
