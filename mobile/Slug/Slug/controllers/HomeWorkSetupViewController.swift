@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class HomeWorkSetupViewController: UIViewController {
 
@@ -17,5 +18,20 @@ class HomeWorkSetupViewController: UIViewController {
     super.viewWillAppear(animated)
    
     self.companyName.text = SlugUser.currentUser()?.companyName()
+    
+    if let location = UserLocation.sharedInstance.currentLocation {
+      CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+        if error != nil {
+          println("error in reverse geocoding: \(error.localizedDescription)")
+          return
+        }
+        if let placemark = placemarks.first as? CLPlacemark {
+          println("postal: \(placemark.locality)")
+          placemark.country
+        }
+        
+        
+      })
+    }
   }
 }
