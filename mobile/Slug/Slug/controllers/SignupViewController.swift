@@ -48,10 +48,12 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     let email = textField.text
     let dummypassword = "test"
-    let user = SlugUser(firstName: "Name", lastName: "Name", email: email, password: dummypassword)
+    
+    let emailUserName = email.extractEmailUsername() ?? "Slügger"
+    let user = SlugUser(firstName: emailUserName, lastName: "", email: email, password: dummypassword)
     
     user.parseObj.signUpInBackgroundWithBlock { (didSignUp, error) -> Void in
-      // to let me show different users
+      // to let Lme show different users
       let isUserNameTaken = (error != nil && (error.code == 202))
       
       if didSignUp {
