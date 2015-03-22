@@ -57,7 +57,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
             println("getting drivers to \(farthestPoint)")
           
 //            Ride.findNearByDriversInBackground(currentPoint!, end: farthestPoint, block: { (objs:[AnyObject]!, error:NSError!) -> Void in
-//              
+//  s            
 //              for obj in objs {
 //                let parseObj = obj as PFObject
 //                let ride = Ride(parseObj: parseObj)
