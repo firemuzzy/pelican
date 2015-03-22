@@ -79,7 +79,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   override func viewWillAppear(animated: Bool) {
-    self.navigationController?.setNavigationBarHidden(true, animated: animated)
+//    self.navigationController?.setNavigationBarHidden(true, animated: animated)
     super.viewWillAppear(animated)
     
     if let selectedRow = self.tableView.indexPathForSelectedRow() {
@@ -96,7 +96,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   override func viewWillDisappear(animated: Bool) {
-    self.navigationController?.setNavigationBarHidden(false, animated: animated)
+//    self.navigationController?.setNavigationBarHidden(false, animated: animated)
     super.viewWillDisappear(animated)
   }
   
@@ -132,6 +132,11 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
 
   
+  @IBAction func logout(sender: UIBarButtonItem) {
+    PFUser.logOut()
+    self.performSegueWithIdentifier("UnwindToRoot", sender: self)
+  }
   @IBAction func unwind(segue: UIStoryboardSegue) {
+
   }
 }

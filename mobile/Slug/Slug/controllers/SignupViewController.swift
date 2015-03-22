@@ -22,6 +22,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+    
     self.emailField.becomeFirstResponder()
   }
   

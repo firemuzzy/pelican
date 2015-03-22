@@ -156,13 +156,21 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="Zh9-X6-ddh"/>
+                    <navigationItem key="navigationItem" title="Lobby" id="Zh9-X6-ddh">
+                        <barButtonItem key="leftBarButtonItem" title="logout" id="xVZ-CM-Kgo">
+                            <connections>
+                                <action selector="logout:" destination="SDC-D8-3YX" id="tfV-DJ-7Nf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="AQX-O7-RBp" id="DYg-Pk-yUG"/>
                         <segue destination="Bza-fg-clj" kind="show" identifier="SegueToViewRide" id="jrx-Pl-9dd"/>
+                        <segue destination="s1C-S8-3uk" kind="unwind" identifier="UnwindToRoot" unwindAction="unwind:" id="o7s-ZR-blW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pr6-RY-ACl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="s1C-S8-3uk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3475" y="-75"/>
         </scene>
