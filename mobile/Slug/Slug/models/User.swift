@@ -254,16 +254,16 @@ class Ride {
     }
   }
   
-//  func findNearByDriversInBackground(start: PFGeoPoint, end:PFGeoPoint, block:PFArrayResultBlock?) {
-//    var queryForFrom = PFQuery(className: "Ride")
-//    queryForFrom.whereKey("from", nearGeoPoint: start, withinMiles: 0.25)
-//
-//    var queryForToInRIdeEnd = PFQuery(className: "RideEnd")
-//    queryForToInRideEnd.whereKey("to", nearGeoPoint: end, withinMiles: 0.25)
-//    
-//    var queryForTo = PFQuery(className: "Ride")
-//    queryForTo.whereKey(<#key: String!#>, nearGeoPoint: <#PFGeoPoint!#>, withinMiles: <#Double#>)
-//  }
+  func findNearByDriversInBackground(start: PFGeoPoint, end:PFGeoPoint, block:PFArrayResultBlock?) {
+    var queryForToInRideEnd = PFQuery(className: "RideEnd")
+    queryForToInRideEnd.whereKey("to", nearGeoPoint: end, withinMiles: 0.25)
+
+    var query = PFQuery(className: "Ride")
+    query.whereKey("from", nearGeoPoint: start, withinMiles: 0.25)
+    query.whereKey("rideEnd", matchesQuery: queryForToInRideEnd)
+    
+    query.findObjectsInBackgroundWithBlock(block)
+  }
   
   func releaseMySpotInBackground(user:SlugUser, block: PFBooleanResultBlock!) {
   

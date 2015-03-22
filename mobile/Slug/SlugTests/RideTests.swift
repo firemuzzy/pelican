@@ -56,6 +56,39 @@ class RideTests: XCTestCase {
     }
   }
   
+  func testRideToMicrosoft() {
+    let user = UserTestUtils.createTestUser()
+    
+    let maxSpaces = 4
+    let departureDate = 20.minutes.fromNow
+    
+    let ride = Ride.create(user, maxSpaces: maxSpaces, departure: departureDate, from: wozGeo, to: microsoft)
+    
+    var writeError: NSError? = nil
+    
+    ride.parseObj.save(&writeError)
+    //    ride.save(rideEnd, error: &writeError)
+    XCTAssertNil(writeError)
+    
+    if(writeError == nil) {
+      var query = PFQuery(className:"Ride")
+      query.includeKey("rideEnd")
+      
+      let foundParseRide = query.getObjectWithId(ride.parseObj.objectId)
+      let foundRide = Ride(parseObj: foundParseRide)
+      
+      XCTAssertEqual(foundRide.maxSpaces, maxSpaces, "maxSpaces did not match")
+      XCTAssertTrue(foundRide.departure.fuzzyEquals(departureDate), "departureDates did not match")
+      XCTAssertEqual(foundRide.from!, wozGeo)
+      
+      XCTAssertNotNil(foundRide.rideEnd)
+      if let rideEnd = foundRide.rideEnd {
+        XCTAssertEqual(rideEnd.to!, microsoft)
+      }
+      
+    }
+  }
+  
   func testGettingMyRide() {
     let driver = UserTestUtils.createTestUser()
     var ride: Ride! = nil

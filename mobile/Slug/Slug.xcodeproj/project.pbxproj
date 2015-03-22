@@ -18,6 +18,7 @@
 		3391A8181ABE323700EDCF65 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3391A8171ABE323700EDCF65 /* Social.framework */; };
 		3391A81A1ABE4A7900EDCF65 /* RegisterDriveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A8191ABE4A7900EDCF65 /* RegisterDriveViewController.swift */; };
 		33FD8FF11ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */; };
+		3F0FC9601ABE976800E12453 /* RideDriveFindingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FC95F1ABE976800E12453 /* RideDriveFindingTests.swift */; };
 		3F3A73C81ABE15B800C73F6D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F808CF11ABE021F000CB5F2 /* AudioToolbox.framework */; };
 		3F3A73C91ABE15BF00C73F6D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F808CF31ABE0225000CB5F2 /* CFNetwork.framework */; };
 		3F3A73CA1ABE15C400C73F6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F808CF51ABE022A000CB5F2 /* CoreGraphics.framework */; };
@@ -85,6 +86,7 @@
 		3391A8171ABE323700EDCF65 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3391A8191ABE4A7900EDCF65 /* RegisterDriveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterDriveViewController.swift; path = controllers/RegisterDriveViewController.swift; sourceTree = "<group>"; };
 		33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeWorkSetupViewController.swift; path = controllers/HomeWorkSetupViewController.swift; sourceTree = "<group>"; };
+		3F0FC95F1ABE976800E12453 /* RideDriveFindingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDriveFindingTests.swift; sourceTree = "<group>"; };
 		3F3A73D71ABE28C700C73F6D /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = utils.swift; path = utils/utils.swift; sourceTree = "<group>"; };
 		3F3A73DA1ABE464E00C73F6D /* Blocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blocks.swift; sourceTree = "<group>"; };
 		3F3A73DD1ABE4B7B00C73F6D /* RideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideTests.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				3FA0CF8E1ABE14BA00B22A91 /* UserTests.swift */,
 				3F3A73DD1ABE4B7B00C73F6D /* RideTests.swift */,
 				3F3A73DF1ABE4BD900C73F6D /* TestUtils.swift */,
+				3F0FC95F1ABE976800E12453 /* RideDriveFindingTests.swift */,
 			);
 			path = SlugTests;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				3F3A73DC1ABE464E00C73F6D /* Blocks.swift in Sources */,
 				3F3A73E01ABE4BD900C73F6D /* TestUtils.swift in Sources */,
 				3FA0CF8F1ABE14BA00B22A91 /* UserTests.swift in Sources */,
+				3F0FC9601ABE976800E12453 /* RideDriveFindingTests.swift in Sources */,
 				3F808CCC1ABDFABF000CB5F2 /* SlugTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
