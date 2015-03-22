@@ -87,6 +87,11 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     return cell
   }
+  
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    self.performSegueWithIdentifier("SegueToViewRide", sender: self)
+  }
     
 
     /*

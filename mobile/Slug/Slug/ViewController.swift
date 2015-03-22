@@ -23,32 +23,44 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     testObj.saveInBackgroundWithBlock(nil)
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    UserLocation.sharedInstance
+  }
+  
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    if(PFUser.currentUser() == nil) {
-      showLoginFlow()
-    } else {
-      let slugUser = SlugUser(parseUser: PFUser.currentUser())
-      
-      if slugUser.home == nil {
+    
+
+//    self.performSegueWithIdentifier("SegueToSignup", sender:self)
+//    return
+    
+    if let user = SlugUser.currentUser() {
+      if user.home == nil {
         showSetupFlow()
       } else {
         showLobby()
       }
+    } else {
+      showLoginFlow()
     }
   }
   
   //home setup
   func showSetupFlow() {
-    if let currentLocation = UserLocation.sharedInstance.currentLocation {
-      let homePoint = PFGeoPoint(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
-      
-      let slugUser = SlugUser(parseUser: PFUser.currentUser())
-      slugUser.home = homePoint
-      slugUser.parseObj.saveInBackgroundWithBlock(nil)
-    }
+    self.performSegueWithIdentifier("SegueToSignup", sender:self)
     
+    
+//    if let currentLocation = UserLocation.sharedInstance.currentLocation {
+//      let homePoint = PFGeoPoint(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
+//      
+//      if let user = SlugUser.currentUser() {
+//        user.home = homePoint
+//        user.parseObj.saveInBackgroundWithBlock(nil)
+//      }
+//      
+//    }
   }
   
   func showLoginFlow() {
@@ -64,10 +76,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
   }
   
   func showLobby() {
-    if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("lobby") as? UIViewController {
-      self.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-      self.presentViewController(vc, animated: false, completion: nil)
-    }
+    self.performSegueWithIdentifier("SegueToLobby", sender: self)
   }
 
   func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
