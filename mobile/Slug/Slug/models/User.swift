@@ -87,6 +87,10 @@ class SlugUser {
     return self.email.extractCompnayFromEmail().name
   }
   
+  func company() -> Company {
+    return self.email.extractCompnayFromEmail()
+  }
+  
   func findMyCurrentDrivingRideInBackground(block:PFObjectResultBlock!) {
     Ride.findLatestByDriverIdInBackground(self, block: block)
   }

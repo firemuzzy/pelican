@@ -32,7 +32,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     super.viewDidAppear(animated)
     
     if let user = SlugUser.currentUser() {
-      if user.home == nil {
+      if user.home == nil || user.work == nil {
         showSetupFlow()
       } else {
         showLobby()
@@ -44,7 +44,18 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
   
   //home setup
   func showSetupFlow() {
-    self.performSegueWithIdentifier("SegueToHomeSetup", sender:self)
+    // log out and try again
+    PFUser.logOut()
+    
+    if let user = SlugUser.currentUser() {
+      if user.home == nil || user.work == nil {
+        self.performSegueWithIdentifier("SegueToHomeSetup", sender:self)
+      } else {
+        showLobby()
+      }
+    } else {
+      showLoginFlow()
+    }
   }
   
   func showLoginFlow() {

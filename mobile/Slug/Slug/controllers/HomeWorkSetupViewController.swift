@@ -38,6 +38,7 @@ class HomeWorkSetupViewController: UIViewController {
     if let user = SlugUser.currentUser() {
       if let coordinate = UserLocation.sharedInstance.currentLocation?.coordinate {
         user.home = PFGeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        user.work = PFGeoPoint(latitude: user.company().latitude, longitude: user.company().longitude)
         user.parseObj.saveInBackgroundWithBlock(nil)
         self.performSegueWithIdentifier("UnwindToRoot", sender: self)
       }
