@@ -16,7 +16,7 @@ app screenshots:
 <img src="step5.png" alt="drive" height="500px">
 
 
-heroku web page: [link goes here]
+url: [http://www.getslugg.com]
 
 
 ## Challenge and Approach
