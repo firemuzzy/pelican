@@ -1,4 +1,4 @@
-# Evergreen Awesome Hackathon: My Sample App
+# Slügg
 
 The purpose of this app is to provide an example of how to best format an app submission on [Github](http://github.com) for a hackathon. If you'd like to suggest changes or improvements to this example, feel free to send me a pull request.
 
@@ -22,20 +22,14 @@ Once we did that, we knew we were guaranteed to win!
 
 ## Team Members
 
-Our team is comprised of:
+Our team:
 
-- [@chrismetcalf](http://github.com/chrismetcalf) - README.md author and all around awesome guy
-- [@torvalds](http://github.com/torvalds) - Wrangler of penguins
-- [@matz](http://github.com/matz) - Miner of Rubies
-- [@gvanrossum](http://github.com/gvanrossum) - Python charmer
+- [@yakshaving](https://github.com/yakshaving)
+- [@firemuzzy](https://github.com/firemuzzy)
+- [@charimon](https://github.com/charimon)
 
 ## Technologies, APIs, and Datasets Utilized
 
-We made use of:
-
-- Hand harvested unicorn tears. Unicorns are very happy creatures, its hard to make them cry.
-- [mod_bf](http://modbf.sourceforge.net/)
-- The [Top 1,000 Songs To Hear Before You Die](https://opendata.socrata.com/Fun/Top-1-000-Songs-To-Hear-Before-You-Die/ed74-c6ni) dataset and [API](http://dev.socrata.com/foundry/#/opendata.socrata.com/ed74-c6ni)
 
 ## Contributing
 
