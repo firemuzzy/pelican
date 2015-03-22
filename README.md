@@ -4,7 +4,7 @@ The purpose of this app is to provide an example of how to best format an app su
 
 This application was developed on February 5th, 2015 for the [Evergreen Awesome Hackthon](http://example.com/this-goes-nowhere).
 
-![Isn't our app beautiful?!](screenshot.jpg)
+![Slugg](slug.png)
 
 Our app is live at http://example.com/awesome-app-that-doesnt-exist. You can log in as the demo user "unicorns" with password "sartfarkles". You can also check out [this demo screencast](https://www.youtube.com/watch?v=dQw4w9WgXcQ) of our application on YouTube.
 
