@@ -33,11 +33,21 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     let email = textField.text
-    let user = SlugUser(firstName: "Name", lastName: "Name", email: email, password: "")
+    let dummypassword = "test"
+    let user = SlugUser(firstName: "Name", lastName: "Name", email: email, password: dummypassword)
     
     user.parseObj.signUpInBackgroundWithBlock { (didSignUp, error) -> Void in
+      // to let me show different users
+      let isUserNameTaken = (error != nil && (error.code == 202))
+      
       if didSignUp {
         self.performSegueWithIdentifier("SegueToHomeWorkSetup", sender:self)
+      } else if isUserNameTaken {
+        PFUser.logInWithUsernameInBackground(email, password: dummypassword, block: { (loggedInUser:PFUser!, error:NSError!) -> Void in
+          if(loggedInUser != nil) {
+            self.performSegueWithIdentifier("SegueToHomeWorkSetup", sender:self)
+          }
+        })
       }
     }
     

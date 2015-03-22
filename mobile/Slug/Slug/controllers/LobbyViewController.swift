@@ -59,13 +59,15 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
             Ride.findNearByDriversInBackground(currentPoint!, end: farthestPoint, block: { (objs:[AnyObject]!, error:NSError!) -> Void in
               
               for obj in objs {
-                let parseObj = obj as PFObject
-                let ride = Ride(parseObj: parseObj)
-                
-                let rideDriver = ride.driver!
-                
-                let driverToShow = Driver(name: rideDriver.firstName, company: rideDriver.companyName(), departureTime: ride.departure.asTime())
-                self.drivers.append(driverToShow)
+                if let parseObj = obj as? PFObject {
+                  let ride = Ride(parseObj: parseObj)
+                  
+                  if let rideDriver = ride.driver {
+                    let driverToShow = Driver(name: rideDriver.firstName, company: rideDriver.companyName(), departureTime: ride.departure.asTime())
+                    self.drivers.append(driverToShow)
+                  }
+                  
+                }
               }
               
               self.tableView.reloadData()
