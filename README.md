@@ -12,8 +12,6 @@ How do we get cars of the road?
 
 ## Team Members
 
-Our team:
-
 - [@yakshaving](https://github.com/yakshaving) - Designer/Wizard
 - [@firemuzzy](https://github.com/firemuzzy) - Developer/Wizard
 - [@charimon](https://github.com/charimon) - Developer/Wizard
