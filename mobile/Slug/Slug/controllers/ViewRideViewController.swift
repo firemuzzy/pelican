@@ -17,7 +17,9 @@ class ViewRideViewController: UIViewController {
   @IBOutlet weak var personName: UILabel!
   @IBOutlet weak var departingTime: UILabel!
   @IBAction func join(sender: UIButton) {
-    
+    if let user = SlugUser.currentUser() {
+      self.driver?.ride.grabASpotInBackground(user, block: nil)
+    }
   }
   
   

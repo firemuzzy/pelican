@@ -26,6 +26,12 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     if self.emailField.canBecomeFirstResponder() {
       self.emailField.becomeFirstResponder()
     }
+    
+    var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "forceKeyboard", userInfo: nil, repeats: false)
+  }
+  
+  func forceKeyboard() {
+    self.emailField.becomeFirstResponder()
   }
   
   override func viewWillDisappear(animated: Bool) {
@@ -33,6 +39,10 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     if self.emailField.canResignFirstResponder() {
       self.emailField.resignFirstResponder()
     }
+  }
+  
+  func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    return true
   }
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
