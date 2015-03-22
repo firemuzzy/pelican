@@ -10,7 +10,7 @@ import UIKit
 import XCTest
 import Parse
 
-class RideWIthDriverTests: XCTestCase {
+class RideWithDriverTests: XCTestCase {
 
   override func setUp() {
     super.setUp()
@@ -44,7 +44,6 @@ class RideWIthDriverTests: XCTestCase {
       XCTAssertNil(error, "Error")
     })
     
-    user1.parseObj.delete()
     woz2Goog.parseObj.delete()
     woz2Goog.rideEnd?.parseObj.delete()
   }
@@ -86,11 +85,11 @@ class RideWIthDriverTests: XCTestCase {
   }
 
   func testFindingDriver() {
-    let user1 = UserTestUtils.createRandomUser()
-    let user2 = UserTestUtils.createRandomUser()
-    let user3 = UserTestUtils.createRandomUser()
-    let user4 = UserTestUtils.createRandomUser()
-    let user5 = UserTestUtils.createRandomUser()
+    let user1 = UserTestUtils.createTestUser1()
+    let user2 = UserTestUtils.createTestUser2()
+    let user3 = UserTestUtils.createTestUser3()
+    let user4 = UserTestUtils.createTestUser4()
+    let user5 = UserTestUtils.createTestUser5()
     
     
     let woz2Goog = RideTestUtils.createTestRideWoz2Goog(user1)

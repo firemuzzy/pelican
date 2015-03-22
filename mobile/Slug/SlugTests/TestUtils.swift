@@ -37,13 +37,17 @@ class UserTestUtils {
     return createTestUser(fname: "Horace", lname: "Slughorn", email: "mcharkin+slug_horace@gmail.com", password: "test")
   }
   
-  class func createRandomUser() -> SlugUser {
-    let uuidName = NSUUID().UUIDString
-    let uuidLastName = NSUUID().UUIDString
-    let uuidEmail = NSUUID().UUIDString
-  
-    return createTestUser(fname: uuidName, lname: uuidLastName, email: "mcharkin+\(uuidEmail)@gmail.com", password: "test")
+  class func createTestUser5() -> SlugUser {
+    return createTestUser(fname: "Harry", lname: "Potter", email: "mcharkin+slug_horace@adobe.com", password: "test")
   }
+  
+//  class func createRandomUser() -> SlugUser {
+//    let uuidName = NSUUID().UUIDString
+//    let uuidLastName = NSUUID().UUIDString
+//    let uuidEmail = NSUUID().UUIDString
+//  
+//    return createTestUser(fname: uuidName, lname: uuidLastName, email: "mcharkin+\(uuidEmail)@gmail.com", password: "test")
+//  }
  
 }
 
