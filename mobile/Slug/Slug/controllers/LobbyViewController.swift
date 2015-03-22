@@ -16,11 +16,13 @@ class Driver {
   let name: String
   let company: String
   let departureTime: String
+  let ride: Ride
   
-  init(name: String, company: String, departureTime: String) {
+  init(name: String, company: String, departureTime: String, ride: Ride) {
     self.name = name
     self.company = company
     self.departureTime = departureTime
+    self.ride = ride
   }
 }
 
@@ -56,6 +58,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
           println("getting drivers from \(currentPoint!)")
           println("getting drivers to \(farthestPoint)")
           
+<<<<<<< HEAD
           Ride.findNearByDriversInBackground(currentPoint!, end: farthestPoint, block: { (objs:[AnyObject]!, error:NSError!) -> Void in
             
             for obj in objs {
@@ -65,6 +68,19 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 if let rideDriver = ride.driver {
                   let driverToShow = Driver(name: rideDriver.firstName, company: rideDriver.companyName(), departureTime: ride.departure.asTime())
                   self.drivers.append(driverToShow)
+=======
+            Ride.findNearByDriversInBackground(currentPoint!, end: farthestPoint, block: { (objs:[AnyObject]!, error:NSError!) -> Void in
+              
+              for obj in objs {
+                if let parseObj = obj as? PFObject {
+                  let ride = Ride(parseObj: parseObj)
+                  
+                  if let rideDriver = ride.driver {
+                    let driverToShow = Driver(name: rideDriver.firstName, company: rideDriver.companyName(), departureTime: ride.departure.asTime(), ride: ride)
+                    self.drivers.append(driverToShow)
+                  }
+                  
+>>>>>>> 093fdb9dbaceb2bdb0e93b2ddf06ac6c191cf7f0
                 }
                 
               }
@@ -126,6 +142,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let viewRideController  = segue.destinationViewController as? ViewRideViewController {
       if let driver = sender as? Driver {
+        
         viewRideController.driver = driver
       }
     }
@@ -134,6 +151,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   @IBAction func logout(sender: UIBarButtonItem) {
     PFUser.logOut()
+    
     self.performSegueWithIdentifier("UnwindToRoot", sender: self)
   }
   @IBAction func unwind(segue: UIStoryboardSegue) {
