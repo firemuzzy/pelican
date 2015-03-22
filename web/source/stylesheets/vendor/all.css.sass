@@ -14,45 +14,117 @@ $font-family-headings: 'brandon-grotesque-light', $font-family-sans-serif
 $font-family-serif:       'Hoefler Text', Palatino, Georgia, "Times New Roman", Times, serif
 
 body
-  background: #f7f7f7
+  background: #F2F8FE
   font-family: $brandon-light
 
 header
-  background: #DEE7EC
-  height: 87px
+  background-color: #DEE7EC
+  height: 124px
   color: #ddd
+  margin: 0 auto
+
+  .logo
+    display: inline-block
+    background-image: image-url("slugg-logo.png")
+    height: 220px
+    width: 220px
+    position: absolute
+    left: 0
+    right: 0
+    margin: 0 auto
+    top: 13px
 
 section.secondary
-  height: 578px
-  background: #F2F8FE
+  height: 370px
+  padding-top: 100px
+  text-align: center
+
+  background-image: image-url("hitch.png")
+  background-position: center center
+  background-repeat: no-repeat
 
   h1
-    font-family: $brandon-light
+    font-family: $brandon-medium
+    font-size: 3em
     color: #4482AC
   label
-    font-family: $brandon-light
+    font-family: $brandon-medium
+    font-size: 25px
+    margin-bottom: 10px
+    color:  #769BBA
   input
     padding: 10px
     border-radius: 5px
     border: 2px solid #ddd
     outline: none
+    width: 250px
+    font-size: 23px
+    margin-top: 10px
     &:focus
       background: #ffffee
       border-color: #61CCFE
 
   button
     width: 150px
-    height: 45px
+    height: 57px
     border-radius: 5px
     background-color: #CEDAE5
     border: none
     font-family: $brandon-medium
+    font-size: 23px
+    outline: none
+    vertical-align: 2px
+    color: #565B60
 
     &:hover
       background-color: darken(#4482AC, 10%)
       color: #fff
-      transition: 0.3s
-
+      transition: background-color 0.3s
 
 
 section.employee-benefits
+  text-align: center
+
+section.why-people-love
+  margin-top: 85px
+  background: #5B976D
+  .firstcol
+    margin: 0
+    width: 63%
+    float: left
+    background-color: #51865C
+    padding: 53px 12px
+    height: 994px
+    .phone
+      background-position: center
+      background-image: image-url("app-background.png")
+      background-size: cover
+      background-repeat: no-repeat
+      display: block
+
+      height: 900px
+      width: 505px
+      border: 11px solid #61A16E
+      margin: auto
+      border-radius: 40px
+
+  .secondcol
+    margin: 0
+    width: 32%
+    float: right
+    background-color: #5B976D
+    color: #fff
+    padding: 20px 35px
+    height: 1060px
+    h2
+      font-size: 40px
+      margin-bottom: 5px
+      font-family: $brandon-medium
+    p
+      font-size: 30px
+      font-family: $brandon-light
+
+
+
+
+

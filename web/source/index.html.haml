@@ -3,31 +3,37 @@ title:  Slug - Give your employees a reason to carpool
 body_class: index
 ---
 
+<script src="//www.parsecdn.com/js/parse-1.3.5.min.js"></script>
 
 %header
-  Some stuff goes here
+  .logo
 
 %section.secondary
-  =image_tag("slugg-logo.png")
-
-  =image_tag("hitch.png")
-
   %h1 Find friendly colleagues to commute with
 
   %label
     Sign up with your official company email
-  %input{placeholder: "Corporate email address", :id=> "emailInput"}
+  %br
+  %input{placeholder: "Corporate email", :id=> "emailInput" }
   %button{:id => "signUp"}
     Submit
 
-%section.benefits
+%section.employee-benefits
+  =image_tag("employee-steps.png")
 
-
-
+%section.why-people-love
+  .firstcol
+    .phone
+  .secondcol
+    %h2  Informal
+    %p Keep it light and simple - there's no need to plan all that heavily in advance
+    %h2  On Demand
+    %p Carpool when you need to, or take transit when you can't
+    %h2  Trusted Colleagues
+    %p Ensure that you are riding with fellow employees that you feel safe with
 
 
 %script{:type => "text/javascript",
         :src  => "//www.parsecdn.com/js/parse-1.3.5.min.js"}
 %script{:type => "text/javascript",
         :src  => "javascripts/parse.js"}
-
