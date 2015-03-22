@@ -79,7 +79,7 @@ class RegisterDriveViewController: UIViewController {
         case (.Some(let maxSpaces), .Some(let departure), .Some(let currentLocation), .Some(let farthestPoint)):
           let clPoint = PFGeoPoint(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
           
-          let ride = Ride(driver: slugUser, maxSpaces: maxSpaces, departure: departure, from: clPoint, to: farthestPoint)
+          let (ride, rideENd) = Ride.create(slugUser, maxSpaces: maxSpaces, departure: departure, from: clPoint, to: farthestPoint)
           ride.parseObj.saveInBackgroundWithBlock(nil)
           self.dismissViewControllerAnimated(true, completion: nil)
           break

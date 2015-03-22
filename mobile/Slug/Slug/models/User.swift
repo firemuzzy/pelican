@@ -85,6 +85,27 @@ class SlugUser {
   
 }
 
+class RideEnd {
+  let parseObj: PFObject
+  
+  var to: PFGeoPoint? {
+    get {
+      return self.parseObj["to"] as? PFGeoPoint
+    }
+  }
+  
+  init(parseObj: PFObject) {
+    self.parseObj = parseObj
+  }
+  
+  init(ride:Ride, to:PFGeoPoint) {
+    self.parseObj = PFObject(className: "RideEnd")
+    
+    self.parseObj["ride"] = ride.parseObj
+    self.parseObj["to"] = to
+  }
+}
+
 class Ride {
   let parseObj:PFObject
 
@@ -92,17 +113,25 @@ class Ride {
     self.parseObj = parseObj
   }
   
-  init(driver:SlugUser, maxSpaces:Int, departure: NSDate, from:PFGeoPoint, to:PFGeoPoint) {
+  private init() {
     self.parseObj = PFObject(className: "Ride")
+  }
+  
+  // parse only allows one location object per class, so hacks
+  class func create(driver:SlugUser, maxSpaces:Int, departure: NSDate, from:PFGeoPoint, to:PFGeoPoint) -> (Ride, RideEnd) {
+    let ride = Ride()
 
-    self.parseObj["driver"] = driver.parseObj
-    self.parseObj["maxSpaces"] = maxSpaces
-    self.parseObj["departure"] = departure
-    self.parseObj["riders"] = []
-    self.parseObj["hasDeparted"] = false
+    ride.parseObj["driver"] = driver.parseObj
+    ride.parseObj["maxSpaces"] = maxSpaces
+    ride.parseObj["departure"] = departure
+    ride.parseObj["riders"] = []
+    ride.parseObj["hasDeparted"] = false
     
-    self.parseObj["fromLocation"] = from
-    self.parseObj["toLocation"] = to
+    ride.parseObj["from"] = from
+    
+    let rideEnd = RideEnd(ride: ride, to: to)
+    
+    return (ride, rideEnd)
   }
   
   var maxSpaces: Int {
@@ -140,13 +169,27 @@ class Ride {
       return self.parseObj["from"] as? PFGeoPoint
     }
   }
-  
-  var to: PFGeoPoint? {
-    get {
-      return self.parseObj["to"] as? PFGeoPoint
+
+// a hack becasue parse only allows only GeoCoordinate per object
+  func save(rideEnd:RideEnd, error: NSErrorPointer) -> Bool {
+    if(self.parseObj.save(error)) {
+      return rideEnd.parseObj.save(error)
+    } else {
+      return false
     }
   }
 
+  func saveInBackgroundWithBlock(rideEnd:RideEnd, block: PFBooleanResultBlock?) {
+    self.parseObj.saveInBackgroundWithBlock { (didSaveRide:Bool, errorRide:NSError!) -> Void in
+      rideEnd.parseObj.saveInBackgroundWithBlock({ (didSave:Bool, error:NSError!) -> Void in
+        if(errorRide == nil) {
+          block?(didSaveRide && didSave, error)
+        } else {
+          block?(didSaveRide && didSave, errorRide)
+        }
+      })
+    }
+  }
   
   func hasSpots() -> Bool {
     return self.riderIds.count < self.maxSpaces
