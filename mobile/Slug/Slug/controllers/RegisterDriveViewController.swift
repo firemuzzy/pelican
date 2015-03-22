@@ -17,6 +17,26 @@ class RegisterDriveViewController: UIViewController {
   @IBOutlet var seats: [UIButton]!
   @IBOutlet var departureTimes: [UIButton]!
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    SlugUser.currentUser()?.findMyCurrentDrivingRideInBackground({ (data, error) -> Void in
+      if data != nil {
+        let ride = Ride(parseObj: data)
+        self.maxSpaces = ride.maxSpaces
+        self.departure = ride.departure
+        
+        for seat in self.seats {
+          if seat.tag == ride.maxSpaces {
+            seat.selected = true
+          }
+        }
+      }
+    })
+    
+  }
+  
+  
   @IBAction func selectSeats(sender: UIButton) {
     for seat in self.seats {
       seat.selected = false
@@ -50,13 +70,12 @@ class RegisterDriveViewController: UIViewController {
   @IBAction func done(sender: UIButton) {
     if let maxSpaces = self.maxSpaces {
       if let departure = self.departure {
-        let slugUser = SlugUser(parseUser: PFUser.currentUser())
-        
-        let ride = Ride(driver: slugUser, maxSpaces: maxSpaces, departure: departure)
-        ride.parseObj.saveInBackgroundWithBlock(nil)
-        
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
+        if let slugUser = SlugUser.currentUser() {
+          let ride = Ride(driver: slugUser, maxSpaces: maxSpaces, departure: departure)
+          ride.parseObj.saveInBackgroundWithBlock(nil)
+          
+          self.dismissViewControllerAnimated(true, completion: nil)
+        }
       }
     }
   }
