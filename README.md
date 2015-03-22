@@ -25,9 +25,10 @@ url: http://www.getslugg.com
 - Cars are too still too convenient
 - Finding trusted carpoolers is hard
 
-How do we get cars of the road? 
+How do we get cars off the road? 
 - Easy to use mobile app
-- Trusted carpoolers linked to companies
+- Trusted carpoolers linked to well known companies
+- Employees can find colleagues to carpool with
 
 "It’s an amazingly well-organized event that is extremely efficient, saving fuel and time. We estimated that 25,000 people casual carpool in D.C. each day.  That takes a lot of cars off the road" - Mark Burris 
 Texas Transportation Institute (TTI) Associate Research Engineer
