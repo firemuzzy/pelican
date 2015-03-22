@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "pelican";
+  src:url("fonts/pelican.eot");
+  src:url("fonts/pelican.eot?#iefix") format("embedded-opentype"),
+    url("fonts/pelican.woff") format("woff"),
+    url("fonts/pelican.ttf") format("truetype"),
+    url("fonts/pelican.svg#pelican") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "pelican" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "pelican" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bulb:before {
+  content: "a";
+}
+.icon-banknote:before {
+  content: "b";
+}
+.icon-clock:before {
+  content: "c";
+}
+.icon-cup:before {
+  content: "d";
+}
+.icon-like:before {
+  content: "e";
+}
+.icon-shop:before {
+  content: "f";
+}
+.icon-star:before {
+  content: "g";
+}
+.icon-truck:before {
+  content: "h";
+}
+.icon-location:before {
+  content: "i";
+}
+.icon-cloud:before {
+  content: "j";
+}
+.icon-heart:before {
+  content: "k";
+}
+.icon-phone:before {
+  content: "l";
+}
