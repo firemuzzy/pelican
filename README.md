@@ -4,6 +4,7 @@ The go to app for carpooling (slugging).
 <img src="slug.png" alt="Slugg" height="100px">
 
 app screenshots:
+
 <img src="step1.png" alt="Login/Signup" height="500px">
 <img src="step2.png" alt="Select address" height="500px">
 <img src="step3.png" alt="Lobby" height="500px">
