@@ -32,9 +32,9 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     super.viewDidAppear(animated)
     
     
-
-//    self.performSegueWithIdentifier("SegueToSignup", sender:self)
-//    return
+    showLoginFlow()
+    
+    return
     
     if let user = SlugUser.currentUser() {
       if user.home == nil {
@@ -49,7 +49,8 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
   
   //home setup
   func showSetupFlow() {
-    self.performSegueWithIdentifier("SegueToSignup", sender:self)
+    self.performSegueWithIdentifier("SegueToHomeSetup", sender:self)
+    
     
     
 //    if let currentLocation = UserLocation.sharedInstance.currentLocation {
@@ -64,15 +65,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
   }
   
   func showLoginFlow() {
-    var logInViewController = PFLogInViewController()
-    logInViewController.delegate = self
-    
-    var signUpViewController = PFSignUpViewController()
-    signUpViewController.delegate = self
-    
-    logInViewController.signUpController = signUpViewController
-    
-    self.presentViewController(logInViewController, animated: true, completion: nil)
+    self.performSegueWithIdentifier("SegueToSignup", sender:self)
   }
   
   func showLobby() {

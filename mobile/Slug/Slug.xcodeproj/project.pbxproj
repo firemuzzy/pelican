@@ -38,8 +38,6 @@
 		3F3A73D51ABE160500C73F6D /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F808CED1ABDFF52000CB5F2 /* ParseUI.framework */; };
 		3F3A73D81ABE28C700C73F6D /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A73D71ABE28C700C73F6D /* utils.swift */; };
 		3F3A73D91ABE296700C73F6D /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A73D71ABE28C700C73F6D /* utils.swift */; };
-		3F3A73DB1ABE464E00C73F6D /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A73DA1ABE464E00C73F6D /* Blocks.swift */; };
-		3F3A73DC1ABE464E00C73F6D /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A73DA1ABE464E00C73F6D /* Blocks.swift */; };
 		3F3A73DE1ABE4B7B00C73F6D /* RideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A73DD1ABE4B7B00C73F6D /* RideTests.swift */; };
 		3F3A73E01ABE4BD900C73F6D /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A73DF1ABE4BD900C73F6D /* TestUtils.swift */; };
 		3F808CB61ABDFABF000CB5F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F808CB51ABDFABF000CB5F2 /* AppDelegate.swift */; };
@@ -94,7 +92,6 @@
 		33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeWorkSetupViewController.swift; path = controllers/HomeWorkSetupViewController.swift; sourceTree = "<group>"; };
 		3F0FC9611ABEA2BD00E12453 /* RideWIthDriverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideWIthDriverTests.swift; sourceTree = "<group>"; };
 		3F3A73D71ABE28C700C73F6D /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = utils.swift; path = utils/utils.swift; sourceTree = "<group>"; };
-		3F3A73DA1ABE464E00C73F6D /* Blocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blocks.swift; sourceTree = "<group>"; };
 		3F3A73DD1ABE4B7B00C73F6D /* RideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideTests.swift; sourceTree = "<group>"; };
 		3F3A73DF1ABE4BD900C73F6D /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		3F808CB01ABDFABF000CB5F2 /* Slug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slug.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,7 +250,6 @@
 				3F808CB91ABDFABF000CB5F2 /* Main.storyboard */,
 				3391A81B1ABE7AE800EDCF65 /* UserLocation.swift */,
 				3F808CB31ABDFABF000CB5F2 /* Supporting Files */,
-				3F3A73DA1ABE464E00C73F6D /* Blocks.swift */,
 			);
 			path = Slug;
 			sourceTree = "<group>";
@@ -425,7 +421,6 @@
 				3F808CB81ABDFABF000CB5F2 /* ViewController.swift in Sources */,
 				3391A81E1ABE966700EDCF65 /* ViewRideViewController.swift in Sources */,
 				3391A7CA1ABE02C900EDCF65 /* LabledButton.swift in Sources */,
-				3F3A73DB1ABE464E00C73F6D /* Blocks.swift in Sources */,
 				3391A8141ABE1E4F00EDCF65 /* DrivingViewController.swift in Sources */,
 				3F808CB61ABDFABF000CB5F2 /* AppDelegate.swift in Sources */,
 				3391A81C1ABE7AE800EDCF65 /* UserLocation.swift in Sources */,
@@ -446,7 +441,6 @@
 				3F3A73DE1ABE4B7B00C73F6D /* RideTests.swift in Sources */,
 				3FA0CF901ABE152200B22A91 /* User.swift in Sources */,
 				3F0FC9621ABEA2BD00E12453 /* RideWIthDriverTests.swift in Sources */,
-				3F3A73DC1ABE464E00C73F6D /* Blocks.swift in Sources */,
 				3F3A73E01ABE4BD900C73F6D /* TestUtils.swift in Sources */,
 				3FA0CF8F1ABE14BA00B22A91 /* UserTests.swift in Sources */,
 				3F808CCC1ABDFABF000CB5F2 /* SlugTests.swift in Sources */,
