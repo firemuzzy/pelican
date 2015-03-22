@@ -62,7 +62,23 @@ let nearWozGeo = PFGeoPoint(latitude: 47.603643, longitude: -122.334039)
 let uWashingtonGeo = PFGeoPoint(latitude: 47.654436, longitude: -122.303698)
 
 class RideTestUtils {
-  class func createTestRide(driver:SlugUser, maxSpaces:Int = 3, departure:NSDate = 20.minutes.fromNow, from:PFGeoPoint = wozGeo, to:PFGeoPoint = googleSeattleGeo, block:RideResultBlock?) {
+
+  
+
+  class func randomPrettyIntervalFromNow() -> NSDate {
+    let diceRoll = Int( rand()%4 ) + 1
+    
+    let minuteRandomness = Int( rand()%5 ) - 2
+    
+    let interval = (diceRoll * 15) + minuteRandomness
+    
+    print("dice:\(diceRoll)  minuteRand:\(minuteRandomness) interval:\(interval)")
+    
+    return NSTimeInterval((diceRoll * 15) + minuteRandomness).minutes.fromNow
+  }
+
+  class func createTestRide(driver:SlugUser, maxSpaces:Int = (2 + Int(rand() % 3)), from:PFGeoPoint = wozGeo, to:PFGeoPoint = googleSeattleGeo, block:RideResultBlock?) {
+    let departure:NSDate = randomPrettyIntervalFromNow()
     let ride  = Ride.create(driver, maxSpaces: maxSpaces, departure: departure, from: from, to: to)
     
     ride.parseObj.saveInBackgroundWithBlock { (didSave:Bool, error:NSError!) -> Void in
@@ -103,7 +119,9 @@ class RideTestUtils {
     return createTestRideBlocking(driver, from: microsoft, to: uWashingtonGeo)
   }
   
-  class func createTestRideBlocking(driver:SlugUser, maxSpaces:Int = 3, departure:NSDate = 20.minutes.fromNow, from:PFGeoPoint = wozGeo, to:PFGeoPoint = googleSeattleGeo) -> Ride {
+  class func createTestRideBlocking(driver:SlugUser, maxSpaces:Int = (2 + Int(rand() % 3)), from:PFGeoPoint = wozGeo, to:PFGeoPoint = googleSeattleGeo) -> Ride {
+    let departure:NSDate = randomPrettyIntervalFromNow()
+
     let ride = Ride.create(driver, maxSpaces: maxSpaces, departure: departure, from:from, to:to)
     ride.parseObj.save()
     

@@ -217,6 +217,32 @@ class Ride {
     return self.riderIds.count < self.maxSpaces
   }
   
+  func seatsLeft() -> Int {
+    return self.maxSpaces - self.riderIds.count
+  }
+  
+  func munutesLeft() -> Int {
+    let seconds = -NSDate().timeIntervalSinceDate(self.departure)
+    return Int(seconds) / 60
+  }
+  
+  func prettyMinutesLeft() -> String {
+    let minutes = munutesLeft()
+    
+    if(minutes < 0) {
+      return "departed"
+    }
+    
+    let minutesOfHour = minutes % 60
+    let hours = minutes / 60
+  
+    if (hours > 0) {
+      return "\(hours)h \(minutesOfHour)m"
+    } else {
+      return "\(minutesOfHour)m"
+    }
+  }
+  
   class func findByIdInBackground(objectId:String, block: PFObjectResultBlock!) {
     let query = PFQuery(className:"Ride")
     query.includeKey("rideEnd")

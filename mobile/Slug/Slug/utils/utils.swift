@@ -40,7 +40,7 @@ extension NSDate {
 }
 
 extension NSTimeInterval {
-  
+    
   var seconds: NSTimeInterval {
     return self
   }

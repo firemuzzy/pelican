@@ -24,3 +24,16 @@ extension String {
 
 
 
+let seed = UInt32(time(nil))
+srand(seed)
+let r = rand()
+rand() % 4
+
+
+
+
+
+rand()
+
+
+
