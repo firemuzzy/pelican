@@ -94,6 +94,7 @@
 		3F3A73D71ABE28C700C73F6D /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = utils.swift; path = utils/utils.swift; sourceTree = "<group>"; };
 		3F3A73DD1ABE4B7B00C73F6D /* RideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideTests.swift; sourceTree = "<group>"; };
 		3F3A73DF1ABE4BD900C73F6D /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		3F48DCEE1ABEB99D002571CF /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		3F808CB01ABDFABF000CB5F2 /* Slug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F808CB41ABDFABF000CB5F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F808CB51ABDFABF000CB5F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +251,7 @@
 				3F808CB91ABDFABF000CB5F2 /* Main.storyboard */,
 				3391A81B1ABE7AE800EDCF65 /* UserLocation.swift */,
 				3F808CB31ABDFABF000CB5F2 /* Supporting Files */,
+				3F48DCEE1ABEB99D002571CF /* MyPlayground.playground */,
 			);
 			path = Slug;
 			sourceTree = "<group>";

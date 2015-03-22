@@ -51,8 +51,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
   func showSetupFlow() {
     self.performSegueWithIdentifier("SegueToHomeSetup", sender:self)
     
-    
-    
+//    
 //    if let currentLocation = UserLocation.sharedInstance.currentLocation {
 //      let homePoint = PFGeoPoint(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
 //      

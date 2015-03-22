@@ -10,26 +10,13 @@ import UIKit
 
 class HomeWorkSetupViewController: UIViewController {
 
-  @IBOutlet weak var homeLabel: UILabel!
+  @IBOutlet weak var homeAddress: UILabel!
+  @IBOutlet weak var companyName: UILabel!
   
   override func viewWillAppear(animated: Bool) {
-    self.navigationController?.setNavigationBarHidden(true, animated: animated)
     super.viewWillAppear(animated)
+   
+    self.companyName.text = SlugUser.currentUser()?.companyName()
+    
   }
-  
-  override func viewWillDisappear(animated: Bool) {
-    self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    super.viewWillAppear(animated)
-  }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
