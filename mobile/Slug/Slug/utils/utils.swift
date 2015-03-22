@@ -8,6 +8,14 @@
 
 import Foundation
 
+extension NSError {
+  
+  class func withMsg(msg: String) -> NSError {
+    return NSError(domain: "com.slug", code: 666, userInfo: [NSLocalizedDescriptionKey: msg])
+  }
+  
+}
+
 extension NSTimeInterval {
   
   var seconds: NSTimeInterval {
