@@ -98,10 +98,10 @@ class RideEnd {
     self.parseObj = parseObj
   }
   
-  init(ride:Ride, to:PFGeoPoint) {
+  init(driver:SlugUser, to:PFGeoPoint) {
     self.parseObj = PFObject(className: "RideEnd")
     
-    self.parseObj["ride"] = ride.parseObj
+    self.parseObj["driver"] = driver.parseObj
     self.parseObj["to"] = to
   }
 }
@@ -118,7 +118,9 @@ class Ride {
   }
   
   // parse only allows one location object per class, so hacks
-  class func create(driver:SlugUser, maxSpaces:Int, departure: NSDate, from:PFGeoPoint, to:PFGeoPoint) -> (Ride, RideEnd) {
+  class func create(driver:SlugUser, maxSpaces:Int, departure: NSDate, from:PFGeoPoint, to:PFGeoPoint) -> Ride {
+    let rideEnd = RideEnd(driver: driver, to: to)
+    
     let ride = Ride()
 
     ride.parseObj["driver"] = driver.parseObj
@@ -128,10 +130,9 @@ class Ride {
     ride.parseObj["hasDeparted"] = false
     
     ride.parseObj["from"] = from
+    ride.parseObj["rideEnd"] = rideEnd.parseObj
     
-    let rideEnd = RideEnd(ride: ride, to: to)
-    
-    return (ride, rideEnd)
+    return ride
   }
   
   var maxSpaces: Int {
@@ -169,25 +170,14 @@ class Ride {
       return self.parseObj["from"] as? PFGeoPoint
     }
   }
-
-// a hack becasue parse only allows only GeoCoordinate per object
-  func save(rideEnd:RideEnd, error: NSErrorPointer) -> Bool {
-    if(self.parseObj.save(error)) {
-      return rideEnd.parseObj.save(error)
-    } else {
-      return false
-    }
-  }
-
-  func saveInBackgroundWithBlock(rideEnd:RideEnd, block: PFBooleanResultBlock?) {
-    self.parseObj.saveInBackgroundWithBlock { (didSaveRide:Bool, errorRide:NSError!) -> Void in
-      rideEnd.parseObj.saveInBackgroundWithBlock({ (didSave:Bool, error:NSError!) -> Void in
-        if(errorRide == nil) {
-          block?(didSaveRide && didSave, error)
-        } else {
-          block?(didSaveRide && didSave, errorRide)
-        }
-      })
+  
+  var rideEnd: RideEnd? {
+    get {
+      if let r = self.parseObj["rideEnd"] as? PFObject {
+        return RideEnd(parseObj: r)
+      } else {
+        return nil
+      }
     }
   }
   
@@ -197,17 +187,22 @@ class Ride {
   
   class func findByIdInBackground(objectId:String, block: PFObjectResultBlock!) {
     let query = PFQuery(className:"Ride")
+    query.includeKey("rideEnd")
     query.getObjectInBackgroundWithId(objectId, block: block)
   }
   
   private func findById(objectId:String) -> Ride {
     let query = PFQuery(className:"Ride")
+    query.includeKey("rideEnd")
+
     let foundParseRide = query.getObjectWithId(objectId)
     return Ride(parseObj: foundParseRide)
   }
   
   class func findLatestByDriverIdInBackground(user:SlugUser, block: PFObjectResultBlock!) {
     let query = PFQuery(className:"Ride")
+    query.includeKey("rideEnd")
+
     query.whereKey("driver", equalTo: user.parseObj)
     query.orderByDescending("departure")
     query.getFirstObjectInBackgroundWithBlock(block)
@@ -259,7 +254,16 @@ class Ride {
     }
   }
   
-  func findNearByDriversInBackground(start: PFGeoPoint, end:PFGeoPoint, block:PFArrayResultBlock?) {
+  class func findNearByDriversInBackground(start: PFGeoPoint, end:PFGeoPoint, block:PFArrayResultBlock?) {
+    var queryForToInRideEnd = PFQuery(className: "RideEnd")
+    queryForToInRideEnd.whereKey("to", nearGeoPoint: end, withinMiles: 0.70)
+
+    var query = PFQuery(className: "Ride")
+    query.whereKey("from", nearGeoPoint: start, withinMiles: 0.70)
+    query.whereKey("rideEnd", matchesQuery: queryForToInRideEnd)
+    query.includeKey("rideEnd")
+    
+    query.findObjectsInBackgroundWithBlock(block)
   }
   
   func releaseMySpotInBackground(user:SlugUser, block: PFBooleanResultBlock!) {

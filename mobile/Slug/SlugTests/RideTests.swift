@@ -29,27 +29,63 @@ class RideTests: XCTestCase {
     let maxSpaces = 4
     let departureDate = 20.minutes.fromNow
     
-    let (ride,rideEnd) = Ride.create(user, maxSpaces: maxSpaces, departure: departureDate, from: wozGeo, to: googleSeattleGeo)
+    let ride = Ride.create(user, maxSpaces: maxSpaces, departure: departureDate, from: wozGeo, to: googleSeattleGeo)
 
     var writeError: NSError? = nil
-    ride.save(rideEnd, error: &writeError)
+    
+    ride.parseObj.save(&writeError)
+//    ride.save(rideEnd, error: &writeError)
     XCTAssertNil(writeError)
     
     if(writeError == nil) {
       var query = PFQuery(className:"Ride")
+      query.includeKey("rideEnd")
+      
       let foundParseRide = query.getObjectWithId(ride.parseObj.objectId)
       let foundRide = Ride(parseObj: foundParseRide)
       
       XCTAssertEqual(foundRide.maxSpaces, maxSpaces, "maxSpaces did not match")
       XCTAssertTrue(foundRide.departure.fuzzyEquals(departureDate), "departureDates did not match")
       XCTAssertEqual(foundRide.from!, wozGeo)
-    
-      var queryForRideEnd = PFQuery(className:"RideEnd")
-      query.whereKey("ride", equalTo: foundParseRide!)
-      let foundParseRideEnd = queryForRideEnd.getFirstObject()
-      let foundRideEnd = RideEnd(parseObj: foundParseRideEnd)
       
-      XCTAssertEqual(foundRideEnd.to!, googleSeattleGeo)
+      XCTAssertNotNil(foundRide.rideEnd)
+      if let rideEnd = foundRide.rideEnd {
+        XCTAssertEqual(rideEnd.to!, googleSeattleGeo)
+      }
+      
+    }
+  }
+  
+  func testRideToMicrosoft() {
+    let user = UserTestUtils.createTestUser()
+    
+    let maxSpaces = 4
+    let departureDate = 20.minutes.fromNow
+    
+    let ride = Ride.create(user, maxSpaces: maxSpaces, departure: departureDate, from: wozGeo, to: microsoft)
+    
+    var writeError: NSError? = nil
+    
+    ride.parseObj.save(&writeError)
+    //    ride.save(rideEnd, error: &writeError)
+    XCTAssertNil(writeError)
+    
+    if(writeError == nil) {
+      var query = PFQuery(className:"Ride")
+      query.includeKey("rideEnd")
+      
+      let foundParseRide = query.getObjectWithId(ride.parseObj.objectId)
+      let foundRide = Ride(parseObj: foundParseRide)
+      
+      XCTAssertEqual(foundRide.maxSpaces, maxSpaces, "maxSpaces did not match")
+      XCTAssertTrue(foundRide.departure.fuzzyEquals(departureDate), "departureDates did not match")
+      XCTAssertEqual(foundRide.from!, wozGeo)
+      
+      XCTAssertNotNil(foundRide.rideEnd)
+      if let rideEnd = foundRide.rideEnd {
+        XCTAssertEqual(rideEnd.to!, microsoft)
+      }
+      
     }
   }
   
@@ -75,6 +111,11 @@ class RideTests: XCTestCase {
       XCTAssertEqual(ride.maxSpaces, foundRide.maxSpaces)
       XCTAssertTrue(ride.departure.fuzzyEquals(foundRide.departure), "departureDates did not match")
       XCTAssertFalse(ride.hasDeparted)
+    
+      XCTAssertNotNil(foundRide.rideEnd)
+      if let rideEnd = foundRide.rideEnd {
+        XCTAssertEqual(rideEnd.to!, googleSeattleGeo)
+      }
     
       exp.fulfill()
     }
