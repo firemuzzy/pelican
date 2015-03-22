@@ -9,8 +9,10 @@
     <customFonts key="customFonts">
         <mutableArray key="Brandon_bld.otf">
             <string>BrandonGrotesque-Bold</string>
+            <string>BrandonGrotesque-Bold</string>
         </mutableArray>
         <mutableArray key="Brandon_light.otf">
+            <string>BrandonGrotesque-Light</string>
             <string>BrandonGrotesque-Light</string>
             <string>BrandonGrotesque-Light</string>
             <string>BrandonGrotesque-Light</string>
@@ -67,40 +69,62 @@
                                     <segue destination="wig-Us-Nm7" kind="show" id="ZwH-GR-zSR"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AQX-O7-RBp">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AQX-O7-RBp">
                                 <rect key="frame" x="0.0" y="64" width="600" height="468"/>
                                 <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="60" id="Dwa-Gd-wRz">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="60" id="Dwa-Gd-wRz" customClass="RideTableViewCell" customModule="Slug" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dwa-Gd-wRz" id="Ruh-Iy-1bi">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sluggy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5N-Wt-uHC">
-                                                    <rect key="frame" x="8" y="8" width="78.5" height="43"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="30"/>
+                                                    <rect key="frame" x="20" y="11" width="68" height="37.5"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="26"/>
                                                     <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from Slügg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4B-k9-8HR">
-                                                    <rect key="frame" x="94.5" y="8.5" width="127.5" height="43"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Light" family="Brandon Grotesque" pointSize="30"/>
+                                                    <rect key="frame" x="96" y="11" width="110.5" height="37.5"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Light" family="Brandon Grotesque" pointSize="26"/>
+                                                    <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFC-st-ykw">
+                                                    <rect key="frame" x="542.5" y="2.5" width="49" height="31.5"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="22"/>
+                                                    <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x seats left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QjP-4M-UpO">
+                                                    <rect key="frame" x="542.5" y="34" width="49.5" height="17.5"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Light" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="F5N-Wt-uHC" firstAttribute="leading" secondItem="Ruh-Iy-1bi" secondAttribute="leadingMargin" id="1yb-Du-GMR"/>
+                                                <constraint firstItem="F5N-Wt-uHC" firstAttribute="leading" secondItem="Ruh-Iy-1bi" secondAttribute="leadingMargin" constant="12" id="1yb-Du-GMR"/>
                                                 <constraint firstAttribute="centerY" secondItem="F5N-Wt-uHC" secondAttribute="centerY" id="6To-8s-AiY"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="QjP-4M-UpO" secondAttribute="bottom" id="BdA-3Y-y4h"/>
+                                                <constraint firstItem="QjP-4M-UpO" firstAttribute="top" secondItem="LFC-st-ykw" secondAttribute="bottom" id="bUt-hr-FS7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LFC-st-ykw" secondAttribute="trailing" id="ij8-cH-h2q"/>
+                                                <constraint firstItem="QjP-4M-UpO" firstAttribute="trailing" secondItem="Ruh-Iy-1bi" secondAttribute="trailingMargin" id="qxj-Wl-Ve3"/>
                                                 <constraint firstItem="F5N-Wt-uHC" firstAttribute="baseline" secondItem="A4B-k9-8HR" secondAttribute="baseline" id="uwy-8G-ZSD"/>
                                                 <constraint firstItem="A4B-k9-8HR" firstAttribute="leading" secondItem="F5N-Wt-uHC" secondAttribute="trailing" constant="8" symbolic="YES" id="zQ0-NO-MDh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="fromCompany" destination="A4B-k9-8HR" id="b7Y-DU-2lG"/>
+                                            <outlet property="personName" destination="F5N-Wt-uHC" id="al0-x3-fsr"/>
+                                            <outlet property="seatsLeft" destination="QjP-4M-UpO" id="Eum-sO-ai4"/>
+                                            <outlet property="timeLeft" destination="LFC-st-ykw" id="DCG-Oo-vxZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

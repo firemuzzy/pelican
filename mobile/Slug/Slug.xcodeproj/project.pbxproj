@@ -10,7 +10,6 @@
 		3391A7CA1ABE02C900EDCF65 /* LabledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A7C91ABE02C900EDCF65 /* LabledButton.swift */; };
 		3391A7D01ABE035D00EDCF65 /* RichView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A7CF1ABE035C00EDCF65 /* RichView.swift */; };
 		3391A8061ABE0EE500EDCF65 /* HomeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A8051ABE0EE500EDCF65 /* HomeSetupViewController.swift */; };
-		3391A8081ABE13E600EDCF65 /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A8071ABE13E600EDCF65 /* CompanyCollectionViewCell.swift */; };
 		3391A80A1ABE178500EDCF65 /* WorkPickerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A8091ABE178500EDCF65 /* WorkPickerCollectionViewController.swift */; };
 		3391A8101ABE1E2D00EDCF65 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A80F1ABE1E2D00EDCF65 /* LobbyViewController.swift */; };
 		3391A8141ABE1E4F00EDCF65 /* DrivingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A8131ABE1E4F00EDCF65 /* DrivingViewController.swift */; };
@@ -34,6 +33,7 @@
 		3391A83B1ABF04AA00EDCF65 /* Brandon_reg_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3391A82F1ABF04AA00EDCF65 /* Brandon_reg_it.otf */; };
 		3391A83C1ABF04AA00EDCF65 /* Brandon_thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3391A8301ABF04AA00EDCF65 /* Brandon_thin.otf */; };
 		3391A83D1ABF04AA00EDCF65 /* Brandon_thin_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3391A8311ABF04AA00EDCF65 /* Brandon_thin_it.otf */; };
+		3391A8411ABF28E000EDCF65 /* RideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A8401ABF28E000EDCF65 /* RideTableViewCell.swift */; };
 		33FD8FF11ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */; };
 		3F0FC9621ABEA2BD00E12453 /* RideWIthDriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FC9611ABEA2BD00E12453 /* RideWIthDriverTests.swift */; };
 		3F3A73C81ABE15B800C73F6D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F808CF11ABE021F000CB5F2 /* AudioToolbox.framework */; };
@@ -93,7 +93,6 @@
 		3391A7C91ABE02C900EDCF65 /* LabledButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabledButton.swift; path = views/LabledButton.swift; sourceTree = "<group>"; };
 		3391A7CF1ABE035C00EDCF65 /* RichView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RichView.swift; path = views/RichView.swift; sourceTree = "<group>"; };
 		3391A8051ABE0EE500EDCF65 /* HomeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeSetupViewController.swift; path = controllers/HomeSetupViewController.swift; sourceTree = "<group>"; };
-		3391A8071ABE13E600EDCF65 /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompanyCollectionViewCell.swift; path = views/CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
 		3391A8091ABE178500EDCF65 /* WorkPickerCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkPickerCollectionViewController.swift; path = controllers/WorkPickerCollectionViewController.swift; sourceTree = "<group>"; };
 		3391A80F1ABE1E2D00EDCF65 /* LobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LobbyViewController.swift; path = controllers/LobbyViewController.swift; sourceTree = "<group>"; };
 		3391A8131ABE1E4F00EDCF65 /* DrivingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrivingViewController.swift; path = controllers/DrivingViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +116,7 @@
 		3391A82F1ABF04AA00EDCF65 /* Brandon_reg_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_reg_it.otf; sourceTree = "<group>"; };
 		3391A8301ABF04AA00EDCF65 /* Brandon_thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_thin.otf; sourceTree = "<group>"; };
 		3391A8311ABF04AA00EDCF65 /* Brandon_thin_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_thin_it.otf; sourceTree = "<group>"; };
+		3391A8401ABF28E000EDCF65 /* RideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RideTableViewCell.swift; path = views/RideTableViewCell.swift; sourceTree = "<group>"; };
 		33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeWorkSetupViewController.swift; path = controllers/HomeWorkSetupViewController.swift; sourceTree = "<group>"; };
 		3F0FC9611ABEA2BD00E12453 /* RideWIthDriverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideWIthDriverTests.swift; sourceTree = "<group>"; };
 		3F3A73D71ABE28C700C73F6D /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = utils.swift; path = utils/utils.swift; sourceTree = "<group>"; };
@@ -242,8 +242,8 @@
 			children = (
 				3391A7C91ABE02C900EDCF65 /* LabledButton.swift */,
 				3391A7CF1ABE035C00EDCF65 /* RichView.swift */,
-				3391A8071ABE13E600EDCF65 /* CompanyCollectionViewCell.swift */,
 				3391A8211ABEF29700EDCF65 /* BorderedTextField.swift */,
+				3391A8401ABF28E000EDCF65 /* RideTableViewCell.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -480,7 +480,6 @@
 			files = (
 				3F3A73D81ABE28C700C73F6D /* utils.swift in Sources */,
 				3FA0CF8D1ABE0A9900B22A91 /* User.swift in Sources */,
-				3391A8081ABE13E600EDCF65 /* CompanyCollectionViewCell.swift in Sources */,
 				3391A8221ABEF29700EDCF65 /* BorderedTextField.swift in Sources */,
 				3391A8061ABE0EE500EDCF65 /* HomeSetupViewController.swift in Sources */,
 				3F808CB81ABDFABF000CB5F2 /* ViewController.swift in Sources */,
@@ -488,6 +487,7 @@
 				3391A7CA1ABE02C900EDCF65 /* LabledButton.swift in Sources */,
 				3391A8141ABE1E4F00EDCF65 /* DrivingViewController.swift in Sources */,
 				3F808CB61ABDFABF000CB5F2 /* AppDelegate.swift in Sources */,
+				3391A8411ABF28E000EDCF65 /* RideTableViewCell.swift in Sources */,
 				3391A8241ABEF9AE00EDCF65 /* SlugNavigationController.swift in Sources */,
 				3391A81C1ABE7AE800EDCF65 /* UserLocation.swift in Sources */,
 				3391A8201ABEA8B400EDCF65 /* SignupViewController.swift in Sources */,

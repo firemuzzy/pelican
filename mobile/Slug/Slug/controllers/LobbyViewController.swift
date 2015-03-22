@@ -111,12 +111,8 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(tableCell, forIndexPath: indexPath) as UITableViewCell
-    
-    let driver = self.drivers[indexPath.row]
-    
-//    cell.textLabel?.text = driver.name
-//    cell.detailTextLabel?.text = driver.departureTime
+    let cell = tableView.dequeueReusableCellWithIdentifier(tableCell, forIndexPath: indexPath) as RideTableViewCell
+    cell.setup(self.drivers[indexPath.row])
     
     return cell
   }
