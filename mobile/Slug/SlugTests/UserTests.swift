@@ -73,26 +73,6 @@ class UserTests: XCTestCase {
 
   }
   
-  func testRide() {
-    let user = UserTestUtils.createTestUser()
-    
-    let maxSpaces = 4
-    let departureDate = 20.minutes.fromNow
-    
-    let ride = Ride(driver: user, maxSpaces: maxSpaces, departure: departureDate)
-    ride.parseObj.save()
-    
-    var query = PFQuery(className:"Ride")
-    let foundParseRide = query.getObjectWithId(ride.parseObj.objectId)
-    let foundRide = Ride(parseObj: foundParseRide)
-    
-    XCTAssertEqual(foundRide.maxSpaces, maxSpaces, "maxSpaces did not match")
-    XCTAssertTrue(foundRide.departure.fuzzyEquals(departureDate), "departureDates did not match")
-
-    ride.parseObj.delete()
-  }
-
-  
   func testExample() {
     // This is an example of a functional test case.
     XCTAssert(true, "Pass")
