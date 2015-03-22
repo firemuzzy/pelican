@@ -6,7 +6,7 @@ document.getElementById("signUp").addEventListener("click", function(){
   var EmailObject = Parse.Object.extend("EmailObject");
   var emailObject = new EmailObject();
   emailObject.save({email: inputValue}).then(function(object) {
-    alert("yay! thanks");
+    document.getElementById("thankYouText").style.display = 'block'
   });
 
 });
