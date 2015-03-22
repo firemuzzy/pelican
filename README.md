@@ -1,13 +1,14 @@
 # Slügg
 The go to app for carpooling (slugging).
 
-![Slugg](slug.png)
+<img src="slug.png" alt="Slugg" height="100px">
+
 app screenshots:
-![Login/Signup](step1.png)
-![Select address](step2.png)
-![Lobby](step3.png)
-![get a ride](step4.png)
-![drive](step5.png)
+<img src="step1.png" alt="Login/Signup" height="500px">
+<img src="step2.png" alt="Select address" height="500px">
+<img src="step3.png" alt="Lobby" height="500px">
+<img src="step4.png" alt="get a ride" height="500px">
+<img src="step5.png" alt="drive" height="500px">
 
 
 heroku web page: [link goes here]
