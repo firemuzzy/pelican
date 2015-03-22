@@ -1,5 +1,7 @@
 # Slügg
-The go to app for carpooling (slugging).
+## Inforal. On-demand. Trusted.
+
+The best way to find friendly colleagues to commute with.
 
 <img src="slug.png" alt="Slugg" height="100px">
 
