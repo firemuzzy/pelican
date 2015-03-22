@@ -1,9 +1,11 @@
-# Slügg
-## Inforal. On-demand. Trusted.
+<img src="slug.png" alt="Slugg" height="100px"> 
+<h1 style="float:left;">Slügg</h1>
+
+
+### Informal. On-demand. Trusted.
 
 The best way to find friendly colleagues to commute with.
 
-<img src="slug.png" alt="Slugg" height="100px">
 
 app screenshots:
 
