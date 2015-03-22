@@ -101,8 +101,8 @@ class Ride {
     self.parseObj["riders"] = []
     self.parseObj["hasDeparted"] = false
     
-    self.parseObj["from"] = from
-    self.parseObj["to"] = to
+    self.parseObj["fromLocation"] = from
+    self.parseObj["toLocation"] = to
   }
   
   var maxSpaces: Int {
