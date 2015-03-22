@@ -47,34 +47,32 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.clearDrivers()
     
     if let currentUser = SlugUser.currentUser() {
-      PFGeoPoint.geoPointForCurrentLocationInBackground { (currentPoint: PFGeoPoint!, error:NSError!) -> Void in
-        if(currentPoint != nil && error == nil) {
-          let currentLoc = CLLocation(latitude: currentPoint!.latitude, longitude: currentPoint!.longitude)
-          let points = [currentUser.home, currentUser.work]
- 
-          if let farthestPoint = LocUtils.farthestPoint(points, from: currentLoc) {
-            println("getting drivers from \(currentPoint!)")
-            println("getting drivers to \(farthestPoint)")
+      if let currentLoc = UserLocation.sharedInstance.currentLocation {
+        let currentPoint = PFGeoPoint(latitude: currentLoc.coordinate.latitude, longitude: currentLoc.coordinate.longitude)
+
+        let points = [currentUser.home, currentUser.work]
+        
+        if let farthestPoint = LocUtils.farthestPoint(points, from: currentLoc) {
+          println("getting drivers from \(currentPoint!)")
+          println("getting drivers to \(farthestPoint)")
           
-            Ride.findNearByDriversInBackground(currentPoint!, end: farthestPoint, block: { (objs:[AnyObject]!, error:NSError!) -> Void in
-              
-              for obj in objs {
-                if let parseObj = obj as? PFObject {
-                  let ride = Ride(parseObj: parseObj)
-                  
-                  if let rideDriver = ride.driver {
-                    let driverToShow = Driver(name: rideDriver.firstName, company: rideDriver.companyName(), departureTime: ride.departure.asTime())
-                    self.drivers.append(driverToShow)
-                  }
-                  
+          Ride.findNearByDriversInBackground(currentPoint!, end: farthestPoint, block: { (objs:[AnyObject]!, error:NSError!) -> Void in
+            
+            for obj in objs {
+              if let parseObj = obj as? PFObject {
+                let ride = Ride(parseObj: parseObj)
+                
+                if let rideDriver = ride.driver {
+                  let driverToShow = Driver(name: rideDriver.firstName, company: rideDriver.companyName(), departureTime: ride.departure.asTime())
+                  self.drivers.append(driverToShow)
                 }
+                
               }
-              
-              self.tableView.reloadData()
-              
-            })
-          }
-          
+            }
+            
+            self.tableView.reloadData()
+            
+          })
         }
       }
     }
