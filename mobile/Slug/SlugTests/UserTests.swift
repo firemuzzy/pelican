@@ -10,19 +10,6 @@ import UIKit
 import XCTest
 import Parse
 
-class UserTestUtils {
-  class func createTestUser(fname:String = "Michael", lname:String = "Charkin", email: String = "mcharkin+slugtest@gmail.com", password: String = "test" ) -> SlugUser {
-    let user = SlugUser(firstName:"Michael", lastName: "Charkin", email: email, password: password)
-    
-    user.parseObj.signUp()
-    
-    let foundParseUser = PFUser.logInWithUsername(email, password: "test")
-    let foundUser = SlugUser(parseUser: foundParseUser)
-
-    return foundUser
-  }
-}
-
 class UserTests: XCTestCase {
   
   override func setUp() {
@@ -33,6 +20,7 @@ class UserTests: XCTestCase {
   override func tearDown() {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     super.tearDown()
+    
   }
   
   func testCreatingTestUser() {
@@ -83,25 +71,6 @@ class UserTests: XCTestCase {
 //      }
 //    }
 
-  }
-  
-  func testRide() {
-    let user = UserTestUtils.createTestUser()
-    
-    let maxSpaces = 4
-    let departureDate = 20.minutes.fromNow
-    
-    let ride = Ride(driver: user, maxSpaces: maxSpaces, departure: departureDate)
-    ride.parseObj.save()
-    
-    var query = PFQuery(className:"Ride")
-    let foundParseRide = query.getObjectWithId(ride.parseObj.objectId)
-    let foundRide = Ride(parseObj: foundParseRide)
-    
-    XCTAssertEqual(foundRide.maxSpaces, maxSpaces, "maxSpaces did not match")
-    XCTAssertTrue(foundRide.departure.fuzzyEquals(departureDate), "departureDates did not match")
-
-    ride.parseObj.delete()
   }
   
   func testExample() {
