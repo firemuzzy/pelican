@@ -28,6 +28,7 @@ class Driver {
 
 class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+  
   @IBOutlet weak var tableView: UITableView!
   var refreshControl = UIRefreshControl()
   
@@ -123,6 +124,18 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let driver = self.drivers[indexPath.row]
     self.performSegueWithIdentifier("SegueToViewRide", sender: driver)
+  }
+  
+  func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
+    if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+      cell.contentView.backgroundColor = UIColor(red: 58.0/255.0, green: 121.0/255.0, blue: 175.0/255.0, alpha:0.2)
+    }
+  }
+  
+  func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
+    if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+      cell.contentView.backgroundColor = UIColor.clearColor()
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
