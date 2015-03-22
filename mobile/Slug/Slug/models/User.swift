@@ -69,17 +69,18 @@ class SlugUser {
     }
   }
   
-  var drivingRide: PFObject? {
-    get {
-      return self.parseObj["drivingRide"] as? PFObject
-    }
-    set {
-      self.parseObj["drivingRide"] = newValue
-    }
-  }
-  
   func findMyCurrentDrivingRideInBackground(block:PFObjectResultBlock!) {
     Ride.findLatestByDriverIdInBackground(self, block: block)
+  }
+  
+  class func currentUser() -> SlugUser?{
+    let user = PFUser.currentUser()
+    if user != nil {
+      return SlugUser(parseUser: user)
+    } else {
+      return nil
+    }
+    
   }
   
 }
