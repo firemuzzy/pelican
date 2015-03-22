@@ -53,19 +53,33 @@ class SlugUser {
   
   var home: PFGeoPoint? {
     get {
-      return self.parseObj["home"] as? PFGeoPoint
+      let lat = self.parseObj["home_lat"] as? Double
+      let lng = self.parseObj["home_lng"] as? Double
+      if(lat != nil && lng != nil) {
+        return PFGeoPoint(latitude: lat!, longitude: lng!)
+      } else {
+        return nil
+      }
     }
     set {
-      self.parseObj["home"] = newValue
+      self.parseObj["home_lat"] = newValue?.latitude
+      self.parseObj["home_lng"] = newValue?.longitude
     }
   }
   
   var work: PFGeoPoint? {
     get {
-      return self.parseObj["work"] as? PFGeoPoint
+      let lat = self.parseObj["work_lat"] as? Double
+      let lng = self.parseObj["work_lng"] as? Double
+      if(lat != nil && lng != nil) {
+        return PFGeoPoint(latitude: lat!, longitude: lng!)
+      } else {
+        return nil
+      }
     }
     set {
-      self.parseObj["work"] = newValue
+      self.parseObj["work_lat"] = newValue?.latitude
+      self.parseObj["work_lng"] = newValue?.longitude
     }
   }
 

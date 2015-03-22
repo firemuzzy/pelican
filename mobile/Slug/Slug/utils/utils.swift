@@ -109,6 +109,7 @@ struct Company {
   
   static var Microsoft = Company("Microsoft", domain: "microsoft", latitude: 47.636933, longitude: -122.128658)
   static var Google = Company("Google", domain: "google", latitude: 47.649131, longitude: -122.350681)
+  static var Froogal = Company("Froogle", domain: "gmail", latitude: 47.649131, longitude: -122.350681)
   static var Slugg = Company("Slügg", domain: "slugg", latitude: 47.568629, longitude: -122.236443)
 }
 
@@ -132,6 +133,7 @@ extension String {
       case Company.Microsoft.domain: return Company.Microsoft
       case Company.Google.domain: return Company.Google
       case Company.Slugg.domain: return Company.Slugg
+      case Company.Froogal.domain: return Company.Froogal
       default: return Company.Slugg
     }
   }
