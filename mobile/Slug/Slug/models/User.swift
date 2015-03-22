@@ -92,13 +92,17 @@ class Ride {
     self.parseObj = parseObj
   }
   
-  init(driver:SlugUser, maxSpaces:Int, departure: NSDate) {
+  init(driver:SlugUser, maxSpaces:Int, departure: NSDate, from:PFGeoPoint, to:PFGeoPoint) {
     self.parseObj = PFObject(className: "Ride")
 
     self.parseObj["driver"] = driver.parseObj
     self.parseObj["maxSpaces"] = maxSpaces
     self.parseObj["departure"] = departure
     self.parseObj["riders"] = []
+    self.parseObj["hasDeparted"] = false
+    
+    self.parseObj["from"] = from
+    self.parseObj["to"] = to
   }
   
   var maxSpaces: Int {
@@ -113,9 +117,33 @@ class Ride {
     }
   }
   
+  var driver: PFObject? {
+    get {
+      return self.parseObj["driver"] as? PFObject
+    }
+  }
+  
   var riderIds:[String] {
     get {
       return self.parseObj["riders"] as [String]
+    }
+  }
+  
+  var hasDeparted: Bool {
+    get {
+      return self.parseObj["departedOn"] as? Bool ?? false
+    }
+  }
+
+  var from: PFGeoPoint? {
+    get {
+      return self.parseObj["from"] as? PFGeoPoint
+    }
+  }
+  
+  var to: PFGeoPoint? {
+    get {
+      return self.parseObj["to"] as? PFGeoPoint
     }
   }
 
@@ -173,6 +201,22 @@ class Ride {
         ride.saveInBackgroundWithBlock(block)
       }
     }
+  }
+  
+  func markRideDepartedInBackground(user:SlugUser, block: PFBooleanResultBlock!) {
+    user.findMyCurrentDrivingRideInBackground { (ride: PFObject!, error: NSError!) -> Void in
+      if error != nil {
+        block?(false, error)
+      } else if(ride == nil) {
+        block?(false, NSError.withMsg("you are not the driver"))
+      } else {
+        ride["departedOn"] = NSDate()
+        ride.saveInBackgroundWithBlock(block)
+      }
+    }
+  }
+  
+  func findNearByDriversInBackground(start: PFGeoPoint, end:PFGeoPoint, block:PFArrayResultBlock?) {
   }
   
   func releaseMySpotInBackground(user:SlugUser, block: PFBooleanResultBlock!) {

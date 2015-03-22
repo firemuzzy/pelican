@@ -24,7 +24,16 @@ class RideTests: XCTestCase {
   
   func testGettingMyRide() {
     let driver = UserTestUtils.createTestUser()
-    let ride = RideTestUtils.createTestRide(driver)
+    var ride: Ride! = nil
+    
+    let expRideCreate = expectationWithDescription("findMyRide")
+    RideTestUtils.createTestRide(driver, block: { (createdRide:Ride?, error:NSError!) -> Void in
+      ride = createdRide
+      expRideCreate.fulfill()
+    })
+    waitForExpectationsWithTimeout(5, { error in
+      XCTAssertNil(error, "Error")
+    })
     
     let exp = expectationWithDescription("findMyRide")
 
@@ -34,8 +43,56 @@ class RideTests: XCTestCase {
       XCTAssertEqual(ride.maxSpaces, foundRide.maxSpaces)
       XCTAssertEqual(ride.maxSpaces, foundRide.maxSpaces)
       XCTAssertTrue(ride.departure.fuzzyEquals(foundRide.departure), "departureDates did not match")
+      XCTAssertFalse(ride.hasDeparted)
     
       exp.fulfill()
+    }
+    
+    waitForExpectationsWithTimeout(5, { error in
+      XCTAssertNil(error, "Error")
+    })
+  }
+  
+  func testMarkingRideAsDeparted() {
+    let driver = UserTestUtils.createTestUser()
+
+    var ride: Ride! = nil
+    let expRideCreate = expectationWithDescription("findMyRide")
+    RideTestUtils.createTestRide(driver, block: { (createdRide:Ride?, error:NSError!) -> Void in
+      ride = createdRide
+      expRideCreate.fulfill()
+    })
+    waitForExpectationsWithTimeout(5, { error in
+      XCTAssertNil(error, "Error")
+    })
+    
+    let exp = expectationWithDescription("departMyRide")
+    
+    XCTAssertNotNil(ride)
+    ride.markRideDepartedInBackground(driver, block: { (succeded:Bool, error:NSError!) -> Void in
+      XCTAssertTrue(succeded)
+      XCTAssertNil(error)
+      
+      exp.fulfill()
+    })
+    
+    waitForExpectationsWithTimeout(5, { error in
+      XCTAssertNil(error, "Error")
+    })
+    
+    
+    let exp2 = expectationWithDescription("findMyRide")
+    
+    driver.findMyCurrentDrivingRideInBackground { (pfRide: PFObject!, error:NSError!) -> Void in
+      let foundRide = Ride(parseObj: pfRide)
+      XCTAssertEqual(ride.parseObj.objectId, foundRide.parseObj.objectId)
+      XCTAssertEqual(ride.maxSpaces, foundRide.maxSpaces)
+      XCTAssertEqual(ride.maxSpaces, foundRide.maxSpaces)
+      XCTAssertTrue(ride.departure.fuzzyEquals(foundRide.departure), "departureDates did not match")
+      
+      XCTAssertFalse(ride.hasDeparted)
+      
+      exp2.fulfill()
     }
     
     waitForExpectationsWithTimeout(5, { error in
@@ -45,7 +102,16 @@ class RideTests: XCTestCase {
 
   func testRiderIncrement() {
     let driver = UserTestUtils.createTestUser()
-    let ride = RideTestUtils.createTestRide(driver)
+
+    var ride: Ride! = nil
+    let expRideCreate = expectationWithDescription("findMyRide")
+    RideTestUtils.createTestRide(driver, block: { (createdRide:Ride?, error:NSError!) -> Void in
+      ride = createdRide
+      expRideCreate.fulfill()
+    })
+    waitForExpectationsWithTimeout(5, { error in
+      XCTAssertNil(error, "Error")
+    })
     
     let slug1 = UserTestUtils.createTestUser1()
     let expSlug1Grab = expectationWithDescription("slug1")
@@ -125,7 +191,16 @@ class RideTests: XCTestCase {
 
   func testRiderMaxOut() {
     let driver = UserTestUtils.createTestUser()
-    let ride = RideTestUtils.createTestRide(driver, maxSpaces: 2)
+
+    var ride: Ride! = nil
+    let expRideCreate = expectationWithDescription("findMyRide")
+    RideTestUtils.createTestRide(driver, maxSpaces:2, block: { (createdRide:Ride?, error:NSError!) -> Void in
+      ride = createdRide
+      expRideCreate.fulfill()
+    })
+    waitForExpectationsWithTimeout(5, { error in
+      XCTAssertNil(error, "Error")
+    })
     
     let slug1 = UserTestUtils.createTestUser1()
     let expSlug1Grab = expectationWithDescription("slug1")
