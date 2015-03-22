@@ -7,11 +7,34 @@
 //
 
 import Foundation
+import Parse
 
 extension NSError {
   
   class func withMsg(msg: String) -> NSError {
     return NSError(domain: "com.slug", code: 666, userInfo: [NSLocalizedDescriptionKey: msg])
+  }
+  
+}
+
+class LocUtils {
+  
+  class func farthestPoint(points:[PFGeoPoint?], from: CLLocation?) -> PFGeoPoint? {
+    return points.filter{ $0 != nil}.map{
+      ($0!, CLLocation(latitude: $0!.latitude, longitude: $0!.longitude).distanceFromLocation(from))
+      }.sorted { (left, right) -> Bool in
+        return left.1 > right.1
+      }.first?.0
+  }
+
+}
+
+extension NSDate {
+  
+  func asTime() -> String {
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "h:mm a"
+    return dateFormatter.stringFromDate(self)
   }
   
 }
@@ -67,6 +90,31 @@ extension NSDate {
     let difference = myInterval - otherInverval
     
     return abs(difference) < 0.01
+  }
+  
+}
+
+extension String {
+  func extractEmailDomain() -> String? {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@([A-Za-z0-9.-]+)\\.[A-Za-z]{2,4}"
+    
+    let regex = NSRegularExpression(pattern: emailRegEx, options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
+    
+    var match = regex?.firstMatchInString(self, options: NSMatchingOptions(0), range: NSMakeRange(0, countElements(self)))
+    
+    if let range = match?.rangeAtIndex(1) {
+      return (self as NSString).substringWithRange(range).lowercaseString
+    } else {
+      return nil
+    }
+  }
+  
+  func extractCompnayFromEmail() -> String {
+    switch(self.extractEmailDomain() ?? "") {
+      case "google": return "Google"
+      case "microsoft": return "Microsoft"
+      default: return "unknown"
+    }
   }
   
 }

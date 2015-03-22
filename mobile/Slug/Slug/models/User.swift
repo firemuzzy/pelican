@@ -68,6 +68,10 @@ class SlugUser {
       self.parseObj["work"] = newValue
     }
   }
+
+  func companyName() -> String {
+    return self.email.extractCompnayFromEmail()
+  }
   
   func findMyCurrentDrivingRideInBackground(block:PFObjectResultBlock!) {
     Ride.findLatestByDriverIdInBackground(self, block: block)
@@ -147,11 +151,11 @@ class Ride {
     }
   }
   
-  var driver: PFObject? {
-    get {
-      return self.parseObj["driver"] as? PFObject
-    }
-  }
+//  var driver: PFObject? {
+//    get {
+//      return self.parseObj["driver"] as? PFObject
+//    }
+//  }
   
   var riderIds:[String] {
     get {
@@ -175,6 +179,16 @@ class Ride {
     get {
       if let r = self.parseObj["rideEnd"] as? PFObject {
         return RideEnd(parseObj: r)
+      } else {
+        return nil
+      }
+    }
+  }
+ 
+  var driver: SlugUser? {
+    get {
+      if let r = self.parseObj["driver"] as? PFUser {
+        return SlugUser(parseUser: r)
       } else {
         return nil
       }
@@ -262,6 +276,7 @@ class Ride {
     query.whereKey("from", nearGeoPoint: start, withinMiles: 0.70)
     query.whereKey("rideEnd", matchesQuery: queryForToInRideEnd)
     query.includeKey("rideEnd")
+    query.includeKey("driver")
     
     query.findObjectsInBackgroundWithBlock(block)
   }

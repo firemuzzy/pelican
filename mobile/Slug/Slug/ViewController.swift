@@ -49,18 +49,18 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
   
   //home setup
   func showSetupFlow() {
-    self.performSegueWithIdentifier("SegueToSignup", sender:self)
+//    self.performSegueWithIdentifier("SegueToSignup", sender:self)
     
     
-//    if let currentLocation = UserLocation.sharedInstance.currentLocation {
-//      let homePoint = PFGeoPoint(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
-//      
-//      if let user = SlugUser.currentUser() {
-//        user.home = homePoint
-//        user.parseObj.saveInBackgroundWithBlock(nil)
-//      }
-//      
-//    }
+    if let currentLocation = UserLocation.sharedInstance.currentLocation {
+      let homePoint = PFGeoPoint(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
+      
+      if let user = SlugUser.currentUser() {
+        user.home = homePoint
+        user.parseObj.saveInBackgroundWithBlock(nil)
+      }
+      
+    }
   }
   
   func showLoginFlow() {

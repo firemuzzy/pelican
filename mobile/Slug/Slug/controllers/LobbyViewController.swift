@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 let tableCell = "tableCell"
 
@@ -27,29 +28,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   @IBOutlet weak var tableView: UITableView!
   var refreshControl = UIRefreshControl()
   
-  var drivers:[Driver] = [
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04"),
-    Driver(name: "Bob", company: "Google", departureTime: "9:04")
-  ]
+  var drivers:[Driver] = [Driver(name: "unknown", company: "unknown", departureTime: "") ]
   
   override func viewDidLoad() {
       super.viewDidLoad()
@@ -61,6 +40,42 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.tableView.addSubview(self.refreshControl)
   }
   
+  func clearDrivers() {
+    drivers = [Driver(name: "unknown", company: "unknown", departureTime: "") ]
+  }
+  
+  func loadDrivers() {
+    self.clearDrivers()
+    
+    if let currentUser = SlugUser.currentUser() {
+      PFGeoPoint.geoPointForCurrentLocationInBackground { (currentPoint: PFGeoPoint!, error:NSError!) -> Void in
+        if(currentPoint != nil && error == nil) {
+          let currentLoc = CLLocation(latitude: currentPoint!.latitude, longitude: currentPoint!.longitude)
+          let points = [currentUser.home, currentUser.work]
+ 
+          if let fatherstPoint = LocUtils.farthestPoint(points, from: currentLoc) {
+            Ride.findNearByDriversInBackground(currentPoint!, end: fatherstPoint, block: { (objs:[AnyObject]!, error:NSError!) -> Void in
+              
+              for obj in objs {
+                let parseObj = obj as PFObject
+                let ride = Ride(parseObj: parseObj)
+                
+                let rideDriver = ride.driver!
+                
+                let driverToShow = Driver(name: rideDriver.firstName, company: rideDriver.companyName(), departureTime: ride.departure.asTime())
+                self.drivers.append(driverToShow)
+              }
+              
+              self.tableView.reloadData()
+              
+            })
+          }
+          
+        }
+      }
+    }
+  }
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
@@ -68,8 +83,13 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     UserLocation.sharedInstance
   }
   
+  override func viewDidAppear(animated: Bool) {
+    loadDrivers()
+  }
+  
   func refresh(refreshControl: UIRefreshControl) {
     refreshControl.endRefreshing()
+    loadDrivers()
   }
   
 

@@ -19,6 +19,9 @@ class UserLocation: NSObject, CLLocationManagerDelegate {
   private override init() {
     super.init()
     
+    // settiong to a hacked default loc
+    self.currentLocation = CLLocation(latitude: 47.605415, longitude: -122.336368)
+    
     self.locationManager.requestWhenInUseAuthorization()
     self.locationManager.delegate = self
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
