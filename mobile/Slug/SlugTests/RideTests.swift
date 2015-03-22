@@ -21,6 +21,27 @@ class RideTests: XCTestCase {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     super.tearDown()
   }
+  
+  func testGettingMyRide() {
+    let driver = UserTestUtils.createTestUser()
+    let ride = RideTestUtils.createTestRide(driver)
+    
+    let exp = expectationWithDescription("findMyRide")
+
+    driver.findMyCurrentDrivingRideInBackground { (pfRide: PFObject!, error:NSError!) -> Void in
+      let foundRide = Ride(parseObj: pfRide)
+      XCTAssertEqual(ride.parseObj.objectId, foundRide.parseObj.objectId)
+      XCTAssertEqual(ride.maxSpaces, foundRide.maxSpaces)
+      XCTAssertEqual(ride.maxSpaces, foundRide.maxSpaces)
+      XCTAssertTrue(ride.departure.fuzzyEquals(foundRide.departure), "departureDates did not match")
+    
+      exp.fulfill()
+    }
+    
+    waitForExpectationsWithTimeout(5, { error in
+      XCTAssertNil(error, "Error")
+    })
+  }
 
   func testRiderIncrement() {
     let driver = UserTestUtils.createTestUser()
@@ -39,7 +60,7 @@ class RideTests: XCTestCase {
     
     
     let expSlug1GrabFind = expectationWithDescription("slug1Find")
-    Ride.findByIdBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
+    Ride.findByIdInBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
       let foundRide = Ride(parseObj: obj)
       XCTAssertTrue(foundRide.hasSpots())
       XCTAssertEqual(foundRide.riderIds.count, 1, "wrong rider count")
@@ -64,7 +85,7 @@ class RideTests: XCTestCase {
     })
     
     let expSlug2GrabFind = expectationWithDescription("slug2Find")
-    Ride.findByIdBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
+    Ride.findByIdInBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
       let foundRide = Ride(parseObj: obj)
       XCTAssertTrue(foundRide.hasSpots())
       XCTAssertEqual(foundRide.riderIds.count, 2, "wrong rider count")
@@ -90,7 +111,7 @@ class RideTests: XCTestCase {
     })
     
     let expSlug3GrabFind = expectationWithDescription("slug3Find")
-    Ride.findByIdBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
+    Ride.findByIdInBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
       let foundRide = Ride(parseObj: obj)
       XCTAssertFalse(foundRide.hasSpots())
       XCTAssertEqual(foundRide.riderIds.count, 3, "wrong rider count")
@@ -119,7 +140,7 @@ class RideTests: XCTestCase {
     
     
     let expSlug1GrabFind = expectationWithDescription("slug1Find")
-    Ride.findByIdBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
+    Ride.findByIdInBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
       let foundRide = Ride(parseObj: obj)
       XCTAssertTrue(foundRide.hasSpots())
       XCTAssertEqual(foundRide.riderIds.count, 1, "wrong rider count")
@@ -144,7 +165,7 @@ class RideTests: XCTestCase {
     })
     
     let expSlug2GrabFind = expectationWithDescription("slug2Find")
-    Ride.findByIdBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
+    Ride.findByIdInBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
       let foundRide = Ride(parseObj: obj)
       XCTAssertFalse(foundRide.hasSpots())
       XCTAssertEqual(foundRide.riderIds.count, 2, "wrong rider count")
@@ -170,7 +191,7 @@ class RideTests: XCTestCase {
     })
     
     let expSlug3GrabFind = expectationWithDescription("slug3Find")
-    Ride.findByIdBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
+    Ride.findByIdInBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
       let foundRide = Ride(parseObj: obj)
       XCTAssertFalse(foundRide.hasSpots())
       XCTAssertEqual(foundRide.riderIds.count, 2, "wrong rider count")

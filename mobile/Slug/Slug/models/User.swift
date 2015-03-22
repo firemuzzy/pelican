@@ -69,6 +69,19 @@ class SlugUser {
     }
   }
   
+  var drivingRide: PFObject? {
+    get {
+      return self.parseObj["drivingRide"] as? PFObject
+    }
+    set {
+      self.parseObj["drivingRide"] = newValue
+    }
+  }
+  
+  func findMyCurrentDrivingRideInBackground(block:PFObjectResultBlock!) {
+    Ride.findLatestByDriverIdInBackground(self, block: block)
+  }
+  
 }
 
 class Ride {
@@ -110,7 +123,7 @@ class Ride {
     return self.riderIds.count < self.maxSpaces
   }
   
-  class func findByIdBackground(objectId:String, block: PFObjectResultBlock!) {
+  class func findByIdInBackground(objectId:String, block: PFObjectResultBlock!) {
     let query = PFQuery(className:"Ride")
     query.getObjectInBackgroundWithId(objectId, block: block)
   }
@@ -121,8 +134,15 @@ class Ride {
     return Ride(parseObj: foundParseRide)
   }
   
+  class func findLatestByDriverIdInBackground(user:SlugUser, block: PFObjectResultBlock!) {
+    let query = PFQuery(className:"Ride")
+    query.whereKey("driver", equalTo: user.parseObj)
+    query.orderByDescending("departure")
+    query.getFirstObjectInBackgroundWithBlock(block)
+  }
+  
   func grabASpotInBackground(user:SlugUser, block: PFBooleanResultBlock!) {
-    Ride.findByIdBackground(self.parseObj.objectId, block: { (parseRide:PFObject!, error:NSError!) -> Void in
+    Ride.findByIdInBackground(self.parseObj.objectId, block: { (parseRide:PFObject!, error:NSError!) -> Void in
       if(parseRide != nil && error == nil) {
         
         let ride = Ride(parseObj: parseRide)
@@ -152,6 +172,10 @@ class Ride {
         ride.saveInBackgroundWithBlock(block)
       }
     }
+  }
+  
+  func releaseMySpotInBackground(user:SlugUser, block: PFBooleanResultBlock!) {
+  
   }
   
 }
