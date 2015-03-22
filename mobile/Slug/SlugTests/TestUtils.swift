@@ -11,7 +11,7 @@ import Parse
 
 class UserTestUtils {
   class func createTestUser(fname:String = "Michael", lname:String = "Charkin", email: String = "mcharkin+slugtest@gmail.com", password: String = "test" ) -> SlugUser {
-    let user = SlugUser(firstName:"Michael", lastName: "Charkin", email: email, password: password)
+    let user = SlugUser(firstName:fname, lastName: lname, email: email, password: password)
     
     user.parseObj.signUp()
     

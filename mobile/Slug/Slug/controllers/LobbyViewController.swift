@@ -29,7 +29,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   @IBOutlet weak var tableView: UITableView!
   var refreshControl = UIRefreshControl()
   
-  var drivers:[Driver] = [Driver(name: "unknown", company: "unknown", departureTime: "") ]
+  var drivers:[Driver] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -40,7 +40,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func clearDrivers() {
-    drivers = [Driver(name: "unknown", company: "unknown", departureTime: "") ]
+    drivers = []
   }
   
   func loadDrivers() {
