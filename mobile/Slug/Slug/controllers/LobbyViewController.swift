@@ -25,6 +25,7 @@ struct Driver {
 class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet weak var tableView: UITableView!
+  var refreshControl = UIRefreshControl()
   
   var drivers:[Driver] = [
     Driver(name: "Bob", company: "Google", departureTime: "9:04"),
@@ -55,7 +56,15 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
     self.tableView.tableFooterView = UIView()
+    
+    self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+    self.tableView.addSubview(self.refreshControl)
   }
+  
+  func refresh(refreshControl: UIRefreshControl) {
+    refreshControl.endRefreshing()
+  }
+  
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return drivers.count
