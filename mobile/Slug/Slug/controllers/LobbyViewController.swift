@@ -58,7 +58,6 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
           println("getting drivers from \(currentPoint!)")
           println("getting drivers to \(farthestPoint)")
           
-<<<<<<< HEAD
           Ride.findNearByDriversInBackground(currentPoint!, end: farthestPoint, block: { (objs:[AnyObject]!, error:NSError!) -> Void in
             
             for obj in objs {
@@ -66,21 +65,8 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 let ride = Ride(parseObj: parseObj)
                 
                 if let rideDriver = ride.driver {
-                  let driverToShow = Driver(name: rideDriver.firstName, company: rideDriver.companyName(), departureTime: ride.departure.asTime())
+                  let driverToShow = Driver(name: rideDriver.firstName, company: rideDriver.companyName(), departureTime: ride.departure.asTime(), ride:ride)
                   self.drivers.append(driverToShow)
-=======
-            Ride.findNearByDriversInBackground(currentPoint!, end: farthestPoint, block: { (objs:[AnyObject]!, error:NSError!) -> Void in
-              
-              for obj in objs {
-                if let parseObj = obj as? PFObject {
-                  let ride = Ride(parseObj: parseObj)
-                  
-                  if let rideDriver = ride.driver {
-                    let driverToShow = Driver(name: rideDriver.firstName, company: rideDriver.companyName(), departureTime: ride.departure.asTime(), ride: ride)
-                    self.drivers.append(driverToShow)
-                  }
-                  
->>>>>>> 093fdb9dbaceb2bdb0e93b2ddf06ac6c191cf7f0
                 }
                 
               }
