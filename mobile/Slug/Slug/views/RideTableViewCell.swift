@@ -19,7 +19,15 @@ class RideTableViewCell: UITableViewCell {
     self.personName.text = driver.name
     self.fromCompany.text = "from \(driver.company)"
     
-    self.timeLeft.text = "70 min"
-    self.seatsLeft.text = "-1 seats left"
+    self.timeLeft.text = driver.ride.prettyMinutesLeft()
+    
+    let seatsLeft = driver.ride.seatsLeft()
+    if(seatsLeft <= 0) {
+      self.seatsLeft.text = "full"
+    } else if(seatsLeft == 1) {
+      self.seatsLeft.text = "\(seatsLeft) seat left"
+    } else {
+      self.seatsLeft.text = "\(seatsLeft) seats left"
+    }
   }
 }

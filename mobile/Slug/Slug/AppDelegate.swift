@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
     
+    let seed = UInt32(time(nil))
+    srand(seed)
+    
     return true
   }
 
