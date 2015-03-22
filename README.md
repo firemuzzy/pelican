@@ -2,6 +2,13 @@
 The go to app for carpooling (slugging).
 
 ![Slugg](slug.png)
+app screenshots:
+![Login/Signup](step1.png)
+![Select address](step2.png)
+![Lobby](step3.png)
+![get a ride](step4.png)
+![drive](step5.png)
+
 
 heroku web page: [link goes here]
 
