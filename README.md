@@ -1,7 +1,11 @@
-# Slügg
-The go to app for carpooling (slugging).
+<img src="slug.png" alt="Slugg" height="100px"> 
+<h1 style="float:left;">Slügg</h1>
 
-<img src="slug.png" alt="Slugg" height="100px">
+
+### Informal. On-demand. Trusted.
+
+The best way to find friendly colleagues to commute with.
+
 
 app screenshots:
 
@@ -17,7 +21,16 @@ heroku web page: [link goes here]
 
 ## Challenge and Approach
 
-How do we get cars of the road?
+- People still drive dispite the panoply of transit options available to people in seattle
+- Cars are too still too convenient
+- Finding trusted carpoolers is hard
+
+How do we get cars of the road? 
+- Easy to use mobile app
+- Trusted carpoolers linked to companies
+
+"It’s an amazingly well-organized event that is extremely efficient, saving fuel and time. We estimated that 25,000 people casual carpool in D.C. each day.  That takes a lot of cars off the road" - Mark Burris 
+Texas Transportation Institute (TTI) Associate Research Engineer
 
 ## Team Members
 
