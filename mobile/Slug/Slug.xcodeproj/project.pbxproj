@@ -17,6 +17,7 @@
 		3391A8161ABE323100EDCF65 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3391A8151ABE323100EDCF65 /* Accounts.framework */; };
 		3391A8181ABE323700EDCF65 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3391A8171ABE323700EDCF65 /* Social.framework */; };
 		3391A81A1ABE4A7900EDCF65 /* RegisterDriveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A8191ABE4A7900EDCF65 /* RegisterDriveViewController.swift */; };
+		3391A81C1ABE7AE800EDCF65 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A81B1ABE7AE800EDCF65 /* UserLocation.swift */; };
 		33FD8FF11ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */; };
 		3F3A73C81ABE15B800C73F6D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F808CF11ABE021F000CB5F2 /* AudioToolbox.framework */; };
 		3F3A73C91ABE15BF00C73F6D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F808CF31ABE0225000CB5F2 /* CFNetwork.framework */; };
@@ -84,6 +85,7 @@
 		3391A8151ABE323100EDCF65 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3391A8171ABE323700EDCF65 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3391A8191ABE4A7900EDCF65 /* RegisterDriveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterDriveViewController.swift; path = controllers/RegisterDriveViewController.swift; sourceTree = "<group>"; };
+		3391A81B1ABE7AE800EDCF65 /* UserLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeWorkSetupViewController.swift; path = controllers/HomeWorkSetupViewController.swift; sourceTree = "<group>"; };
 		3F3A73D71ABE28C700C73F6D /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = utils.swift; path = utils/utils.swift; sourceTree = "<group>"; };
 		3F3A73DA1ABE464E00C73F6D /* Blocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blocks.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				33FD8FEE1ABDFF2D004D5D5A /* controllers */,
 				3F808CB71ABDFABF000CB5F2 /* ViewController.swift */,
 				3F808CB91ABDFABF000CB5F2 /* Main.storyboard */,
+				3391A81B1ABE7AE800EDCF65 /* UserLocation.swift */,
 				3F808CB31ABDFABF000CB5F2 /* Supporting Files */,
 				3F3A73DA1ABE464E00C73F6D /* Blocks.swift */,
 			);
@@ -415,6 +418,7 @@
 				3F3A73DB1ABE464E00C73F6D /* Blocks.swift in Sources */,
 				3391A8141ABE1E4F00EDCF65 /* DrivingViewController.swift in Sources */,
 				3F808CB61ABDFABF000CB5F2 /* AppDelegate.swift in Sources */,
+				3391A81C1ABE7AE800EDCF65 /* UserLocation.swift in Sources */,
 				3391A7D01ABE035D00EDCF65 /* RichView.swift in Sources */,
 				3391A8101ABE1E2D00EDCF65 /* LobbyViewController.swift in Sources */,
 				33FD8FF11ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift in Sources */,

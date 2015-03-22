@@ -61,6 +61,13 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.tableView.addSubview(self.refreshControl)
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    //trigger at least 1 location update
+    UserLocation.sharedInstance
+  }
+  
   func refresh(refreshControl: UIRefreshControl) {
     refreshControl.endRefreshing()
   }

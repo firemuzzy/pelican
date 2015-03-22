@@ -41,11 +41,14 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
   
   //home setup
   func showSetupFlow() {
-    locationManager = CLLocationManager()
-    locationManager?.requestWhenInUseAuthorization()
-    locationManager?.delegate = self
-    locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-    locationManager?.startUpdatingLocation()
+    if let currentLocation = UserLocation.sharedInstance.currentLocation {
+      let homePoint = PFGeoPoint(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
+      
+      let slugUser = SlugUser(parseUser: PFUser.currentUser())
+      slugUser.home = homePoint
+      slugUser.parseObj.saveInBackgroundWithBlock(nil)
+    }
+    
   }
   
   func showLoginFlow() {
@@ -69,18 +72,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
 
   func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
     self.dismissViewControllerAnimated(true, completion: nil)
-  }
-  
-  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-    if let location = locations.first as? CLLocation {
-      let homePoint = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-
-      let slugUser = SlugUser(parseUser: PFUser.currentUser())
-      slugUser.home = homePoint
-      slugUser.parseObj.saveInBackgroundWithBlock(nil)
-    }
-    
-    manager.stopUpdatingLocation()
   }
 }
 

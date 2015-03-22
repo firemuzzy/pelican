@@ -34,6 +34,9 @@ class RegisterDriveViewController: UIViewController {
       }
     })
     
+    //get location
+    UserLocation.sharedInstance
+    
   }
   
   
@@ -69,10 +72,14 @@ class RegisterDriveViewController: UIViewController {
   
   @IBAction func done(sender: UIButton) {
     if let slugUser = SlugUser.currentUser() {
+      let currentLocationOpt = UserLocation.sharedInstance.currentLocation
+      let farthestPoint  = self.farthestPoint([slugUser.work, slugUser.home], from: currentLocationOpt)
       
-      switch (self.maxSpaces, self.departure, slugUser.work, slugUser.home) {
-        case (.Some(let maxSpaces), .Some(let departure), .Some(let work), .Some(let home)):
-          let ride = Ride(driver: slugUser, maxSpaces: maxSpaces, departure: departure, from: work, to: home)
+      switch (self.maxSpaces, self.departure, currentLocationOpt, farthestPoint) {
+        case (.Some(let maxSpaces), .Some(let departure), .Some(let currentLocation), .Some(let farthestPoint)):
+          let clPoint = PFGeoPoint(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
+          
+          let ride = Ride(driver: slugUser, maxSpaces: maxSpaces, departure: departure, from: clPoint, to: farthestPoint)
           ride.parseObj.saveInBackgroundWithBlock(nil)
           self.dismissViewControllerAnimated(true, completion: nil)
           break
@@ -80,5 +87,13 @@ class RegisterDriveViewController: UIViewController {
       }
       
     }
+  }
+  
+  func farthestPoint(points:[PFGeoPoint?], from: CLLocation?) -> PFGeoPoint? {
+    return points.filter{ $0 != nil}.map{
+      ($0!, CLLocation(latitude: $0!.latitude, longitude: $0!.longitude).distanceFromLocation(from))
+    }.sorted { (left, right) -> Bool in
+      return left.1 > right.1
+    }.first?.0
   }
 }
