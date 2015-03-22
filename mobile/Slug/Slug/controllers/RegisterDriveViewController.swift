@@ -81,7 +81,9 @@ class RegisterDriveViewController: UIViewController {
           
           let ride = Ride.create(slugUser, maxSpaces: maxSpaces, departure: departure, from: slugUser.work!, to: slugUser.work!)
           ride.parseObj.saveInBackgroundWithBlock(nil)
-          self.dismissViewControllerAnimated(true, completion: nil)
+          
+          self.performSegueWithIdentifier("unwind", sender: self)
+//          self.dismissViewControllerAnimated(true, completion: nil)
           break
         default: break
       }

@@ -31,9 +31,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   var drivers:[Driver] = [Driver(name: "unknown", company: "unknown", departureTime: "") ]
   
   override func viewDidLoad() {
-      super.viewDidLoad()
-
-    self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+    super.viewDidLoad()
     self.tableView.tableFooterView = UIView()
     
     self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
@@ -77,6 +75,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   override func viewWillAppear(animated: Bool) {
+    self.navigationController?.setNavigationBarHidden(true, animated: animated)
     super.viewWillAppear(animated)
     
     //trigger at least 1 location update
@@ -85,6 +84,11 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   override func viewDidAppear(animated: Bool) {
     loadDrivers()
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    super.viewWillDisappear(animated)
   }
   
   func refresh(refreshControl: UIRefreshControl) {
@@ -112,16 +116,8 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     self.performSegueWithIdentifier("SegueToViewRide", sender: self)
   }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
+  @IBAction func unwind(segue: UIStoryboardSegue) {
+  }
 }

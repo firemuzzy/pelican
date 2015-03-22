@@ -20,6 +20,8 @@
 		3391A81C1ABE7AE800EDCF65 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A81B1ABE7AE800EDCF65 /* UserLocation.swift */; };
 		3391A81E1ABE966700EDCF65 /* ViewRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A81D1ABE966700EDCF65 /* ViewRideViewController.swift */; };
 		3391A8201ABEA8B400EDCF65 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A81F1ABEA8B400EDCF65 /* SignupViewController.swift */; };
+		3391A8221ABEF29700EDCF65 /* BorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A8211ABEF29700EDCF65 /* BorderedTextField.swift */; };
+		3391A8241ABEF9AE00EDCF65 /* SlugNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391A8231ABEF9AE00EDCF65 /* SlugNavigationController.swift */; };
 		33FD8FF11ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */; };
 		3F0FC9621ABEA2BD00E12453 /* RideWIthDriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FC9611ABEA2BD00E12453 /* RideWIthDriverTests.swift */; };
 		3F3A73C81ABE15B800C73F6D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F808CF11ABE021F000CB5F2 /* AudioToolbox.framework */; };
@@ -89,6 +91,8 @@
 		3391A81B1ABE7AE800EDCF65 /* UserLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		3391A81D1ABE966700EDCF65 /* ViewRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewRideViewController.swift; path = controllers/ViewRideViewController.swift; sourceTree = "<group>"; };
 		3391A81F1ABEA8B400EDCF65 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = controllers/SignupViewController.swift; sourceTree = "<group>"; };
+		3391A8211ABEF29700EDCF65 /* BorderedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderedTextField.swift; path = views/BorderedTextField.swift; sourceTree = "<group>"; };
+		3391A8231ABEF9AE00EDCF65 /* SlugNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlugNavigationController.swift; path = controllers/SlugNavigationController.swift; sourceTree = "<group>"; };
 		33FD8FF01ABDFF4F004D5D5A /* HomeWorkSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeWorkSetupViewController.swift; path = controllers/HomeWorkSetupViewController.swift; sourceTree = "<group>"; };
 		3F0FC9611ABEA2BD00E12453 /* RideWIthDriverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideWIthDriverTests.swift; sourceTree = "<group>"; };
 		3F3A73D71ABE28C700C73F6D /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = utils.swift; path = utils/utils.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 				3391A8191ABE4A7900EDCF65 /* RegisterDriveViewController.swift */,
 				3391A81D1ABE966700EDCF65 /* ViewRideViewController.swift */,
 				3391A81F1ABEA8B400EDCF65 /* SignupViewController.swift */,
+				3391A8231ABEF9AE00EDCF65 /* SlugNavigationController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				3391A7C91ABE02C900EDCF65 /* LabledButton.swift */,
 				3391A7CF1ABE035C00EDCF65 /* RichView.swift */,
 				3391A8071ABE13E600EDCF65 /* CompanyCollectionViewCell.swift */,
+				3391A8211ABEF29700EDCF65 /* BorderedTextField.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -419,12 +425,14 @@
 				3F3A73D81ABE28C700C73F6D /* utils.swift in Sources */,
 				3FA0CF8D1ABE0A9900B22A91 /* User.swift in Sources */,
 				3391A8081ABE13E600EDCF65 /* CompanyCollectionViewCell.swift in Sources */,
+				3391A8221ABEF29700EDCF65 /* BorderedTextField.swift in Sources */,
 				3391A8061ABE0EE500EDCF65 /* HomeSetupViewController.swift in Sources */,
 				3F808CB81ABDFABF000CB5F2 /* ViewController.swift in Sources */,
 				3391A81E1ABE966700EDCF65 /* ViewRideViewController.swift in Sources */,
 				3391A7CA1ABE02C900EDCF65 /* LabledButton.swift in Sources */,
 				3391A8141ABE1E4F00EDCF65 /* DrivingViewController.swift in Sources */,
 				3F808CB61ABDFABF000CB5F2 /* AppDelegate.swift in Sources */,
+				3391A8241ABEF9AE00EDCF65 /* SlugNavigationController.swift in Sources */,
 				3391A81C1ABE7AE800EDCF65 /* UserLocation.swift in Sources */,
 				3391A8201ABEA8B400EDCF65 /* SignupViewController.swift in Sources */,
 				3391A7D01ABE035D00EDCF65 /* RichView.swift in Sources */,

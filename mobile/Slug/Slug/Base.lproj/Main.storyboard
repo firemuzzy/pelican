@@ -19,17 +19,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rC2-Tk-RdR">
-                                <rect key="frame" x="16" y="570" width="568" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIj-Ti-QHV">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <color key="backgroundColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="6nG-BI-90P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
                                 <state key="normal" title="I'm driving">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wig-Us-Nm7" kind="show" id="kyn-IZ-fc3"/>
+                                    <segue destination="wig-Us-Nm7" kind="show" id="ZwH-GR-zSR"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AQX-O7-RBp">
-                                <rect key="frame" x="0.0" y="20" width="600" height="550"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="468"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" textLabel="mu6-Od-DN1" detailTextLabel="jev-1j-CXP" style="IBUITableViewCellStyleSubtitle" id="Dwa-Gd-wRz">
@@ -62,37 +68,41 @@
                         </subviews>
                         <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="uIj-Ti-QHV" secondAttribute="trailing" id="0wq-MA-D8O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AQX-O7-RBp" secondAttribute="trailing" constant="-16" id="LVa-iI-npg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rC2-Tk-RdR" secondAttribute="trailing" id="WCD-Uw-ENy"/>
+                            <constraint firstAttribute="centerY" secondItem="uIj-Ti-QHV" secondAttribute="centerY" id="P4M-sx-spd"/>
+                            <constraint firstItem="XOg-ev-jRK" firstAttribute="top" secondItem="uIj-Ti-QHV" secondAttribute="bottom" id="Vgl-VT-Wlt"/>
                             <constraint firstItem="AQX-O7-RBp" firstAttribute="leading" secondItem="u6x-7o-uns" secondAttribute="leadingMargin" constant="-16" id="coq-4d-ZpI"/>
-                            <constraint firstItem="XOg-ev-jRK" firstAttribute="top" secondItem="rC2-Tk-RdR" secondAttribute="bottom" id="dYK-D5-WQj"/>
                             <constraint firstItem="AQX-O7-RBp" firstAttribute="top" secondItem="gpu-HT-pzs" secondAttribute="bottom" id="dtC-XG-aEA"/>
+                            <constraint firstItem="uIj-Ti-QHV" firstAttribute="top" secondItem="AQX-O7-RBp" secondAttribute="bottom" constant="8" symbolic="YES" id="dvm-cU-uNt"/>
                             <constraint firstItem="XOg-ev-jRK" firstAttribute="top" secondItem="AQX-O7-RBp" secondAttribute="bottom" id="eHz-4W-aK7"/>
-                            <constraint firstItem="rC2-Tk-RdR" firstAttribute="leading" secondItem="u6x-7o-uns" secondAttribute="leadingMargin" id="jLI-EF-aKc"/>
-                            <constraint firstItem="rC2-Tk-RdR" firstAttribute="top" secondItem="AQX-O7-RBp" secondAttribute="bottom" id="tx7-Ly-nwb"/>
+                            <constraint firstAttribute="width" secondItem="uIj-Ti-QHV" secondAttribute="width" id="mZh-jm-eNY"/>
+                            <constraint firstAttribute="centerX" secondItem="uIj-Ti-QHV" secondAttribute="centerX" id="wKO-Ma-jLz"/>
+                            <constraint firstItem="uIj-Ti-QHV" firstAttribute="leading" secondItem="u6x-7o-uns" secondAttribute="leadingMargin" id="yPP-dZ-GZS"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="0wq-MA-D8O"/>
+                                <exclude reference="P4M-sx-spd"/>
+                                <exclude reference="yPP-dZ-GZS"/>
                                 <exclude reference="eHz-4W-aK7"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="Zh9-X6-ddh">
-                        <barButtonItem key="rightBarButtonItem" title="I'm driving" id="e5R-qd-Y3j"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Zh9-X6-ddh"/>
                     <connections>
                         <outlet property="tableView" destination="AQX-O7-RBp" id="DYg-Pk-yUG"/>
-                        <segue destination="Bza-fg-clj" kind="showDetail" identifier="SegueToViewRide" id="jrx-Pl-9dd"/>
+                        <segue destination="Bza-fg-clj" kind="show" identifier="SegueToViewRide" id="jrx-Pl-9dd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pr6-RY-ACl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2663" y="-75"/>
+            <point key="canvasLocation" x="3475" y="-75"/>
         </scene>
-        <!--View Ride View Controller-->
+        <!--View Ride-->
         <scene sceneID="ukY-wq-h0L">
             <objects>
-                <viewController id="Bza-fg-clj" customClass="ViewRideViewController" customModule="Slug" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="View Ride" id="Bza-fg-clj" customClass="ViewRideViewController" customModule="Slug" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H9B-zh-AK2"/>
                         <viewControllerLayoutGuide type="bottom" id="GEj-CJ-cWH"/>
@@ -137,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vqn-30-01M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3449" y="-95"/>
+            <point key="canvasLocation" x="4265" y="-75"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="CZR-ZE-CAl">
@@ -163,10 +173,18 @@
                                         <color key="textColor" red="0.16862745098039217" green="0.38823529411764707" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="company email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hlE-br-TMh">
-                                        <rect key="frame" x="60" y="522" width="480" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="company email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hlE-br-TMh" customClass="BorderedTextField" customModule="Slug" customModuleProvider="target">
+                                        <rect key="frame" x="60" y="506" width="480" height="46"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.63529411759999999" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundEditingColor">
+                                                <color key="value" red="1" green="0.99607843137254903" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="delegate" destination="qUs-67-mXr" id="W5Z-bV-7uV"/>
                                         </connections>
@@ -202,12 +220,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHO-Ke-4NM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="600" y="697"/>
+            <point key="canvasLocation" x="1502" y="794"/>
         </scene>
-        <!--Register Drive View Controller-->
+        <!--Create Ride-->
         <scene sceneID="9Ck-13-bGg">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="wig-Us-Nm7" customClass="RegisterDriveViewController" customModule="Slug" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Create Ride" modalTransitionStyle="flipHorizontal" id="wig-Us-Nm7" customClass="RegisterDriveViewController" customModule="Slug" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qxN-GB-4UZ"/>
                         <viewControllerLayoutGuide type="bottom" id="QYG-ee-qyI"/>
@@ -339,7 +357,6 @@
                                 </state>
                                 <connections>
                                     <action selector="done:" destination="wig-Us-Nm7" eventType="touchUpInside" id="g4v-4s-cmK"/>
-                                    <segue destination="gUk-4P-QuY" kind="unwind" unwindAction="unwind:" id="2XO-dE-KUy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -394,12 +411,13 @@
                         <outletCollection property="departureTimes" destination="Iae-pz-v7p" collectionClass="NSMutableArray" id="IXw-Sy-mJd"/>
                         <outletCollection property="departureTimes" destination="qEA-oi-REa" collectionClass="NSMutableArray" id="fLt-iy-Ib4"/>
                         <outletCollection property="departureTimes" destination="PyO-eK-4tl" collectionClass="NSMutableArray" id="WTW-yy-3Fg"/>
+                        <segue destination="gUk-4P-QuY" kind="unwind" identifier="unwind" unwindAction="unwind:" id="p2S-Bt-36U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEg-g9-wSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="gUk-4P-QuY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3503" y="697"/>
+            <point key="canvasLocation" x="3475" y="697"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nq8-xS-SgH">
@@ -431,7 +449,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="SDC-D8-3YX" kind="presentation" identifier="SegueToLobby" id="ReP-wH-I2B"/>
+                        <segue destination="rdj-Oy-ZYX" kind="presentation" identifier="SegueToLobby" id="ReP-wH-I2B"/>
                         <segue destination="qUs-67-mXr" kind="presentation" identifier="SegueToSignup" id="chh-eu-gVV"/>
                         <segue destination="BJc-tX-f2u" kind="presentation" identifier="SegueToHomeSetup" id="2Ef-De-hU6"/>
                     </connections>
@@ -536,7 +554,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIX-9N-zMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="XRr-mp-Drt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1270" y="697"/>
+            <point key="canvasLocation" x="1502" y="1536"/>
         </scene>
         <!--Home Setup View Controller-->
         <scene sceneID="e8i-os-iBu">
@@ -551,7 +569,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slug" translatesAutoresizingMaskIntoConstraints="NO" id="Sds-w1-QQt">
-                                <rect key="frame" x="145" y="152" width="310" height="296"/>
+                                <rect key="frame" x="144" y="144" width="312" height="312"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -568,7 +586,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ldo-zM-af4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1980" y="672"/>
+            <point key="canvasLocation" x="2172" y="794"/>
+        </scene>
+        <!--Slug Navigation Controller-->
+        <scene sceneID="zDg-Sw-3BR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rdj-Oy-ZYX" customClass="SlugNavigationController" customModule="Slug" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vIn-ja-fqh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="barColor">
+                            <color key="value" red="0.16862745098039217" green="0.38823529411764707" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="SDC-D8-3YX" kind="relationship" relationship="rootViewController" id="W37-iL-Ynm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dev-fa-0la" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2663" y="-75"/>
         </scene>
     </scenes>
     <resources>
@@ -577,6 +618,6 @@
         <image name="home" width="137" height="130"/>
         <image name="logoBar" width="20" height="14"/>
         <image name="office" width="137" height="130"/>
-        <image name="slug" width="310" height="296"/>
+        <image name="slug" width="312" height="312"/>
     </resources>
 </document>
