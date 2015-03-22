@@ -17,6 +17,5 @@ class HomeWorkSetupViewController: UIViewController {
     super.viewWillAppear(animated)
    
     self.companyName.text = SlugUser.currentUser()?.companyName()
-    
   }
 }

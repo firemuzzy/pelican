@@ -14,6 +14,8 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
 
   var locationManager:CLLocationManager?
   
+  var holdup = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -32,8 +34,12 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     super.viewDidAppear(animated)
     
     
+    if holdup {
+      return
+    }
+
+
     showLoginFlow()
-    
     return
     
     if let user = SlugUser.currentUser() {
@@ -73,6 +79,11 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
 
   func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
     self.dismissViewControllerAnimated(true, completion: nil)
+  }
+  
+  
+  @IBAction func unwind(segue: UIStoryboardSegue) {
+    self.holdup = true
   }
 }
 

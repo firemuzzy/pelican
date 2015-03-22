@@ -22,7 +22,27 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-    emailField.becomeFirstResponder()
+    self.emailField.becomeFirstResponder()
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    self.emailField.resignFirstResponder()
+    
+    if let location = UserLocation.sharedInstance.currentLocation {
+      CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+        if error != nil {
+          println("error in reverse geocoding: \(error.localizedDescription)")
+          return
+        }
+        if let placemark = placemarks.first as? CLPlacemark {
+          println("postal: \(placemark.locality)")
+          placemark.country
+        }
+        
+        
+      })
+    }
   }
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -54,7 +74,6 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
       let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
       
       self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
-      
       
       
       UIView.animateWithDuration(duration,
