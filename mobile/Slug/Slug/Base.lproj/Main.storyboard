@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M03-MH-ISB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SDC-D8-3YX">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -231,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pr6-RY-ACl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2157" y="-109"/>
+            <point key="canvasLocation" x="2630" y="48"/>
         </scene>
         <!--Register Drive View Controller-->
         <scene sceneID="9Ck-13-bGg">
@@ -251,7 +251,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7o-72-60a">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7o-72-60a">
                                 <rect key="frame" x="50" y="40" width="100" height="100"/>
                                 <state key="normal" title="1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -260,7 +260,7 @@
                                     <action selector="selectSeats:" destination="wig-Us-Nm7" eventType="touchUpInside" id="VoL-1p-Elb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqV-jI-PBv">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqV-jI-PBv">
                                 <rect key="frame" x="150" y="40" width="100" height="100"/>
                                 <state key="normal" title="2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -269,7 +269,7 @@
                                     <action selector="selectSeats:" destination="wig-Us-Nm7" eventType="touchUpInside" id="5Kn-s8-cLO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSl-iG-0C9">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSl-iG-0C9">
                                 <rect key="frame" x="250" y="40" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NSl-iG-0C9" secondAttribute="height" multiplier="1:1" id="1MH-XV-xcG"/>
@@ -281,7 +281,7 @@
                                     <action selector="selectSeats:" destination="wig-Us-Nm7" eventType="touchUpInside" id="Zen-pG-3hZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZL-JY-cvq">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZL-JY-cvq">
                                 <rect key="frame" x="350" y="40" width="100" height="100"/>
                                 <state key="normal" title="4">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -290,7 +290,7 @@
                                     <action selector="selectSeats:" destination="wig-Us-Nm7" eventType="touchUpInside" id="SFJ-WI-hYy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46b-h7-sgD">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46b-h7-sgD">
                                 <rect key="frame" x="450" y="40" width="100" height="100"/>
                                 <state key="normal" title="5">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -420,12 +420,15 @@
                         <outletCollection property="seats" destination="H7o-72-60a" collectionClass="NSMutableArray" id="UYC-lV-IAj"/>
                         <outletCollection property="seats" destination="46b-h7-sgD" collectionClass="NSMutableArray" id="qFM-ej-Id6"/>
                         <outletCollection property="seats" destination="PZL-JY-cvq" collectionClass="NSMutableArray" id="iW0-gI-VG4"/>
+                        <outletCollection property="departureTimes" destination="Iae-pz-v7p" collectionClass="NSMutableArray" id="IXw-Sy-mJd"/>
+                        <outletCollection property="departureTimes" destination="qEA-oi-REa" collectionClass="NSMutableArray" id="fLt-iy-Ib4"/>
+                        <outletCollection property="departureTimes" destination="PyO-eK-4tl" collectionClass="NSMutableArray" id="WTW-yy-3Fg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEg-g9-wSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="gUk-4P-QuY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2890" y="-109"/>
+            <point key="canvasLocation" x="2630" y="802"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nq8-xS-SgH">
@@ -443,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1j3-JN-h9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="617" y="1486"/>
+            <point key="canvasLocation" x="1701" y="378"/>
         </scene>
     </scenes>
 </document>
