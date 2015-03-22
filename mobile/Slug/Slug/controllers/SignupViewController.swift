@@ -34,14 +34,11 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     let email = textField.text
     let user = SlugUser(firstName: "Name", lastName: "Name", email: email, password: "")
     
-    self.performSegueWithIdentifier("SegueToHomeWorkSetup", sender:self)
-    
-//    user.parseObj.signUpInBackgroundWithBlock { (didSignUp, error) -> Void in
-//      
-//      if didSignUp {
-//        self.performSegueWithIdentifier("SegueToHomeWorkSetup", sender:self)
-//      }
-//    }
+    user.parseObj.signUpInBackgroundWithBlock { (didSignUp, error) -> Void in
+      if didSignUp {
+        self.performSegueWithIdentifier("SegueToHomeWorkSetup", sender:self)
+      }
+    }
     
     return true
   }

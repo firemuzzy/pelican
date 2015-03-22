@@ -26,12 +26,24 @@ class HomeWorkSetupViewController: UIViewController {
           return
         }
         if let placemark = placemarks.first as? CLPlacemark {
-          println("postal: \(placemark.locality)")
-          placemark.country
+          let addressArray = [placemark.thoroughfare, placemark.subLocality].filter{ $0 != nil}.map{$0!}
+          let address = " ".join(addressArray)
+          self.homeAddress.text = address
         }
-        
-        
       })
+    }
+  }
+  
+  @IBAction func doneCLicked(sender: AnyObject) {
+    if let user = SlugUser.currentUser() {
+      if let coordinate = UserLocation.sharedInstance.currentLocation?.coordinate {
+        user.home = PFGeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        user.parseObj.saveInBackgroundWithBlock(nil)
+        self.performSegueWithIdentifier("UnwindToRoot", sender: self)
+      }
+      
+    } else {
+      self.performSegueWithIdentifier("UnwindToRoot", sender: self)
     }
   }
 }

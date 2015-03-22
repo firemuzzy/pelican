@@ -464,7 +464,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="XRr-mp-Drt" kind="unwind" unwindAction="unwind:" id="hIR-Nw-GhZ"/>
+                                    <action selector="doneCLicked:" destination="8sf-K8-Wva" eventType="touchUpInside" id="JIn-QV-yqV"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4f-V7-sX7">
@@ -473,8 +473,8 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="du9-Qn-11P">
                                         <rect key="frame" x="232" y="39" width="137" height="130"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1by-nx-iSl">
-                                        <rect key="frame" x="0.0" y="177" width="600" height="35"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="1by-nx-iSl">
+                                        <rect key="frame" x="60" y="177" width="480" height="35"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="29"/>
                                         <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -485,7 +485,7 @@
                                     <constraint firstAttribute="centerX" secondItem="du9-Qn-11P" secondAttribute="centerX" id="5h3-z9-gPq"/>
                                     <constraint firstAttribute="centerY" secondItem="du9-Qn-11P" secondAttribute="centerY" constant="20" id="EsX-Xu-8Az"/>
                                     <constraint firstItem="1by-nx-iSl" firstAttribute="top" secondItem="du9-Qn-11P" secondAttribute="bottom" constant="8" symbolic="YES" id="kvi-jj-CzI"/>
-                                    <constraint firstItem="1by-nx-iSl" firstAttribute="width" secondItem="y4f-V7-sX7" secondAttribute="width" id="mew-lh-nuf"/>
+                                    <constraint firstItem="1by-nx-iSl" firstAttribute="width" secondItem="y4f-V7-sX7" secondAttribute="width" multiplier="0.8" id="mew-lh-nuf"/>
                                     <constraint firstAttribute="centerX" secondItem="1by-nx-iSl" secondAttribute="centerX" id="ulA-oJ-ewF"/>
                                 </constraints>
                             </view>
@@ -496,7 +496,7 @@
                                         <rect key="frame" x="232" y="39" width="137" height="130"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jt-sc-yCV">
-                                        <rect key="frame" x="0.0" y="177" width="600" height="35"/>
+                                        <rect key="frame" x="60" y="177" width="480" height="35"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="29"/>
                                         <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -504,7 +504,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="7jt-sc-yCV" firstAttribute="width" secondItem="mcd-E4-bTV" secondAttribute="width" id="1eV-WI-e3c"/>
+                                    <constraint firstItem="7jt-sc-yCV" firstAttribute="width" secondItem="mcd-E4-bTV" secondAttribute="width" multiplier="0.8" id="1eV-WI-e3c"/>
                                     <constraint firstItem="7jt-sc-yCV" firstAttribute="top" secondItem="J12-nP-ZmY" secondAttribute="bottom" constant="8" symbolic="YES" id="841-Ro-1Ev"/>
                                     <constraint firstAttribute="centerX" secondItem="7jt-sc-yCV" secondAttribute="centerX" id="R8p-17-Kp3"/>
                                     <constraint firstAttribute="centerY" secondItem="J12-nP-ZmY" secondAttribute="centerY" constant="20" id="bV8-qQ-UHI"/>
@@ -530,6 +530,7 @@
                     <connections>
                         <outlet property="companyName" destination="7jt-sc-yCV" id="91V-9r-ytf"/>
                         <outlet property="homeAddress" destination="1by-nx-iSl" id="ij5-Th-t7X"/>
+                        <segue destination="XRr-mp-Drt" kind="unwind" identifier="UnwindToRoot" unwindAction="unwind:" id="cFQ-4i-cci"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIX-9N-zMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -549,13 +550,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tzg-uY-uir">
-                                <rect key="frame" x="0.0" y="0.0" width="309" height="316"/>
-                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slug" translatesAutoresizingMaskIntoConstraints="NO" id="Sds-w1-QQt">
+                                <rect key="frame" x="145" y="152" width="310" height="296"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="Sds-w1-QQt" secondAttribute="centerY" id="6tq-af-ef7"/>
+                            <constraint firstItem="Sds-w1-QQt" firstAttribute="height" relation="lessThanOrEqual" secondItem="Hbs-kT-mdp" secondAttribute="height" id="9ms-cQ-5BM"/>
+                            <constraint firstItem="Sds-w1-QQt" firstAttribute="width" relation="lessThanOrEqual" secondItem="Hbs-kT-mdp" secondAttribute="width" id="AhV-Z7-D6m"/>
+                            <constraint firstAttribute="centerX" secondItem="Sds-w1-QQt" secondAttribute="centerX" id="Q2q-9h-cOw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="slug" destination="Sds-w1-QQt" id="lf9-Jc-rw5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ldo-zM-af4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -568,5 +577,6 @@
         <image name="home" width="137" height="130"/>
         <image name="logoBar" width="20" height="14"/>
         <image name="office" width="137" height="130"/>
+        <image name="slug" width="310" height="296"/>
     </resources>
 </document>

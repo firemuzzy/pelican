@@ -14,8 +14,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
 
   var locationManager:CLLocationManager?
   
-  var holdup = false
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -33,15 +31,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    
-    if holdup {
-      return
-    }
-
-
-//    showLoginFlow()
-//    return
-    
     if let user = SlugUser.currentUser() {
       if user.home == nil {
         showSetupFlow()
@@ -56,17 +45,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
   //home setup
   func showSetupFlow() {
     self.performSegueWithIdentifier("SegueToHomeSetup", sender:self)
-    
-//    
-    if let currentLocation = UserLocation.sharedInstance.currentLocation {
-      let homePoint = PFGeoPoint(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
-      
-      if let user = SlugUser.currentUser() {
-        user.home = homePoint
-        user.parseObj.saveInBackgroundWithBlock(nil)
-      }
-      
-    }
   }
   
   func showLoginFlow() {
@@ -83,7 +61,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
   
   
   @IBAction func unwind(segue: UIStoryboardSegue) {
-    self.holdup = true
   }
 }
 
