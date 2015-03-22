@@ -16,8 +16,8 @@ body_class: index
 
   %label
     Sign up with your official company email
-  %input{placeholder: "Corporate email address"}
-  %button
+  %input{placeholder: "Corporate email address", :id=> "emailInput"}
+  %button{:id => "signUp"}
     Submit
 
 %section.benefits
@@ -26,6 +26,8 @@ body_class: index
 
 
 
-
-
+%script{:type => "text/javascript",
+        :src  => "//www.parsecdn.com/js/parse-1.3.5.min.js"}
+%script{:type => "text/javascript",
+        :src  => "javascripts/parse.js"}
 
