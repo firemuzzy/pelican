@@ -51,18 +51,18 @@ class SlugUser {
     }
   }
   
-  var home: PFGeoPoint {
+  var home: PFGeoPoint? {
     get {
-      return self.parseObj["home"] as PFGeoPoint
+      return self.parseObj["home"] as? PFGeoPoint
     }
     set {
       self.parseObj["home"] = newValue
     }
   }
   
-  var work: PFGeoPoint {
+  var work: PFGeoPoint? {
     get {
-      return self.parseObj["work"] as PFGeoPoint
+      return self.parseObj["work"] as? PFGeoPoint
     }
     set {
       self.parseObj["work"] = newValue
