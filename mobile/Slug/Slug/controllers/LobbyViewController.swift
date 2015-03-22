@@ -53,8 +53,8 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
           let currentLoc = CLLocation(latitude: currentPoint!.latitude, longitude: currentPoint!.longitude)
           let points = [currentUser.home, currentUser.work]
  
-          if let fatherstPoint = LocUtils.farthestPoint(points, from: currentLoc) {
-            Ride.findNearByDriversInBackground(currentPoint!, end: fatherstPoint, block: { (objs:[AnyObject]!, error:NSError!) -> Void in
+          if let farthestPoint = LocUtils.farthestPoint(points, from: currentLoc) {
+            Ride.findNearByDriversInBackground(currentPoint!, end: farthestPoint, block: { (objs:[AnyObject]!, error:NSError!) -> Void in
               
               for obj in objs {
                 let parseObj = obj as PFObject

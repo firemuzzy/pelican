@@ -52,6 +52,7 @@ typealias RideResultBlock = (Ride?, NSError!) -> Void
 
 let googleSeattleGeo = PFGeoPoint(latitude: 47.648706, longitude: -122.350639)
 let microsoft = PFGeoPoint(latitude: 47.645677, longitude: -122.133970)
+let adobe = PFGeoPoint(latitude: 47.648305, longitude: -122.348709)
 let wozGeo = PFGeoPoint(latitude: 47.605716, longitude: -122.335820)
 let nearWozGeo = PFGeoPoint(latitude: 47.603643, longitude: -122.334039)
 let uWashingtonGeo = PFGeoPoint(latitude: 47.654436, longitude: -122.303698)
@@ -72,6 +73,10 @@ class RideTestUtils {
       }
 
     }
+  }
+  
+  class func createTestRideWoz2Adobe(driver: SlugUser) -> Ride {
+    return createTestRideBlocking(driver, from: wozGeo, to: adobe)
   }
   
   class func createTestRideWoz2MS(driver: SlugUser) -> Ride {
