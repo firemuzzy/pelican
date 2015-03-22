@@ -11,7 +11,8 @@ import Parse
 
 let tableCell = "tableCell"
 
-struct Driver {
+//needs to be a class to act as AnyObject
+class Driver {
   let name: String
   let company: String
   let departureTime: String
@@ -78,6 +79,11 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.navigationController?.setNavigationBarHidden(true, animated: animated)
     super.viewWillAppear(animated)
     
+    if let selectedRow = self.tableView.indexPathForSelectedRow() {
+      self.tableView.deselectRowAtIndexPath(selectedRow, animated: false)
+    }
+    
+    
     //trigger at least 1 location update
     UserLocation.sharedInstance
   }
@@ -114,7 +120,16 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    self.performSegueWithIdentifier("SegueToViewRide", sender: self)
+    let driver = self.drivers[indexPath.row]
+    self.performSegueWithIdentifier("SegueToViewRide", sender: driver)
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let viewRideController  = segue.destinationViewController as? ViewRideViewController {
+      if let driver = sender as? Driver {
+        viewRideController.driver = driver
+      }
+    }
   }
 
   
