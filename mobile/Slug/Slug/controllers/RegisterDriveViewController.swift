@@ -68,15 +68,17 @@ class RegisterDriveViewController: UIViewController {
   }
   
   @IBAction func done(sender: UIButton) {
-    if let maxSpaces = self.maxSpaces {
-      if let departure = self.departure {
-        if let slugUser = SlugUser.currentUser() {
-          let ride = Ride(driver: slugUser, maxSpaces: maxSpaces, departure: departure, from: slugUser.work!, to: slugUser.work!)
+    if let slugUser = SlugUser.currentUser() {
+      
+      switch (self.maxSpaces, self.departure, slugUser.work, slugUser.home) {
+        case (.Some(let maxSpaces), .Some(let departure), .Some(let work), .Some(let home)):
+          let ride = Ride(driver: slugUser, maxSpaces: maxSpaces, departure: departure, from: work, to: home)
           ride.parseObj.saveInBackgroundWithBlock(nil)
-          
           self.dismissViewControllerAnimated(true, completion: nil)
-        }
+          break
+        default: break
       }
+      
     }
   }
 }
