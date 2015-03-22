@@ -13,11 +13,24 @@
         <mutableArray key="Brandon_light.otf">
             <string>BrandonGrotesque-Light</string>
             <string>BrandonGrotesque-Light</string>
+            <string>BrandonGrotesque-Light</string>
+            <string>BrandonGrotesque-Light</string>
+            <string>BrandonGrotesque-Light</string>
         </mutableArray>
         <mutableArray key="Brandon_med.otf">
             <string>BrandonGrotesque-Medium</string>
         </mutableArray>
         <mutableArray key="Brandon_reg.otf">
+            <string>BrandonGrotesque-Regular</string>
+            <string>BrandonGrotesque-Regular</string>
+            <string>BrandonGrotesque-Regular</string>
+            <string>BrandonGrotesque-Regular</string>
+            <string>BrandonGrotesque-Regular</string>
+            <string>BrandonGrotesque-Regular</string>
+            <string>BrandonGrotesque-Regular</string>
+            <string>BrandonGrotesque-Regular</string>
+            <string>BrandonGrotesque-Regular</string>
+            <string>BrandonGrotesque-Regular</string>
             <string>BrandonGrotesque-Regular</string>
             <string>BrandonGrotesque-Regular</string>
             <string>BrandonGrotesque-Regular</string>
@@ -56,29 +69,38 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AQX-O7-RBp">
                                 <rect key="frame" x="0.0" y="64" width="600" height="468"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tableCell" textLabel="mu6-Od-DN1" detailTextLabel="jev-1j-CXP" style="IBUITableViewCellStyleSubtitle" id="Dwa-Gd-wRz">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="60" id="Dwa-Gd-wRz">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dwa-Gd-wRz" id="Ruh-Iy-1bi">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mu6-Od-DN1">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sluggy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5N-Wt-uHC">
+                                                    <rect key="frame" x="8" y="8" width="78.5" height="43"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="30"/>
+                                                    <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jev-1j-CXP">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from Slügg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4B-k9-8HR">
+                                                    <rect key="frame" x="94.5" y="8.5" width="127.5" height="43"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Light" family="Brandon Grotesque" pointSize="30"/>
+                                                    <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="F5N-Wt-uHC" firstAttribute="leading" secondItem="Ruh-Iy-1bi" secondAttribute="leadingMargin" id="1yb-Du-GMR"/>
+                                                <constraint firstAttribute="centerY" secondItem="F5N-Wt-uHC" secondAttribute="centerY" id="6To-8s-AiY"/>
+                                                <constraint firstItem="F5N-Wt-uHC" firstAttribute="baseline" secondItem="A4B-k9-8HR" secondAttribute="baseline" id="uwy-8G-ZSD"/>
+                                                <constraint firstItem="A4B-k9-8HR" firstAttribute="leading" secondItem="F5N-Wt-uHC" secondAttribute="trailing" constant="8" symbolic="YES" id="zQ0-NO-MDh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -148,7 +170,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Sluggy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ht-Zs-Moh">
-                                <rect key="frame" x="16" y="72" width="79" height="43"/>
+                                <rect key="frame" x="16" y="72" width="78.5" height="43"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="30"/>
                                 <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -160,13 +182,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvs-GK-Fub">
-                                <rect key="frame" x="216" y="277" width="168" height="101"/>
+                                <rect key="frame" x="216" y="277" width="167.5" height="100.5"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="70"/>
                                 <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from Slügg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cgj-4c-v00">
-                                <rect key="frame" x="102" y="72" width="482" height="43"/>
+                                <rect key="frame" x="102" y="72" width="481.5" height="43"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Light" family="Brandon Grotesque" pointSize="30"/>
                                 <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -283,88 +305,103 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCs-2a-hg2">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <color key="backgroundColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="o5k-gj-ggg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="28"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="done:" destination="wig-Us-Nm7" eventType="touchUpInside" id="UDi-MI-Trc"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Seats" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOH-1W-FG5">
-                                <rect key="frame" x="242" y="64" width="117" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="16" y="84" width="174" height="43"/>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Light" family="Brandon Grotesque" pointSize="30"/>
+                                <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7o-72-60a">
-                                <rect key="frame" x="50" y="85" width="100" height="100"/>
-                                <state key="normal" title="1">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectSeats:" destination="wig-Us-Nm7" eventType="touchUpInside" id="VoL-1p-Elb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqV-jI-PBv">
-                                <rect key="frame" x="150" y="85" width="100" height="100"/>
-                                <state key="normal" title="2">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectSeats:" destination="wig-Us-Nm7" eventType="touchUpInside" id="5Kn-s8-cLO"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSl-iG-0C9">
-                                <rect key="frame" x="250" y="85" width="100" height="100"/>
+                                <rect key="frame" x="250" y="126.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NSl-iG-0C9" secondAttribute="height" multiplier="1:1" id="1MH-XV-xcG"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="30"/>
+                                <color key="tintColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="3">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="selectSeats:" destination="wig-Us-Nm7" eventType="touchUpInside" id="Zen-pG-3hZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZL-JY-cvq">
-                                <rect key="frame" x="350" y="85" width="100" height="100"/>
+                                <rect key="frame" x="350" y="126.5" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="30"/>
+                                <color key="tintColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="4">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="selectSeats:" destination="wig-Us-Nm7" eventType="touchUpInside" id="SFJ-WI-hYy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46b-h7-sgD">
-                                <rect key="frame" x="450" y="85" width="100" height="100"/>
+                                <rect key="frame" x="450" y="126.5" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="30"/>
+                                <color key="tintColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="5">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="selectSeats:" destination="wig-Us-Nm7" eventType="touchUpInside" id="vAu-49-adV"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" verticalHuggingPriority="248" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="7ZN-uy-gh3">
-                                <rect key="frame" x="16" y="205" width="568" height="337"/>
+                                <rect key="frame" x="16" y="317" width="568" height="223.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEA-oi-REa">
-                                        <rect key="frame" x="0.0" y="113" width="568" height="112"/>
+                                        <rect key="frame" x="0.0" y="74" width="568" height="74.5"/>
+                                        <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="30"/>
+                                        <color key="tintColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="15 minutes">
+                                            <color key="titleColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="depart15Minutes:" destination="wig-Us-Nm7" eventType="touchUpInside" id="Xfi-7K-vbO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyO-eK-4tl">
-                                        <rect key="frame" x="0.0" y="225" width="568" height="113"/>
-                                        <state key="normal" title="30 minutes">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="depart30Minutes:" destination="wig-Us-Nm7" eventType="touchUpInside" id="pfG-QY-Q1y"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iae-pz-v7p">
-                                        <rect key="frame" x="0.0" y="0.0" width="568" height="113"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="74.5"/>
+                                        <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="30"/>
+                                        <color key="tintColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="5 minutes">
+                                            <color key="titleColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="depart5Minutes:" destination="wig-Us-Nm7" eventType="touchUpInside" id="F1m-FZ-IY4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyO-eK-4tl">
+                                        <rect key="frame" x="0.0" y="148.5" width="568" height="74.5"/>
+                                        <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="30"/>
+                                        <color key="tintColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="30 minutes">
+                                            <color key="titleColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="depart30Minutes:" destination="wig-Us-Nm7" eventType="touchUpInside" id="pfG-QY-Q1y"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -391,61 +428,75 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departing in" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vc0-6G-RN0">
-                                <rect key="frame" x="254" y="185" width="94" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="16" y="266.5" width="145" height="43"/>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Light" family="Brandon Grotesque" pointSize="30"/>
+                                <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naJ-Ah-WVv">
-                                <rect key="frame" x="16" y="542" width="568" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="bwU-NA-uJn"/>
-                                </constraints>
-                                <state key="normal" title="DONE">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7o-72-60a">
+                                <rect key="frame" x="50" y="126.5" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="30"/>
+                                <color key="tintColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="done:" destination="wig-Us-Nm7" eventType="touchUpInside" id="g4v-4s-cmK"/>
+                                    <action selector="selectSeats:" destination="wig-Us-Nm7" eventType="touchUpInside" id="VoL-1p-Elb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqV-jI-PBv">
+                                <rect key="frame" x="150" y="126.5" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="30"/>
+                                <color key="tintColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="2">
+                                    <color key="titleColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectSeats:" destination="wig-Us-Nm7" eventType="touchUpInside" id="5Kn-s8-cLO"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="NSl-iG-0C9" firstAttribute="height" secondItem="H7o-72-60a" secondAttribute="height" id="1hn-0A-1tl"/>
+                            <constraint firstItem="KOH-1W-FG5" firstAttribute="leading" secondItem="51C-tX-c2E" secondAttribute="leadingMargin" id="2PB-2J-iXO"/>
                             <constraint firstItem="NSl-iG-0C9" firstAttribute="width" secondItem="51C-tX-c2E" secondAttribute="width" multiplier="1/6" id="3fD-2V-ZdP"/>
-                            <constraint firstItem="QYG-ee-qyI" firstAttribute="top" secondItem="naJ-Ah-WVv" secondAttribute="bottom" constant="8" symbolic="YES" id="ArH-NM-aN6"/>
+                            <constraint firstItem="vc0-6G-RN0" firstAttribute="leading" secondItem="51C-tX-c2E" secondAttribute="leadingMargin" id="3lW-KA-fi2"/>
                             <constraint firstItem="QYG-ee-qyI" firstAttribute="top" secondItem="7ZN-uy-gh3" secondAttribute="bottom" id="BtS-Fv-adT"/>
+                            <constraint firstItem="TCs-2a-hg2" firstAttribute="top" secondItem="PyO-eK-4tl" secondAttribute="bottom" id="G75-Gb-mle"/>
                             <constraint firstItem="PZL-JY-cvq" firstAttribute="leading" secondItem="NSl-iG-0C9" secondAttribute="trailing" id="GUw-gW-UhQ"/>
                             <constraint firstItem="46b-h7-sgD" firstAttribute="leading" secondItem="PZL-JY-cvq" secondAttribute="trailing" id="HZR-Ix-7Qt"/>
                             <constraint firstItem="NSl-iG-0C9" firstAttribute="top" secondItem="KOH-1W-FG5" secondAttribute="bottom" id="IM0-Wx-HFy"/>
                             <constraint firstItem="eqV-jI-PBv" firstAttribute="top" secondItem="NSl-iG-0C9" secondAttribute="top" id="Jdi-0a-pJ7"/>
                             <constraint firstItem="NSl-iG-0C9" firstAttribute="width" secondItem="H7o-72-60a" secondAttribute="width" id="NUM-XA-Olh"/>
                             <constraint firstItem="46b-h7-sgD" firstAttribute="height" secondItem="NSl-iG-0C9" secondAttribute="height" id="NnV-Dz-Pad"/>
-                            <constraint firstItem="KOH-1W-FG5" firstAttribute="top" secondItem="qxN-GB-4UZ" secondAttribute="bottom" id="PAm-qe-PkC"/>
+                            <constraint firstItem="KOH-1W-FG5" firstAttribute="top" secondItem="qxN-GB-4UZ" secondAttribute="bottom" constant="20" id="PAm-qe-PkC"/>
                             <constraint firstItem="7ZN-uy-gh3" firstAttribute="top" secondItem="NSl-iG-0C9" secondAttribute="bottom" id="Snd-Vr-A6N"/>
-                            <constraint firstItem="naJ-Ah-WVv" firstAttribute="leading" secondItem="51C-tX-c2E" secondAttribute="leadingMargin" id="X5P-jg-ZY0"/>
-                            <constraint firstItem="vc0-6G-RN0" firstAttribute="top" secondItem="NSl-iG-0C9" secondAttribute="bottom" id="Xzk-oe-Wvk"/>
+                            <constraint firstItem="vc0-6G-RN0" firstAttribute="top" secondItem="NSl-iG-0C9" secondAttribute="bottom" constant="40" id="Xzk-oe-Wvk"/>
                             <constraint firstItem="7ZN-uy-gh3" firstAttribute="trailing" secondItem="51C-tX-c2E" secondAttribute="trailingMargin" id="Yrd-uK-fcw"/>
+                            <constraint firstItem="QYG-ee-qyI" firstAttribute="top" secondItem="TCs-2a-hg2" secondAttribute="bottom" id="dOq-WA-oWr"/>
                             <constraint firstItem="PZL-JY-cvq" firstAttribute="width" secondItem="NSl-iG-0C9" secondAttribute="width" id="eg5-pR-fFO"/>
                             <constraint firstItem="PZL-JY-cvq" firstAttribute="top" secondItem="NSl-iG-0C9" secondAttribute="top" id="f7W-hU-COY"/>
                             <constraint firstItem="NSl-iG-0C9" firstAttribute="leading" secondItem="eqV-jI-PBv" secondAttribute="trailing" id="fLU-I4-Avl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="naJ-Ah-WVv" secondAttribute="trailing" id="g5V-JX-U7L"/>
                             <constraint firstAttribute="centerX" secondItem="vc0-6G-RN0" secondAttribute="centerX" id="hbe-vK-lli"/>
                             <constraint firstAttribute="centerX" secondItem="KOH-1W-FG5" secondAttribute="centerX" id="iaC-z4-qcS"/>
                             <constraint firstAttribute="centerX" secondItem="NSl-iG-0C9" secondAttribute="centerX" id="k0Z-uk-P6g"/>
                             <constraint firstItem="eqV-jI-PBv" firstAttribute="width" secondItem="NSl-iG-0C9" secondAttribute="width" id="kKE-Y2-pXS"/>
                             <constraint firstItem="46b-h7-sgD" firstAttribute="width" secondItem="NSl-iG-0C9" secondAttribute="width" id="kqE-f9-r12"/>
-                            <constraint firstItem="7ZN-uy-gh3" firstAttribute="top" secondItem="vc0-6G-RN0" secondAttribute="bottom" id="lau-um-NuA"/>
+                            <constraint firstItem="7ZN-uy-gh3" firstAttribute="top" secondItem="vc0-6G-RN0" secondAttribute="bottom" constant="8" symbolic="YES" id="lau-um-NuA"/>
                             <constraint firstItem="PZL-JY-cvq" firstAttribute="height" secondItem="NSl-iG-0C9" secondAttribute="height" id="p8u-s0-gjG"/>
+                            <constraint firstItem="TCs-2a-hg2" firstAttribute="width" secondItem="51C-tX-c2E" secondAttribute="width" id="pQj-E8-cTG"/>
                             <constraint firstItem="eqV-jI-PBv" firstAttribute="leading" secondItem="H7o-72-60a" secondAttribute="trailing" id="tuC-k3-lid"/>
                             <constraint firstItem="eqV-jI-PBv" firstAttribute="height" secondItem="NSl-iG-0C9" secondAttribute="height" id="v4z-oe-uhu"/>
-                            <constraint firstItem="naJ-Ah-WVv" firstAttribute="top" secondItem="7ZN-uy-gh3" secondAttribute="bottom" id="yDI-B6-afq"/>
+                            <constraint firstAttribute="centerX" secondItem="TCs-2a-hg2" secondAttribute="centerX" id="v9j-Ea-KEG"/>
                             <constraint firstItem="NSl-iG-0C9" firstAttribute="top" secondItem="H7o-72-60a" secondAttribute="top" id="yPA-os-jfo"/>
                             <constraint firstItem="46b-h7-sgD" firstAttribute="top" secondItem="NSl-iG-0C9" secondAttribute="top" id="zOd-Ty-BuC"/>
                             <constraint firstItem="7ZN-uy-gh3" firstAttribute="leading" secondItem="51C-tX-c2E" secondAttribute="leadingMargin" id="zdS-SN-aMY"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="iaC-z4-qcS"/>
+                                <exclude reference="hbe-vK-lli"/>
                                 <exclude reference="Snd-Vr-A6N"/>
                                 <exclude reference="BtS-Fv-adT"/>
                             </mask>
@@ -540,8 +591,8 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="du9-Qn-11P">
                                         <rect key="frame" x="232" y="39" width="137" height="130"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Home Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="1by-nx-iSl">
-                                        <rect key="frame" x="60" y="177" width="480" height="35"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="1by-nx-iSl">
+                                        <rect key="frame" x="60" y="177" width="480" height="41.5"/>
                                         <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="29"/>
                                         <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -562,8 +613,8 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="office" translatesAutoresizingMaskIntoConstraints="NO" id="J12-nP-ZmY">
                                         <rect key="frame" x="232" y="39" width="137" height="130"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Company Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jt-sc-yCV">
-                                        <rect key="frame" x="60" y="177" width="480" height="35"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jt-sc-yCV">
+                                        <rect key="frame" x="60" y="177" width="480" height="41.5"/>
                                         <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="29"/>
                                         <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -651,6 +702,7 @@
                         <userDefinedRuntimeAttribute type="color" keyPath="barColor">
                             <color key="value" red="0.16862745098039217" green="0.38823529411764707" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="BrandonGrotesque-Bold"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="SDC-D8-3YX" kind="relationship" relationship="rootViewController" id="W37-iL-Ynm"/>

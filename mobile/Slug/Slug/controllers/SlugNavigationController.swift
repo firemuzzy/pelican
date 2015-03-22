@@ -17,10 +17,25 @@ class SlugNavigationController: UINavigationController, UIViewControllerTransiti
     }
   }
   
+  @IBInspectable var fontName: NSString? {
+    didSet {
+      if let fontName = fontName {
+        
+        if let font = UIFont(name: fontName, size: 17) {
+          self.navigationBar.titleTextAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName:UIColor.whiteColor()]
+          
+          UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: font, NSForegroundColorAttributeName:UIColor.whiteColor()], forState: .Normal)
+        }
+      }
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     self.navigationBar.barStyle = UIBarStyle.Black
     self.navigationBar.tintColor = UIColor.whiteColor()
+    
   }
+  
 }

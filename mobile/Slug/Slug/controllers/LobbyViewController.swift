@@ -112,8 +112,8 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     let driver = self.drivers[indexPath.row]
     
-    cell.textLabel?.text = driver.name
-    cell.detailTextLabel?.text = driver.departureTime
+//    cell.textLabel?.text = driver.name
+//    cell.detailTextLabel?.text = driver.departureTime
     
     return cell
   }

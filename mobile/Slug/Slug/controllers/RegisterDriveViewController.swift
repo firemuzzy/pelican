@@ -20,19 +20,19 @@ class RegisterDriveViewController: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    SlugUser.currentUser()?.findMyCurrentDrivingRideInBackground({ (data, error) -> Void in
-      if data != nil {
-        let ride = Ride(parseObj: data)
-        self.maxSpaces = ride.maxSpaces
-        self.departure = ride.departure
-        
-        for seat in self.seats {
-          if seat.tag == ride.maxSpaces {
-            seat.selected = true
-          }
-        }
-      }
-    })
+//    SlugUser.currentUser()?.findMyCurrentDrivingRideInBackground({ (data, error) -> Void in
+//      if data != nil {
+//        let ride = Ride(parseObj: data)
+//        self.maxSpaces = ride.maxSpaces
+//        self.departure = ride.departure
+//        
+//        for seat in self.seats {
+//          if seat.tag == ride.maxSpaces {
+//            seat.selected = true
+//          }
+//        }
+//      }
+//    })
     
     //get location
     UserLocation.sharedInstance
@@ -79,7 +79,7 @@ class RegisterDriveViewController: UIViewController {
         case (.Some(let maxSpaces), .Some(let departure), .Some(let currentLocation), .Some(let farthestPoint)):
           let clPoint = PFGeoPoint(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
           
-          let ride = Ride.create(slugUser, maxSpaces: maxSpaces, departure: departure, from: slugUser.work!, to: slugUser.work!)
+          let ride = Ride.create(slugUser, maxSpaces: maxSpaces, departure: departure, from: clPoint, to: farthestPoint)
           ride.parseObj.saveInBackgroundWithBlock(nil)
           
           self.performSegueWithIdentifier("unwind", sender: self)
