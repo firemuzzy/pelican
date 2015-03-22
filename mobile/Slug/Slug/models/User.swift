@@ -68,12 +68,11 @@ class SlugUser {
       self.parseObj["work"] = newValue
     }
   }
+  
 }
 
 class Ride {
   let parseObj:PFObject
-
-  var riders:[PFObject] = []
 
   init(parseObj: PFObject) {
     self.parseObj = parseObj
@@ -100,6 +99,59 @@ class Ride {
     }
   }
   
+  var riderIds:[String] {
+    get {
+      return self.parseObj["riders"] as [String]
+    }
+  }
+
   
+  func hasSpots() -> Bool {
+    return self.riderIds.count < self.maxSpaces
+  }
+  
+  class func findByIdBackground(objectId:String, block: PFObjectResultBlock!) {
+    let query = PFQuery(className:"Ride")
+    query.getObjectInBackgroundWithId(objectId, block: block)
+  }
+  
+  private func findById(objectId:String) -> Ride {
+    let query = PFQuery(className:"Ride")
+    let foundParseRide = query.getObjectWithId(objectId)
+    return Ride(parseObj: foundParseRide)
+  }
+  
+  func grabASpotInBackground(user:SlugUser, block: PFBooleanResultBlock!) {
+    Ride.findByIdBackground(self.parseObj.objectId, block: { (parseRide:PFObject!, error:NSError!) -> Void in
+      if(parseRide != nil && error == nil) {
+        
+        let ride = Ride(parseObj: parseRide)
+        if ride.hasSpots() {
+          Ride.uncheckedGrapASpotInBackground(self.parseObj.objectId, user: user, block: block)
+        } else {
+          let error = NSError.withMsg("no spots left")
+          block?(false, error)
+        }
+        
+      } else {
+        let error = NSError.withMsg("driver canceled the ride")
+        block?(false, error)
+      }
+    })
+  }
+  
+  private class func uncheckedGrapASpotInBackground(rideId:String, user:SlugUser, block: PFBooleanResultBlock!) {
+    var query = PFQuery(className:"Ride")
+   
+     query.getObjectInBackgroundWithId(rideId) {
+      (ride: PFObject!, error: NSError!) -> Void in
+      if error != nil {
+        block?(false, error)
+      } else {
+        ride.addUniqueObject(user.parseObj.objectId, forKey: "riders")
+        ride.saveInBackgroundWithBlock(block)
+      }
+    }
+  }
   
 }

@@ -1,0 +1,60 @@
+// brandon-grotesque @font-face kit
+
+@font-face {
+  font-family: 'brandon-grotesque-light';
+  src: font-url('brandon-grotesque-light.eot');
+  src: font-url('brandon-grotesque-light.eot?#iefix') format('embedded-opentype'),
+       font-url('brandon-grotesque-light.woff') format('woff'),
+       font-url('brandon-grotesque-light.ttf') format('truetype'),
+       font-url('brandon-grotesque-light.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*regular*/
+@font-face {
+  font-family: 'brandon-grotesque';
+  src: font-url('brandon-grotesque-regular-latin-1-webfont.eot');
+  src: font-url('brandon-grotesque-regular-latin-1-webfont.eot?#iefix') format('embedded-opentype'),
+       font-url('brandon-grotesque-regular-latin-1-webfont.woff') format('woff'),
+       font-url('brandon-grotesque-regular-latin-1-webfont.ttf') format('truetype'),
+       font-url('brandon-grotesque-regular-latin-1-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*medium*/
+@font-face {
+  font-family: 'brandon-medium';
+  src: font-url('brandon_med.eot');
+  src: font-url('brandon_med.eot?#iefix') format('embedded-opentype'),
+       font-url('brandon_med.woff') format('woff'),
+       font-url('brandon_med.ttf') format('truetype'),
+       font-url('brandon_med.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*bold*/
+@font-face {
+  font-family: 'brandon-bold';
+  src: font-url('brandon_bld.eot');
+  src: font-url('brandon_bld.eot?#iefix') format('embedded-opentype'),
+       font-url('brandon_bld.woff') format('woff'),
+       font-url('brandon_bld.ttf') format('truetype'),
+       font-url('brandon_bld.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*black*/
+@font-face {
+  font-family: 'brandon-grotesque-black';
+  src: font-url('brandon-grotesque-black-latin-1-webfont.eot');
+  src: font-url('brandon-grotesque-black-latin-1-webfont.eot?#iefix') format('embedded-opentype'),
+       font-url('brandon-grotesque-black-latin-1-webfont.woff') format('woff'),
+       font-url('brandon-grotesque-black-latin-1-webfont.ttf') format('truetype'),
+       font-url('brandon-grotesque-black-latin-1-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
