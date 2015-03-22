@@ -77,7 +77,7 @@ class RideTestUtils {
     return NSTimeInterval((diceRoll * 15) + minuteRandomness).minutes.fromNow
   }
 
-  class func createTestRide(driver:SlugUser, maxSpaces:Int = 3, from:PFGeoPoint = wozGeo, to:PFGeoPoint = googleSeattleGeo, block:RideResultBlock?) {
+  class func createTestRide(driver:SlugUser, maxSpaces:Int = (2 + Int(rand() % 3)), from:PFGeoPoint = wozGeo, to:PFGeoPoint = googleSeattleGeo, block:RideResultBlock?) {
     let departure:NSDate = randomPrettyIntervalFromNow()
     let ride  = Ride.create(driver, maxSpaces: maxSpaces, departure: departure, from: from, to: to)
     
@@ -119,7 +119,7 @@ class RideTestUtils {
     return createTestRideBlocking(driver, from: microsoft, to: uWashingtonGeo)
   }
   
-  class func createTestRideBlocking(driver:SlugUser, maxSpaces:Int = 3, from:PFGeoPoint = wozGeo, to:PFGeoPoint = googleSeattleGeo) -> Ride {
+  class func createTestRideBlocking(driver:SlugUser, maxSpaces:Int = (2 + Int(rand() % 3)), from:PFGeoPoint = wozGeo, to:PFGeoPoint = googleSeattleGeo) -> Ride {
     let departure:NSDate = randomPrettyIntervalFromNow()
 
     let ride = Ride.create(driver, maxSpaces: maxSpaces, departure: departure, from:from, to:to)

@@ -72,6 +72,10 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
               }
             }
             
+            self.drivers.sort({ (one:Driver, two:Driver) -> Bool in
+              one.ride.munutesLeft() < two.ride.munutesLeft()
+            })
+            
             self.tableView.reloadData()
             
           })

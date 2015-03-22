@@ -33,7 +33,7 @@ class ViewRideViewController: UIViewController {
     }
     
     
-    self.departingTime.text = "70 min"
+    self.departingTime.text = self.driver?.ride.prettyMinutesLeft()
   }
   
   
