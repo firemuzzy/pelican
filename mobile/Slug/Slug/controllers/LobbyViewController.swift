@@ -117,6 +117,8 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let cell = tableView.dequeueReusableCellWithIdentifier(tableCell, forIndexPath: indexPath) as RideTableViewCell
     cell.setup(self.drivers[indexPath.row])
     
+    cell.selectionStyle = UITableViewCellSelectionStyle.None
+    
     return cell
   }
   
