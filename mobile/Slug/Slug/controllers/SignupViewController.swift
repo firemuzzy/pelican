@@ -23,13 +23,16 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    self.emailField.becomeFirstResponder()
+    if self.emailField.canBecomeFirstResponder() {
+      self.emailField.becomeFirstResponder()
+    }
   }
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    self.emailField.resignFirstResponder()
-    println("view did dissapear")
+    if self.emailField.canResignFirstResponder() {
+      self.emailField.resignFirstResponder()
+    }
   }
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
