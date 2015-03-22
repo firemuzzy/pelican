@@ -71,7 +71,7 @@ class RegisterDriveViewController: UIViewController {
     if let maxSpaces = self.maxSpaces {
       if let departure = self.departure {
         if let slugUser = SlugUser.currentUser() {
-          let (ride, rideENd) = Ride.create(slugUser, maxSpaces: maxSpaces, departure: departure, from: slugUser.work!, to: slugUser.work!)
+          let ride = Ride.create(slugUser, maxSpaces: maxSpaces, departure: departure, from: slugUser.work!, to: slugUser.work!)
           ride.parseObj.saveInBackgroundWithBlock(nil)
           
           self.dismissViewControllerAnimated(true, completion: nil)

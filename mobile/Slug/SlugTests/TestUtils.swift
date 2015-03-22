@@ -48,9 +48,9 @@ let wozGeo = PFGeoPoint(latitude: 47.605716, longitude: -122.335820)
 
 class RideTestUtils {
   class func createTestRide(driver:SlugUser, maxSpaces:Int = 3, departure:NSDate = 20.minutes.fromNow, from:PFGeoPoint = wozGeo, to:PFGeoPoint = googleSeattleGeo, block:RideResultBlock?) {
-    let (ride, rideEnd) = Ride.create(driver, maxSpaces: maxSpaces, departure: departure, from: from, to: to)
+    let ride  = Ride.create(driver, maxSpaces: maxSpaces, departure: departure, from: from, to: to)
     
-    ride.saveInBackgroundWithBlock(rideEnd, block: { (didSave:Bool, error:NSError!) -> Void in
+    ride.parseObj.saveInBackgroundWithBlock { (didSave:Bool, error:NSError!) -> Void in
       var query = PFQuery(className:"Ride")
       let foundParseRideO = query.getObjectWithId(ride.parseObj.objectId)
       
@@ -61,13 +61,12 @@ class RideTestUtils {
         block?(nil, error)
       }
 
-    })
+    }
   }
   
   class func createTestRideBlocking(driver:SlugUser, maxSpaces:Int = 3, departure:NSDate = 20.minutes.fromNow, from:PFGeoPoint = wozGeo, to:PFGeoPoint = googleSeattleGeo) -> Ride {
-    let (ride, rideEnd) = Ride.create(driver, maxSpaces: maxSpaces, departure: departure, from:from, to:to)
+    let ride = Ride.create(driver, maxSpaces: maxSpaces, departure: departure, from:from, to:to)
     ride.parseObj.save()
-    rideEnd.parseObj.save()
     
     var query = PFQuery(className:"Ride")
     let foundParseRide = query.getObjectWithId(ride.parseObj.objectId)
