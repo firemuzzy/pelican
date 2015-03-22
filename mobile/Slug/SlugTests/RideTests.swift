@@ -30,16 +30,21 @@ class RideTests: XCTestCase {
     let departureDate = 20.minutes.fromNow
     
     let ride = Ride(driver: user, maxSpaces: maxSpaces, departure: departureDate, from: wozGeo, to: googleSeattleGeo)
-    ride.parseObj.save()
+
+    var writeError: NSError? = nil
+    ride.parseObj.save(&writeError)
+    XCTAssertNil(writeError)
     
-    var query = PFQuery(className:"Ride")
-    let foundParseRide = query.getObjectWithId(ride.parseObj.objectId)
-    let foundRide = Ride(parseObj: foundParseRide)
-    
-    XCTAssertEqual(foundRide.maxSpaces, maxSpaces, "maxSpaces did not match")
-    XCTAssertTrue(foundRide.departure.fuzzyEquals(departureDate), "departureDates did not match")
-    
-    ride.parseObj.delete()
+    if(writeError == nil) {
+      var query = PFQuery(className:"Ride")
+      let foundParseRide = query.getObjectWithId(ride.parseObj.objectId)
+      let foundRide = Ride(parseObj: foundParseRide)
+      
+      XCTAssertEqual(foundRide.maxSpaces, maxSpaces, "maxSpaces did not match")
+      XCTAssertTrue(foundRide.departure.fuzzyEquals(departureDate), "departureDates did not match")
+      
+      ride.parseObj.delete()
+    }
   }
   
   func testGettingMyRide() {

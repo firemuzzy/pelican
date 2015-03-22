@@ -57,7 +57,7 @@ class RideTestUtils {
         let foundRide = Ride(parseObj: foundParseRide)
         block?(foundRide, nil)
       } else {
-        block?(nil, NSError.withMsg("error"))
+        block?(nil, error)
       }
     }
   }
