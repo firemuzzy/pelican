@@ -16,8 +16,7 @@ app screenshots:
 <img src="step5.png" alt="drive" height="500px">
 
 
-url: http://www.getslugg.com
-
+backup url: http://bit.ly/1xROUfd
 
 ## Challenge and Approach
 
