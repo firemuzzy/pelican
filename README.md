@@ -20,7 +20,7 @@ backup url: http://bit.ly/1xROUfd
 
 ## Challenge and Approach
 
-- People still drive despite the panoply of transit options available to people in seattle
+- People still drive despite the panopoly of transit options available to people in seattle
 - Cars are too still too convenient
 - Finding trusted carpoolers is hard
 
