@@ -23,11 +23,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     testObj.saveInBackgroundWithBlock(nil)
   }
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    UserLocation.sharedInstance
-  }
-  
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
@@ -70,8 +65,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     self.dismissViewControllerAnimated(true, completion: nil)
   }
   
-  
-  @IBAction func unwind(segue: UIStoryboardSegue) {
-  }
+  @IBAction func unwind(segue: UIStoryboardSegue) {}
 }
 

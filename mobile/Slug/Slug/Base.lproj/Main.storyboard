@@ -82,25 +82,25 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sluggy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5N-Wt-uHC">
-                                                    <rect key="frame" x="20" y="11" width="68" height="38"/>
+                                                    <rect key="frame" x="20" y="11.5" width="68" height="37.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="26"/>
                                                     <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from Slügg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4B-k9-8HR">
-                                                    <rect key="frame" x="96" y="11" width="111" height="38"/>
+                                                    <rect key="frame" x="96" y="11.5" width="110.5" height="37.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Light" family="Brandon Grotesque" pointSize="26"/>
                                                     <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFC-st-ykw">
-                                                    <rect key="frame" x="543" y="3" width="49" height="32"/>
+                                                    <rect key="frame" x="543" y="3" width="49" height="31.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="22"/>
                                                     <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x seats left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QjP-4M-UpO">
-                                                    <rect key="frame" x="543" y="34" width="50" height="18"/>
+                                                    <rect key="frame" x="542.5" y="34.5" width="49.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Light" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>

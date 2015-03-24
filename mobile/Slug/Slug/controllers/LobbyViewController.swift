@@ -13,7 +13,6 @@ let tableCell = "tableCell"
 
 class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-  
   @IBOutlet weak var tableView: UITableView!
   var refreshControl = UIRefreshControl()
   
@@ -35,18 +34,17 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   func loadDrivers() {
     self.clearDrivers()
     
-    if let currentUser = SlugUser.currentUser() {
-      if let currentLoc = UserLocation.sharedInstance.currentLocation {
-        let currentPoint = PFGeoPoint(latitude: currentLoc.coordinate.latitude, longitude: currentLoc.coordinate.longitude)
-
-        let points = [currentUser.home, currentUser.work]
+    switch(SlugUser.currentUser(), UserLocation.sharedInstance.currentLocation) {
+      case (.Some(let user), .Some(let location)):
+        let currentPoint = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         
-        if let farthestPoint = LocUtils.farthestPoint(points, from: currentLoc) {
+        let points = [user.home, user.work]
+        
+        if let farthestPoint = LocUtils.farthestPoint(points, from: location) {
           println("getting drivers from \(currentPoint!)")
           println("getting drivers to \(farthestPoint)")
           
-          Ride.findNearByDriversInBackground(currentPoint!, end: farthestPoint, block: { (objs:[AnyObject]!, error:NSError!) -> Void in
-            
+          Ride.findNearByDriversInBackground(currentPoint!, end: farthestPoint, block: { (objs, error) -> Void in
             for obj in objs {
               if let parseObj = obj as? PFObject {
                 let ride = Ride(parseObj: parseObj)
@@ -54,20 +52,15 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
               }
             }
             
-            self.rides.sort({ (one, two) -> Bool in
-              one.munutesLeft() < two.munutesLeft()
-            })
-            
+            self.rides.sort({ (one, two) -> Bool in one.munutesLeft() < two.munutesLeft() })
             self.tableView.reloadData()
-            
           })
         }
-      }
+      default: break
     }
   }
   
   override func viewWillAppear(animated: Bool) {
-//    self.navigationController?.setNavigationBarHidden(true, animated: animated)
     super.viewWillAppear(animated)
     
     if let selectedRow = self.tableView.indexPathForSelectedRow() {
@@ -83,29 +76,18 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     loadDrivers()
   }
   
-  override func viewWillDisappear(animated: Bool) {
-//    self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    super.viewWillDisappear(animated)
-  }
-  
   func refresh(refreshControl: UIRefreshControl) {
     refreshControl.endRefreshing()
     loadDrivers()
   }
   
 
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return rides.count
-  }
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return rides.count }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(tableCell, forIndexPath: indexPath) as RideTableViewCell
-    
-    let ride = self.rides[indexPath.row]
-    
-//    cell.setup(self.drivers[indexPath.row])
+
     cell.setup(self.rides[indexPath.row])
-    
     cell.selectionStyle = UITableViewCellSelectionStyle.None
     
     return cell
@@ -140,9 +122,9 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   @IBAction func logout(sender: UIBarButtonItem) {
     PFUser.logOut()
-    
     self.performSegueWithIdentifier("UnwindToRoot", sender: self)
   }
+  
   @IBAction func unwind(segue: UIStoryboardSegue) {
 
   }

@@ -13,6 +13,7 @@ private let _SharedUserLocation = UserLocation()
 class UserLocation: NSObject, CLLocationManagerDelegate {
   
   private var locationManager = CLLocationManager()
+  private var delegates = NSMutableSet()
   var currentLocation: CLLocation?
   
   
@@ -30,7 +31,26 @@ class UserLocation: NSObject, CLLocationManagerDelegate {
   }
   
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    println("got location")
     self.currentLocation = manager.location
+    for d in delegates {
+      if let delegate = d as? CLLocationManagerDelegate {
+        delegate.locationManager?(manager, didUpdateLocations: locations)
+      }
+    }
+    
+    if self.delegates.count <= 0 { self.locationManager.stopUpdatingLocation() }
+  }
+  
+  func register(delegate:CLLocationManagerDelegate) {
+    if self.delegates.count <= 0 { self.locationManager.startUpdatingLocation() }
+    self.delegates.addObject(delegate)
+  }
+  
+  func unregister(delegate:CLLocationManagerDelegate) {
+    self.delegates.removeObject(delegate)
+    
+    if self.delegates.count <= 0 { self.locationManager.stopUpdatingLocation() }
   }
   
   
