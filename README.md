@@ -20,7 +20,7 @@ backup url: http://bit.ly/1xROUfd
 
 ## Challenge and Approach
 
-- People still drive dispite the panoply of transit options available to people in seattle
+- People still drive despite the panopoly of transit options available to people in seattle
 - Cars are too still too convenient
 - Finding trusted carpoolers is hard
 
@@ -40,7 +40,7 @@ Texas Transportation Institute (TTI) Associate Research Engineer
 
 ## Technologies, APIs, and Datasets Utilized
 
-1. Lost of magic.
+1. Lots of magic.
 2. Parse API for data storage
 3. ios's swift for the app
 4. middleman (rails, sass, etc) for the website
