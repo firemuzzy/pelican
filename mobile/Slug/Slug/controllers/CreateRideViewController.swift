@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class RegisterDriveViewController: UIViewController {
+class CreateRideViewController: UIViewController {
 
   var maxSpaces: Int?
   var departure: NSDate?
@@ -83,7 +83,6 @@ class RegisterDriveViewController: UIViewController {
           ride.parseObj.saveInBackgroundWithBlock(nil)
           
           self.performSegueWithIdentifier("unwind", sender: self)
-//          self.dismissViewControllerAnimated(true, completion: nil)
           break
         default: break
       }

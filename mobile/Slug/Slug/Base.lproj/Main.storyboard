@@ -332,7 +332,7 @@
         <!--Create Ride-->
         <scene sceneID="9Ck-13-bGg">
             <objects>
-                <viewController title="Create Ride" modalTransitionStyle="flipHorizontal" id="wig-Us-Nm7" customClass="RegisterDriveViewController" customModule="Slug" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Create Ride" modalTransitionStyle="flipHorizontal" id="wig-Us-Nm7" customClass="CreateRideViewController" customModule="Slug" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qxN-GB-4UZ"/>
                         <viewControllerLayoutGuide type="bottom" id="QYG-ee-qyI"/>
@@ -411,7 +411,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="depart15Minutes:" destination="wig-Us-Nm7" eventType="touchUpInside" id="Xfi-7K-vbO"/>
+                                            <action selector="depart15Minutes:" destination="wig-Us-Nm7" eventType="touchUpInside" id="Lu7-fi-FK6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iae-pz-v7p">
@@ -424,7 +424,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="depart5Minutes:" destination="wig-Us-Nm7" eventType="touchUpInside" id="F1m-FZ-IY4"/>
+                                            <action selector="depart5Minutes:" destination="wig-Us-Nm7" eventType="touchUpInside" id="UwP-Iu-GFt"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyO-eK-4tl">
@@ -437,7 +437,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="depart30Minutes:" destination="wig-Us-Nm7" eventType="touchUpInside" id="pfG-QY-Q1y"/>
+                                            <action selector="depart30Minutes:" destination="wig-Us-Nm7" eventType="touchUpInside" id="Vvr-Qy-4Rz"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -539,14 +539,14 @@
                         </variation>
                     </view>
                     <connections>
-                        <outletCollection property="seats" destination="NSl-iG-0C9" collectionClass="NSMutableArray" id="pZy-xk-eIT"/>
-                        <outletCollection property="seats" destination="eqV-jI-PBv" collectionClass="NSMutableArray" id="ORW-je-jkU"/>
-                        <outletCollection property="seats" destination="H7o-72-60a" collectionClass="NSMutableArray" id="UYC-lV-IAj"/>
-                        <outletCollection property="seats" destination="46b-h7-sgD" collectionClass="NSMutableArray" id="qFM-ej-Id6"/>
-                        <outletCollection property="seats" destination="PZL-JY-cvq" collectionClass="NSMutableArray" id="iW0-gI-VG4"/>
-                        <outletCollection property="departureTimes" destination="Iae-pz-v7p" collectionClass="NSMutableArray" id="IXw-Sy-mJd"/>
-                        <outletCollection property="departureTimes" destination="qEA-oi-REa" collectionClass="NSMutableArray" id="fLt-iy-Ib4"/>
-                        <outletCollection property="departureTimes" destination="PyO-eK-4tl" collectionClass="NSMutableArray" id="WTW-yy-3Fg"/>
+                        <outletCollection property="seats" destination="NSl-iG-0C9" collectionClass="NSMutableArray" id="Vfr-uz-5AR"/>
+                        <outletCollection property="seats" destination="PZL-JY-cvq" collectionClass="NSMutableArray" id="6D6-NK-X6d"/>
+                        <outletCollection property="seats" destination="46b-h7-sgD" collectionClass="NSMutableArray" id="FoS-qO-bte"/>
+                        <outletCollection property="seats" destination="eqV-jI-PBv" collectionClass="NSMutableArray" id="qfz-J3-ciC"/>
+                        <outletCollection property="seats" destination="H7o-72-60a" collectionClass="NSMutableArray" id="4JT-tR-lbi"/>
+                        <outletCollection property="departureTimes" destination="Iae-pz-v7p" collectionClass="NSMutableArray" id="HmX-Sq-jAi"/>
+                        <outletCollection property="departureTimes" destination="qEA-oi-REa" collectionClass="NSMutableArray" id="FIa-4D-4M8"/>
+                        <outletCollection property="departureTimes" destination="PyO-eK-4tl" collectionClass="NSMutableArray" id="KYh-LK-gFp"/>
                         <segue destination="gUk-4P-QuY" kind="unwind" identifier="unwind" unwindAction="unwind:" id="p2S-Bt-36U"/>
                     </connections>
                 </viewController>

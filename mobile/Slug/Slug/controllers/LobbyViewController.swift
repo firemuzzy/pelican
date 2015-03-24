@@ -40,6 +40,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
     self.tableView.addSubview(self.refreshControl)
+    
   }
   
   func clearDrivers() {
