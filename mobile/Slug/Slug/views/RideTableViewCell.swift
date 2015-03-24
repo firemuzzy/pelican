@@ -15,19 +15,21 @@ class RideTableViewCell: UITableViewCell {
   @IBOutlet weak var personName: UILabel!
   @IBOutlet weak var fromCompany: UILabel!
   
-  func setup(driver: Driver) {
-    self.personName.text = driver.name
-    self.fromCompany.text = "from \(driver.company)"
+  func setup(ride: Ride) {
+    self.personName.text = ride.driver?.firstName
+    self.timeLeft.text = ride.prettyMinutesLeft()
     
-    self.timeLeft.text = driver.ride.prettyMinutesLeft()
-    
-    let seatsLeft = driver.ride.seatsLeft()
-    if(seatsLeft <= 0) {
-      self.seatsLeft.text = "full"
-    } else if(seatsLeft == 1) {
-      self.seatsLeft.text = "\(seatsLeft) seat left"
-    } else {
-      self.seatsLeft.text = "\(seatsLeft) seats left"
+    if let company = ride.driver?.company() {
+      self.fromCompany.text = "from \(company.name)"
     }
+    
+    let seatsLeft = ride.seatsLeft()
+
+    switch ride.seatsLeft() {
+      case let x where x < 0: self.seatsLeft.text = "full"
+      case 1: self.seatsLeft.text = "\(seatsLeft) seat left"
+      default: self.seatsLeft.text = "\(seatsLeft) seats left"
+    }
+
   }
 }

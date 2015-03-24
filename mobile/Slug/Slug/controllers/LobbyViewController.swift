@@ -11,28 +11,13 @@ import Parse
 
 let tableCell = "tableCell"
 
-//needs to be a class to act as AnyObject
-class Driver {
-  let name: String
-  let company: String
-  let departureTime: String
-  let ride: Ride
-  
-  init(name: String, company: String, departureTime: String, ride: Ride) {
-    self.name = name
-    self.company = company
-    self.departureTime = departureTime
-    self.ride = ride
-  }
-}
-
 class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   
   @IBOutlet weak var tableView: UITableView!
   var refreshControl = UIRefreshControl()
   
-  var drivers:[Driver] = []
+  var rides:[Ride] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -44,7 +29,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func clearDrivers() {
-    drivers = []
+    rides = []
   }
   
   func loadDrivers() {
@@ -65,17 +50,12 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
             for obj in objs {
               if let parseObj = obj as? PFObject {
                 let ride = Ride(parseObj: parseObj)
-                
-                if let rideDriver = ride.driver {
-                  let driverToShow = Driver(name: rideDriver.firstName, company: rideDriver.companyName(), departureTime: ride.departure.asTime(), ride:ride)
-                  self.drivers.append(driverToShow)
-                }
-                
+                self.rides.append(ride)
               }
             }
             
-            self.drivers.sort({ (one:Driver, two:Driver) -> Bool in
-              one.ride.munutesLeft() < two.ride.munutesLeft()
+            self.rides.sort({ (one, two) -> Bool in
+              one.munutesLeft() < two.munutesLeft()
             })
             
             self.tableView.reloadData()
@@ -115,12 +95,16 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return drivers.count
+    return rides.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(tableCell, forIndexPath: indexPath) as RideTableViewCell
-    cell.setup(self.drivers[indexPath.row])
+    
+    let ride = self.rides[indexPath.row]
+    
+//    cell.setup(self.drivers[indexPath.row])
+    cell.setup(self.rides[indexPath.row])
     
     cell.selectionStyle = UITableViewCellSelectionStyle.None
     
@@ -129,8 +113,8 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let driver = self.drivers[indexPath.row]
-    self.performSegueWithIdentifier("SegueToViewRide", sender: driver)
+    let ride = self.rides[indexPath.row]
+    self.performSegueWithIdentifier("SegueToViewRide", sender: ride)
   }
   
   func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
@@ -147,9 +131,8 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let viewRideController  = segue.destinationViewController as? ViewRideViewController {
-      if let driver = sender as? Driver {
-        
-        viewRideController.driver = driver
+      if let ride = sender as? Ride {
+        viewRideController.ride = ride
       }
     }
   }

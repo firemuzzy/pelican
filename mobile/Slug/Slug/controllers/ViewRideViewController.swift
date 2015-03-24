@@ -9,32 +9,30 @@
 import UIKit
 
 class ViewRideViewController: UIViewController {
-
-  var driver: Driver?
   
+  var ride: Ride? { didSet { updateUI() } }
   
   @IBOutlet weak var fromCompany: UILabel!
   @IBOutlet weak var personName: UILabel!
   @IBOutlet weak var departingTime: UILabel!
   @IBAction func join(sender: UIButton) {
     if let user = SlugUser.currentUser() {
-      self.driver?.ride.grabASpotInBackground(user, block: nil)
+      self.ride?.grabASpotInBackground(user, block: nil)
     }
   }
   
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    self.personName.text = driver?.name
-    
-    if let company = driver?.company {
-      self.fromCompany.text = "from \(company)"
-    }
-    
-    
-    self.departingTime.text = self.driver?.ride.prettyMinutesLeft()
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    updateUI()
   }
   
+  func updateUI() {
+    self.personName?.text = self.ride?.driver?.firstName
+    if let company = self.ride?.driver?.company().name {
+      self.fromCompany?.text = "from \(company)"
+    }
+    
+    self.departingTime?.text = self.ride?.prettyMinutesLeft()
+  }
   
 }
