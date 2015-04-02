@@ -1,0 +1,3 @@
+[submodule "slugg-web"]
+	path = slugg-web
+	url = git@github.com:firemuzzy/slugg-web.git
