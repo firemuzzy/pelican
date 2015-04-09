@@ -72,19 +72,18 @@ class CreateRideViewController: UIViewController {
   
   @IBAction func done(sender: UIButton) {
     if let slugUser = SlugUser.currentUser() {
-      let currentLocationOpt = UserLocation.sharedInstance.currentLocation
-      let farthestPoint  = LocUtils.farthestPoint([slugUser.work, slugUser.home], from: currentLocationOpt)
-      
-      switch (self.maxSpaces, self.departure, currentLocationOpt, farthestPoint) {
-        case (.Some(let maxSpaces), .Some(let departure), .Some(let currentLocation), .Some(let farthestPoint)):
+      if let maxSpaces = self.maxSpaces,
+         let departure = self.departure,
+         let currentLocation = UserLocation.sharedInstance.currentLocation,
+         let farthestPoint = LocUtils.farthestPoint([slugUser.work, slugUser.home], from: currentLocation)
+      {
+          
           let clPoint = PFGeoPoint(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
           
           let ride = Ride.create(slugUser, maxSpaces: maxSpaces, departure: departure, from: clPoint, to: farthestPoint)
           ride.parseObj.saveInBackgroundWithBlock(nil)
           
           self.performSegueWithIdentifier("unwind", sender: self)
-          break
-        default: break
       }
       
     }
