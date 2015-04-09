@@ -44,11 +44,11 @@ class RideTests: XCTestCase {
       var query = PFQuery(className:"Ride")
       query.includeKey("rideEnd")
       
-      let foundParseRide = query.getObjectWithId(ride.parseObj.objectId)
-      let foundRide = Ride(parseObj: foundParseRide)
+      let foundParseRide = query.getObjectWithId(ride.parseObj.objectId!)
+      let foundRide = Ride(parseObj: foundParseRide!)
       
-      XCTAssertEqual(foundRide.maxSpaces, maxSpaces, "maxSpaces did not match")
-      XCTAssertTrue(foundRide.departure.fuzzyEquals(departureDate), "departureDates did not match")
+      XCTAssertEqualOptional(foundRide.maxSpaces, maxSpaces, "maxSpaces did not match")
+      XCTAssertTrue(foundRide.departure!.fuzzyEquals(departureDate), "departureDates did not match")
       XCTAssertEqual(foundRide.from!, wozGeo)
       
       XCTAssertNotNil(foundRide.rideEnd)
@@ -77,11 +77,11 @@ class RideTests: XCTestCase {
       var query = PFQuery(className:"Ride")
       query.includeKey("rideEnd")
       
-      let foundParseRide = query.getObjectWithId(ride.parseObj.objectId)
-      let foundRide = Ride(parseObj: foundParseRide)
+      let foundParseRide = query.getObjectWithId(ride.parseObj.objectId!)
+      let foundRide = Ride(parseObj: foundParseRide!)
       
-      XCTAssertEqual(foundRide.maxSpaces, maxSpaces, "maxSpaces did not match")
-      XCTAssertTrue(foundRide.departure.fuzzyEquals(departureDate), "departureDates did not match")
+      XCTAssertEqualOptional(foundRide.maxSpaces, maxSpaces, "maxSpaces did not match")
+      XCTAssertTrue(foundRide.departure?.fuzzyEquals(departureDate) ?? false, "departureDates did not match")
       XCTAssertEqual(foundRide.from!, wozGeo)
       
       XCTAssertNotNil(foundRide.rideEnd)
@@ -101,29 +101,30 @@ class RideTests: XCTestCase {
       ride = createdRide
       expRideCreate.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
-      XCTAssertNil(error, "Error")
+    
+    waitForExpectationsWithTimeout(5, handler: { (errorO) -> Void in
+      XCTAssertNil(errorO, "Error")
     })
     
     let exp = expectationWithDescription("findMyRide")
 
-    driver.findMyCurrentDrivingRideInBackground { (pfRide: PFObject!, error:NSError!) -> Void in
-      let foundRide = Ride(parseObj: pfRide)
-      XCTAssertEqual(ride.parseObj.objectId, foundRide.parseObj.objectId)
-      XCTAssertEqual(ride.maxSpaces, foundRide.maxSpaces)
-      XCTAssertEqual(ride.maxSpaces, foundRide.maxSpaces)
-      XCTAssertTrue(ride.departure.fuzzyEquals(foundRide.departure), "departureDates did not match")
+    driver.findMyCurrentDrivingRideInBackground { (pfRideO, errorO) -> Void in
+      let foundRide = Ride(parseObj: pfRideO!)
+      XCTAssertEqualOptional(ride.parseObj.objectId, foundRide.parseObj.objectId)
+      XCTAssertEqualOptional(ride.maxSpaces, foundRide.maxSpaces)
+      XCTAssertEqualOptional(ride.maxSpaces, foundRide.maxSpaces)
+      XCTAssertTrue(ride.departure!.fuzzyEquals(foundRide.departure!), "departureDates did not match")
       XCTAssertFalse(ride.hasDeparted)
-    
+      
       XCTAssertNotNil(foundRide.rideEnd)
       if let rideEnd = foundRide.rideEnd {
         XCTAssertEqual(rideEnd.to!, googleSeattleGeo)
       }
-    
+      
       exp.fulfill()
     }
     
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
   }
@@ -137,40 +138,40 @@ class RideTests: XCTestCase {
       ride = createdRide
       expRideCreate.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
     let exp = expectationWithDescription("departMyRide")
     
     XCTAssertNotNil(ride)
-    ride.markRideDepartedInBackground(driver, block: { (succeded:Bool, error:NSError!) -> Void in
+    ride.markRideDepartedInBackground(driver, block: { (succeded:Bool, error:NSError?) -> Void in
       XCTAssertTrue(succeded)
       XCTAssertNil(error)
       
       exp.fulfill()
     })
     
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
     
     let exp2 = expectationWithDescription("findMyRide")
     
-    driver.findMyCurrentDrivingRideInBackground { (pfRide: PFObject!, error:NSError!) -> Void in
-      let foundRide = Ride(parseObj: pfRide)
-      XCTAssertEqual(ride.parseObj.objectId, foundRide.parseObj.objectId)
-      XCTAssertEqual(ride.maxSpaces, foundRide.maxSpaces)
-      XCTAssertEqual(ride.maxSpaces, foundRide.maxSpaces)
-      XCTAssertTrue(ride.departure.fuzzyEquals(foundRide.departure), "departureDates did not match")
+    driver.findMyCurrentDrivingRideInBackground { (pfRideO: PFObject?, errorO:NSError?) -> Void in
+      let foundRide = Ride(parseObj: pfRideO!)
+      XCTAssertEqualOptional(ride.parseObj.objectId, foundRide.parseObj.objectId)
+      XCTAssertEqualOptional(ride.maxSpaces, foundRide.maxSpaces)
+      XCTAssertEqualOptional(ride.maxSpaces, foundRide.maxSpaces)
+      XCTAssertTrue(ride.departure!.fuzzyEquals(foundRide.departure!), "departureDates did not match")
       
       XCTAssertFalse(ride.hasDeparted)
       
       exp2.fulfill()
     }
     
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
   }
@@ -184,31 +185,31 @@ class RideTests: XCTestCase {
       ride = createdRide
       expRideCreate.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
     let slug1 = UserTestUtils.createTestUser1()
     let expSlug1Grab = expectationWithDescription("slug1")
-    ride.grabASpotInBackground(slug1, block: { (didGrab:Bool, error:NSError!) -> Void in
+    ride.grabASpotInBackground(slug1, block: { (didGrab:Bool, errorO:NSError?) -> Void in
       XCTAssertTrue(didGrab)
-      XCTAssertNil(error)
+      XCTAssertNil(errorO)
       expSlug1Grab.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
     
     let expSlug1GrabFind = expectationWithDescription("slug1Find")
-    Ride.findByIdInBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
-      let foundRide = Ride(parseObj: obj)
-      XCTAssertTrue(foundRide.hasSpots())
-      XCTAssertEqual(foundRide.riderIds.count, 1, "wrong rider count")
+    Ride.findByIdInBackground(ride.parseObj.objectId!, block: { (obj:PFObject?, error:NSError?) -> Void in
+      let foundRide = Ride(parseObj: obj!)
+      XCTAssertTrue(foundRide.hasSpots()!)
+      XCTAssertEqual(foundRide.riderIds!.count, 1, "wrong rider count")
       
       expSlug1GrabFind.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
@@ -216,24 +217,24 @@ class RideTests: XCTestCase {
     
     let slug2 = UserTestUtils.createTestUser2()
     let expSlug2Grab = expectationWithDescription("slug2")
-    ride.grabASpotInBackground(slug2, block: { (didGrab:Bool, error:NSError!) -> Void in
+    ride.grabASpotInBackground(slug2, block: { (didGrab:Bool, error:NSError?) -> Void in
       XCTAssertTrue(didGrab)
       XCTAssertNil(error)
       expSlug2Grab.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
     let expSlug2GrabFind = expectationWithDescription("slug2Find")
-    Ride.findByIdInBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
-      let foundRide = Ride(parseObj: obj)
-      XCTAssertTrue(foundRide.hasSpots())
-      XCTAssertEqual(foundRide.riderIds.count, 2, "wrong rider count")
+    Ride.findByIdInBackground(ride.parseObj.objectId!, block: { (obj:PFObject?, error:NSError?) -> Void in
+      let foundRide = Ride(parseObj: obj!)
+      XCTAssertTrue(foundRide.hasSpots()!)
+      XCTAssertEqual(foundRide.riderIds!.count, 2, "wrong rider count")
       
       expSlug2GrabFind.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
@@ -241,25 +242,25 @@ class RideTests: XCTestCase {
     
     let slug3 = UserTestUtils.createTestUser3()
     let expSlug3Grab = expectationWithDescription("slug3")
-    ride.grabASpotInBackground(slug3, block: { (didGrab:Bool, error:NSError!) -> Void in
+    ride.grabASpotInBackground(slug3, block: { (didGrab:Bool, error:NSError?) -> Void in
       XCTAssertTrue(didGrab)
       XCTAssertNil(error)
       expSlug3Grab.fulfill()
     })
     
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
     let expSlug3GrabFind = expectationWithDescription("slug3Find")
-    Ride.findByIdInBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
-      let foundRide = Ride(parseObj: obj)
-      XCTAssertFalse(foundRide.hasSpots())
-      XCTAssertEqual(foundRide.riderIds.count, 3, "wrong rider count")
+    Ride.findByIdInBackground(ride.parseObj.objectId!, block: { (obj:PFObject?, error:NSError?) -> Void in
+      let foundRide = Ride(parseObj: obj!)
+      XCTAssertFalse(foundRide.hasSpots()!)
+      XCTAssertEqual(foundRide.riderIds!.count, 3, "wrong rider count")
       
       expSlug3GrabFind.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
   }
@@ -273,31 +274,31 @@ class RideTests: XCTestCase {
       ride = createdRide
       expRideCreate.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
     let slug1 = UserTestUtils.createTestUser1()
     let expSlug1Grab = expectationWithDescription("slug1")
-    ride.grabASpotInBackground(slug1, block: { (didGrab:Bool, error:NSError!) -> Void in
+    ride.grabASpotInBackground(slug1, block: { (didGrab:Bool, error:NSError?) -> Void in
       XCTAssertTrue(didGrab)
       XCTAssertNil(error)
       expSlug1Grab.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
     
     let expSlug1GrabFind = expectationWithDescription("slug1Find")
-    Ride.findByIdInBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
-      let foundRide = Ride(parseObj: obj)
-      XCTAssertTrue(foundRide.hasSpots())
-      XCTAssertEqual(foundRide.riderIds.count, 1, "wrong rider count")
+    Ride.findByIdInBackground(ride.parseObj.objectId!, block: { (obj:PFObject?, error:NSError?) -> Void in
+      let foundRide = Ride(parseObj: obj!)
+      XCTAssertTrue(foundRide.hasSpots()!)
+      XCTAssertEqual(foundRide.riderIds!.count, 1, "wrong rider count")
       
       expSlug1GrabFind.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
@@ -305,24 +306,24 @@ class RideTests: XCTestCase {
     
     let slug2 = UserTestUtils.createTestUser2()
     let expSlug2Grab = expectationWithDescription("slug2")
-    ride.grabASpotInBackground(slug2, block: { (didGrab:Bool, error:NSError!) -> Void in
+    ride.grabASpotInBackground(slug2, block: { (didGrab:Bool, error:NSError?) -> Void in
       XCTAssertTrue(didGrab)
       XCTAssertNil(error)
       expSlug2Grab.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
     let expSlug2GrabFind = expectationWithDescription("slug2Find")
-    Ride.findByIdInBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
-      let foundRide = Ride(parseObj: obj)
-      XCTAssertFalse(foundRide.hasSpots())
-      XCTAssertEqual(foundRide.riderIds.count, 2, "wrong rider count")
+    Ride.findByIdInBackground(ride.parseObj.objectId!, block: { (obj:PFObject?, error:NSError?) -> Void in
+      let foundRide = Ride(parseObj: obj!)
+      XCTAssertFalse(foundRide.hasSpots()!)
+      XCTAssertEqual(foundRide.riderIds!.count, 2, "wrong rider count")
       
       expSlug2GrabFind.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler:  { error in
       XCTAssertNil(error, "Error")
     })
 
@@ -330,25 +331,25 @@ class RideTests: XCTestCase {
     
     let slug3 = UserTestUtils.createTestUser3()
     let expSlug3Grab = expectationWithDescription("slug3")
-    ride.grabASpotInBackground(slug3, block: { (didGrab:Bool, error:NSError!) -> Void in
+    ride.grabASpotInBackground(slug3, block: { (didGrab:Bool, error:NSError?) -> Void in
       XCTAssertFalse(didGrab)
       XCTAssertNotNil(error)
       expSlug3Grab.fulfill()
     })
     
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
     let expSlug3GrabFind = expectationWithDescription("slug3Find")
-    Ride.findByIdInBackground(ride.parseObj.objectId, block: { (obj:PFObject!, error:NSError!) -> Void in
-      let foundRide = Ride(parseObj: obj)
-      XCTAssertFalse(foundRide.hasSpots())
-      XCTAssertEqual(foundRide.riderIds.count, 2, "wrong rider count")
+    Ride.findByIdInBackground(ride.parseObj.objectId!, block: { (obj:PFObject?, error:NSError?) -> Void in
+      let foundRide = Ride(parseObj: obj!)
+      XCTAssertFalse(foundRide.hasSpots()!)
+      XCTAssertEqual(foundRide.riderIds!.count, 2, "wrong rider count")
       
       expSlug3GrabFind.fulfill()
     })
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
   }

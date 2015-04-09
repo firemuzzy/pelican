@@ -8,6 +8,19 @@
 
 import Foundation
 import Parse
+import XCTest
+
+public func XCTAssertEqualOptional<T: Any where T: Equatable>(expression1: T?, expression2: T?, _ message: String? = nil, file: String = __FILE__, line: UInt = __LINE__) {
+  if let exp1 = expression1 {
+    if let exp2 = expression2 {
+      XCTAssertEqual(exp1, exp2, message ?? "", file: file, line: line)
+    } else {
+      XCTFail(message ?? "exp1 != nil, exp2 == nil", file: file, line: line)
+    }
+  } else if let exp2 = expression2 {
+    XCTFail(message ?? "exp1 == nil, exp2 != nil", file: file, line: line)
+  }
+}
 
 class UserTestUtils {
   class func createTestUser(fname:String = "Michael", lname:String = "Charkin", email: String = "mcharkin+slugtest@gmail.com", password: String = "test" ) -> SlugUser {
@@ -126,8 +139,8 @@ class RideTestUtils {
     ride.parseObj.save()
     
     var query = PFQuery(className:"Ride")
-    let foundParseRide = query.getObjectWithId(ride.parseObj.objectId)
-    let foundRide = Ride(parseObj: foundParseRide)
+    let foundParseRide = query.getObjectWithId(ride.parseObj.objectId!)
+    let foundRide = Ride(parseObj: foundParseRide!)
     
     return foundRide
   }

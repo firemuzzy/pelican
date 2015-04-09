@@ -61,7 +61,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     self.performSegueWithIdentifier("SegueToLobby", sender: self)
   }
 
-  func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
+  func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
   

@@ -35,10 +35,10 @@ class UserTests: XCTestCase {
     XCTAssertNotNil(foundParseUser, "user is nil")
     let foundUser = SlugUser(parseUser: foundParseUser!)
     
-    XCTAssertEqual(foundUser.firstName, Optional.Some(firstName), "firstName did not match")
-    XCTAssertEqual(foundUser.lastName, Optional.Some(lastName), "lastName did not match")
-    XCTAssertEqual(foundUser.email, Optional.Some(email), "email did not match")
-
+    let fNameO: String? = firstName
+    XCTAssertEqualOptional(foundUser.firstName, fNameO, "firstName did not match")
+    XCTAssertEqualOptional(foundUser.lastName, lastName, "lastName did not match")
+    XCTAssertEqualOptional(foundUser.email, email, "email did not match")
   }
   
   func testUserCreate() {
@@ -51,14 +51,14 @@ class UserTests: XCTestCase {
       let foundParseUser = PFUser.logInWithUsername("mcharkin+slug@gmail.com", password: "test")
       
       XCTAssertNotNil(foundParseUser, "user is nil")
-      let foundUser = SlugUser(parseUser: foundParseUser)
+      let foundUser = SlugUser(parseUser: foundParseUser!)
 
-      XCTAssertEqual(foundUser.firstName, "Michael", "firstName did not match")
-      XCTAssertEqual(foundUser.lastName, "Charkin", "lastName did not match")
-      XCTAssertEqual(foundUser.email, "mcharkin+slug@gmail.com", "email did not match")
+      XCTAssertEqualOptional(foundUser.firstName, "Michael", "firstName did not match")
+      XCTAssertEqualOptional(foundUser.lastName, "Charkin", "lastName did not match")
+      XCTAssertEqualOptional(foundUser.email, "mcharkin+slug@gmail.com", "email did not match")
     }
     
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     

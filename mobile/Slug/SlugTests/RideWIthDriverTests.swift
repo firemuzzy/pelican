@@ -32,9 +32,9 @@ class RideWithDriverTests: XCTestCase {
     let nearGoog = PFGeoPoint(latitude: 47.649295, longitude: -122.350602)    
     
     let exp = expectationWithDescription("find drivers")
-    Ride.findNearByDriversInBackground(nearWoz3, end: nearGoog) { (objs:[AnyObject]!, error:NSError!) -> Void in
-      XCTAssertEqual(objs.count, 1)
-      let parseObj = objs.first! as PFObject
+    Ride.findNearByDriversInBackground(nearWoz3, end: nearGoog) { (objs:[AnyObject]?, error:NSError?) -> Void in
+      XCTAssertEqual(objs!.count, 1)
+      let parseObj = objs!.first! as! PFObject
       let ride = Ride(parseObj: parseObj)
       
       XCTAssertEqual(ride.from!, wozGeo)
@@ -42,7 +42,7 @@ class RideWithDriverTests: XCTestCase {
       
       exp.fulfill()
     }
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
@@ -63,11 +63,12 @@ class RideWithDriverTests: XCTestCase {
     let nearMS = PFGeoPoint(latitude: 47.650003, longitude: -122.138316)
     
     let exp = expectationWithDescription("find drivers")
-    Ride.findNearByDriversInBackground(nearWoz3, end: nearMS) { (objs:[AnyObject]!, error:NSError!) -> Void in
+    Ride.findNearByDriversInBackground(nearWoz3, end: nearMS) { (objsO:[AnyObject]?, error:NSError?) -> Void in
+      let objs = objsO!
       XCTAssertEqual(objs.count, 1)
       
       if(objs.count >= 1) {
-        let parseObj = objs.first! as PFObject
+        let parseObj = objs.first! as! PFObject
         let ride = Ride(parseObj: parseObj)
         
         XCTAssertEqual(ride.from!, wozGeo)
@@ -75,7 +76,7 @@ class RideWithDriverTests: XCTestCase {
       }
       exp.fulfill()
     }
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
 //    
@@ -107,12 +108,13 @@ class RideWithDriverTests: XCTestCase {
     
     
     let exp = expectationWithDescription("find drivers")
-    Ride.findNearByDriversInBackground(nearWoz3, end: nearGoog) { (objs:[AnyObject]!, error:NSError!) -> Void in
+    Ride.findNearByDriversInBackground(nearWoz3, end: nearGoog) { (objsO:[AnyObject]?, error:NSError?) -> Void in
+      let objs = objsO!
       XCTAssertEqual(objs.count, 2)
       
       exp.fulfill()
     }
-    waitForExpectationsWithTimeout(5, { error in
+    waitForExpectationsWithTimeout(5, handler: { error in
       XCTAssertNil(error, "Error")
     })
     
