@@ -28,8 +28,8 @@ class ViewRideViewController: UIViewController {
   
   func updateUI() {
     self.personName?.text = self.ride?.driver?.firstName
-    if let company = self.ride?.driver?.company().name {
-      self.fromCompany?.text = "from \(company)"
+    if let companyName = self.ride?.driver?.company()?.name {
+      self.fromCompany?.text = "from \(companyName)"
     }
     
     self.departingTime?.text = self.ride?.prettyMinutesLeft()

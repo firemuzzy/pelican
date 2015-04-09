@@ -17,7 +17,7 @@ class SlugNavigationController: UINavigationController, UIViewControllerTransiti
     }
   }
   
-  @IBInspectable var fontName: NSString? {
+  @IBInspectable var fontName: String? {
     didSet {
       if let fontName = fontName {
         

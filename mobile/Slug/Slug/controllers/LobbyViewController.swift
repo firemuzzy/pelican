@@ -41,18 +41,28 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let points = [user.home, user.work]
         
         if let farthestPoint = LocUtils.farthestPoint(points, from: location) {
-          println("getting drivers from \(currentPoint!)")
+          println("getting drivers from \(currentPoint)")
           println("getting drivers to \(farthestPoint)")
           
-          Ride.findNearByDriversInBackground(currentPoint!, end: farthestPoint, block: { (objs, error) -> Void in
-            for obj in objs {
-              if let parseObj = obj as? PFObject {
-                let ride = Ride(parseObj: parseObj)
-                self.rides.append(ride)
+          Ride.findNearByDriversInBackground(currentPoint, end: farthestPoint, block: { (objsO, errorO) -> Void in
+            if let objs = objsO {
+              for obj in objs {
+                if let parseObj = obj as? PFObject {
+                  let ride = Ride(parseObj: parseObj)
+                  self.rides.append(ride)
+                }
               }
+            } else if let error = errorO {
+              self.rides = []
+            } else {
+              self.rides = []
             }
+            self.rides.sort({ (one, two) -> Bool in
+              one
+              return true
+            })
             
-            self.rides.sort({ (one, two) -> Bool in one.munutesLeft() < two.munutesLeft() })
+//            self.rides.sort({ (one, two) -> Bool in return one.munutesLeft() < two.munutesLeft() })
             self.tableView.reloadData()
           })
         }
@@ -85,7 +95,7 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return rides.count }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(tableCell, forIndexPath: indexPath) as RideTableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier(tableCell, forIndexPath: indexPath) as! RideTableViewCell
 
     cell.setup(self.rides[indexPath.row])
     cell.selectionStyle = UITableViewCellSelectionStyle.None

@@ -29,8 +29,8 @@ import UIKit
     configureView()
   }
   
-  override init() {
-    super.init()
+  init() {
+    super.init(frame: CGRectZero)
     configureView()
   }
   

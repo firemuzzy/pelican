@@ -16,7 +16,7 @@ class UserTestUtils {
     user.parseObj.signUp()
     
     let foundParseUser = PFUser.logInWithUsername(email, password: "test")
-    let foundUser = SlugUser(parseUser: foundParseUser)
+    let foundUser = SlugUser(parseUser: foundParseUser!)
     
     return foundUser
   }
@@ -81,9 +81,9 @@ class RideTestUtils {
     let departure:NSDate = randomPrettyIntervalFromNow()
     let ride  = Ride.create(driver, maxSpaces: maxSpaces, departure: departure, from: from, to: to)
     
-    ride.parseObj.saveInBackgroundWithBlock { (didSave:Bool, error:NSError!) -> Void in
+    ride.parseObj.saveInBackgroundWithBlock { (didSave:Bool, error:NSError?) -> Void in
       var query = PFQuery(className:"Ride")
-      let foundParseRideO = query.getObjectWithId(ride.parseObj.objectId)
+      let foundParseRideO = query.getObjectWithId(ride.parseObj.objectId!)
       
       if let foundParseRide = foundParseRideO {
         let foundRide = Ride(parseObj: foundParseRide)

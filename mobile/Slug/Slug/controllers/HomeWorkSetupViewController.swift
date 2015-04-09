@@ -35,10 +35,10 @@ class HomeWorkSetupViewController: UIViewController {
   }
   
   @IBAction func doneCLicked(sender: AnyObject) {
-    if let user = SlugUser.currentUser() {
+    if let user = SlugUser.currentUser(), let userCompany = user.company()  {
       if let coordinate = UserLocation.sharedInstance.currentLocation?.coordinate {
         user.home = PFGeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        user.work = PFGeoPoint(latitude: user.company().latitude, longitude: user.company().longitude)
+        user.work = PFGeoPoint(latitude: userCompany.latitude, longitude: userCompany.longitude)
         user.parseObj.saveInBackgroundWithBlock(nil)
         self.performSegueWithIdentifier("UnwindToRoot", sender: self)
       }

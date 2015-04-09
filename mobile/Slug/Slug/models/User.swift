@@ -27,24 +27,24 @@ class SlugUser {
     self.lastName = lastName
   }
 
-  var email: String {
+  var email: String? {
     get {
       return self.parseObj.email
     }
   }
 
-  var firstName: String {
+  var firstName: String? {
     get {
-      return self.parseObj["firstName"] as String
+      return self.parseObj["firstName"] as? String
     }
     set {
       self.parseObj["firstName"] = newValue
     }
   }
   
-  var lastName: String {
+  var lastName: String? {
     get {
-      return self.parseObj["lastName"] as String
+      return self.parseObj["lastName"] as? String
     }
     set {
       self.parseObj["lastName"] = newValue
@@ -83,21 +83,20 @@ class SlugUser {
     }
   }
 
-  func companyName() -> String {
-    return self.email.extractCompnayFromEmail().name
+  func companyName() -> String? {
+    return self.email?.extractCompnayFromEmail().name
   }
   
-  func company() -> Company {
-    return self.email.extractCompnayFromEmail()
+  func company() -> Company? {
+    return self.email?.extractCompnayFromEmail()
   }
   
   func findMyCurrentDrivingRideInBackground(block:PFObjectResultBlock!) {
     Ride.findLatestByDriverIdInBackground(self, block: block)
   }
   
-  class func currentUser() -> SlugUser?{
-    let user = PFUser.currentUser()
-    if user != nil {
+  class func currentUser() -> SlugUser? {
+    if let user = PFUser.currentUser() {
       return SlugUser(parseUser: user)
     } else {
       return nil
@@ -125,6 +124,24 @@ class RideEnd {
     
     self.parseObj["driver"] = driver.parseObj
     self.parseObj["to"] = to
+  }
+}
+
+extension PFObject {
+  var parseDriver: PFUser? {
+    get {
+      return self["driver"] as? PFUser
+    }
+  }
+  
+  var driver: SlugUser? {
+    get {
+      if let r = self.parseDriver {
+        return SlugUser(parseUser: r)
+      } else {
+        return nil
+      }
+    }
   }
 }
 
@@ -157,15 +174,15 @@ class Ride {
     return ride
   }
   
-  var maxSpaces: Int {
+  var maxSpaces: Int? {
     get {
-      return self.parseObj["maxSpaces"] as Int
+      return self.parseObj["maxSpaces"] as? Int
     }
   }
   
-  var departure: NSDate {
+  var departure: NSDate? {
     get {
-      return self.parseObj["departure"] as NSDate
+      return self.parseObj["departure"] as? NSDate
     }
   }
   
@@ -175,9 +192,9 @@ class Ride {
 //    }
 //  }
   
-  var riderIds:[String] {
+  var riderIds:[String]? {
     get {
-      return self.parseObj["riders"] as [String]
+      return self.parseObj["riders"] as? [String]
     }
   }
   
@@ -213,33 +230,48 @@ class Ride {
     }
   }
   
-  func hasSpots() -> Bool {
-    return self.riderIds.count < self.maxSpaces
+  func hasSpots() -> Bool? {
+    if let riderIds = self.riderIds, let maxSpaces = self.maxSpaces {
+      return riderIds.count < maxSpaces
+    } else {
+      return nil
+    }
   }
   
-  func seatsLeft() -> Int {
-    return self.maxSpaces - self.riderIds.count
+  func seatsLeft() -> Int? {
+    if let maxSpaces = self.maxSpaces, let ridersCount = self.riderIds?.count {
+      return maxSpaces - ridersCount
+    } else {
+      return nil
+    }
   }
   
-  func munutesLeft() -> Int {
-    let seconds = -NSDate().timeIntervalSinceDate(self.departure)
-    return Int(seconds) / 60
+  func minutesLeft() -> Int? {
+    if let departure = self.departure {
+      let seconds = -NSDate().timeIntervalSinceDate(departure)
+      return Int(seconds) / 60
+    } else {
+      return nil
+    }
   }
   
   func prettyMinutesLeft() -> String {
-    let minutes = munutesLeft()
-    
-    if(minutes < 0) {
-      return "departed"
-    }
-    
-    let minutesOfHour = minutes % 60
-    let hours = minutes / 60
-  
-    if (hours > 0) {
-      return "\(hours)h \(minutesOfHour)m"
+    if let minutesLeft = minutesLeft() {
+      if(minutesLeft < 0) {
+        return "departed"
+      }
+      
+      let minutesOfHour = minutesLeft % 60
+      let hours = minutesLeft / 60
+      
+      if (hours > 0) {
+        return "\(hours)h \(minutesOfHour)m"
+      } else {
+        return "\(minutesOfHour)m"
+      }
+
     } else {
-      return "\(minutesOfHour)m"
+      return "error"
     }
   }
   
@@ -249,12 +281,15 @@ class Ride {
     query.getObjectInBackgroundWithId(objectId, block: block)
   }
   
-  private func findById(objectId:String) -> Ride {
+  private func findById(objectId:String) -> Ride? {
     let query = PFQuery(className:"Ride")
     query.includeKey("rideEnd")
 
-    let foundParseRide = query.getObjectWithId(objectId)
-    return Ride(parseObj: foundParseRide)
+    if let foundParseRide = query.getObjectWithId(objectId) {
+      return Ride(parseObj: foundParseRide)
+    } else {
+      return nil
+    }
   }
   
   class func findLatestByDriverIdInBackground(user:SlugUser, block: PFObjectResultBlock!) {
@@ -267,17 +302,39 @@ class Ride {
   }
   
   func grabASpotInBackground(user:SlugUser, block: PFBooleanResultBlock!) {
-    Ride.findByIdInBackground(self.parseObj.objectId, block: { (parseRide:PFObject!, error:NSError!) -> Void in
-      if(parseRide != nil && error == nil) {
-        
-        let ride = Ride(parseObj: parseRide)
-        if ride.hasSpots() {
-          Ride.uncheckedGrapASpotInBackground(self.parseObj.objectId, user: user, block: block)
+    if let objectId = self.parseObj.objectId {
+      Ride.findByIdInBackground(objectId, block: { (parseRideO, errorO) -> Void in
+        if let parseRide = parseRideO {
+          let ride = Ride(parseObj: parseRide)
+          
+          if let hasSpots = ride.hasSpots(), let objectId = self.parseObj.objectId where hasSpots {
+            Ride.uncheckedGrapASpotInBackground(objectId, user: user, block: block)
+          } else {
+            let error = NSError.withMsg("no spots left")
+            block?(false, error)
+          }
+          
+        } else if let error = errorO {
+          
         } else {
-          let error = NSError.withMsg("no spots left")
+          let error = NSError.withMsg("driver canceled the ride")
           block?(false, error)
         }
-        
+      })
+    } else {
+      let error = NSError.withMsg("user object does not have an objectId")
+      block?(false, error)
+    }
+  }
+  
+  private class func uncheckedGrapASpotInBackground(rideId:String, user:SlugUser, block: PFBooleanResultBlock!) {
+    var query = PFQuery(className:"Ride")
+    query.getObjectInBackgroundWithId(rideId, block: { (parseRideO, errorO) -> Void in
+      if let error = errorO {
+        block?(false, error)
+      } else if let parseRide = parseRideO, let userObjectId = user.parseObj.objectId {
+        parseRide.addUniqueObject(userObjectId, forKey: "riders")
+        parseRide.saveInBackgroundWithBlock(block)
       } else {
         let error = NSError.withMsg("driver canceled the ride")
         block?(false, error)
@@ -285,29 +342,15 @@ class Ride {
     })
   }
   
-  private class func uncheckedGrapASpotInBackground(rideId:String, user:SlugUser, block: PFBooleanResultBlock!) {
-    var query = PFQuery(className:"Ride")
-   
-     query.getObjectInBackgroundWithId(rideId) {
-      (ride: PFObject!, error: NSError!) -> Void in
-      if error != nil {
-        block?(false, error)
-      } else {
-        ride.addUniqueObject(user.parseObj.objectId, forKey: "riders")
-        ride.saveInBackgroundWithBlock(block)
-      }
-    }
-  }
-  
   func markRideDepartedInBackground(user:SlugUser, block: PFBooleanResultBlock!) {
-    user.findMyCurrentDrivingRideInBackground { (ride: PFObject!, error: NSError!) -> Void in
-      if error != nil {
+    user.findMyCurrentDrivingRideInBackground { (parseRideO, errorO) -> Void in
+      if let error = errorO {
         block?(false, error)
-      } else if(ride == nil) {
-        block?(false, NSError.withMsg("you are not the driver"))
+      } else if let parseRide = parseRideO  where parseRide.parseDriver?.objectId == user.parseObj.objectId {
+        parseRide["departedOn"] = NSDate()
+        parseRide.saveInBackgroundWithBlock(block)
       } else {
-        ride["departedOn"] = NSDate()
-        ride.saveInBackgroundWithBlock(block)
+        block?(false, NSError.withMsg("you are not the driver"))
       }
     }
   }

@@ -27,7 +27,7 @@ class RideTableViewCell: UITableViewCell {
 
     switch ride.seatsLeft() {
       case let x where x < 0: self.seatsLeft.text = "full"
-      case 1: self.seatsLeft.text = "\(seatsLeft) seat left"
+      case .Some(1): self.seatsLeft.text = "\(seatsLeft) seat left"
       default: self.seatsLeft.text = "\(seatsLeft) seats left"
     }
 

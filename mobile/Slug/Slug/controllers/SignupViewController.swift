@@ -52,15 +52,13 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     let emailUserName = email.extractEmailUsername() ?? "Slügger"
     let user = SlugUser(firstName: emailUserName, lastName: "", email: email, password: dummypassword)
     
-    user.parseObj.signUpInBackgroundWithBlock { (didSignUp, error) -> Void in
+    user.parseObj.signUpInBackgroundWithBlock { (didSignUp, errorO) -> Void in
       // to let Lme show different users
-      let isUserNameTaken = (error != nil && (error.code == 202))
-      
       if didSignUp {
         self.performSegueWithIdentifier("SegueToHomeWorkSetup", sender:self)
-      } else if isUserNameTaken {
-        PFUser.logInWithUsernameInBackground(email, password: dummypassword, block: { (loggedInUser:PFUser!, error:NSError!) -> Void in
-          if(loggedInUser != nil) {
+      } else if let error = errorO where error.code == 202 {
+        PFUser.logInWithUsernameInBackground(email, password: dummypassword, block: { (loggedInUserO, errorO) -> Void in
+          if let loggedInUser = loggedInUserO {
             self.performSegueWithIdentifier("SegueToHomeWorkSetup", sender:self)
           }
         })

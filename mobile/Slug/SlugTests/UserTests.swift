@@ -33,11 +33,11 @@ class UserTests: XCTestCase {
     let foundParseUser = PFUser.logInWithUsername(email, password: password)
     
     XCTAssertNotNil(foundParseUser, "user is nil")
-    let foundUser = SlugUser(parseUser: foundParseUser)
+    let foundUser = SlugUser(parseUser: foundParseUser!)
     
-    XCTAssertEqual(foundUser.firstName, firstName, "firstName did not match")
-    XCTAssertEqual(foundUser.lastName, lastName, "lastName did not match")
-    XCTAssertEqual(foundUser.email, email, "email did not match")
+    XCTAssertEqual(foundUser.firstName, Optional.Some(firstName), "firstName did not match")
+    XCTAssertEqual(foundUser.lastName, Optional.Some(lastName), "lastName did not match")
+    XCTAssertEqual(foundUser.email, Optional.Some(email), "email did not match")
 
   }
   

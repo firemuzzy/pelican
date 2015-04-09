@@ -120,7 +120,7 @@ extension String {
     
     let regex = NSRegularExpression(pattern: emailRegEx, options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
     
-    var match = regex?.firstMatchInString(self, options: NSMatchingOptions(0), range: NSMakeRange(0, countElements(self)))
+    var match = regex?.firstMatchInString(self, options: NSMatchingOptions(0), range: NSMakeRange(0, count(self)))
     
     if let range = match?.rangeAtIndex(1) {
       return (self as NSString).substringWithRange(range).lowercaseString
@@ -134,7 +134,7 @@ extension String {
     
     let regex = NSRegularExpression(pattern: emailRegEx, options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
     
-    var match = regex?.firstMatchInString(self, options: NSMatchingOptions(0), range: NSMakeRange(0, countElements(self)))
+    var match = regex?.firstMatchInString(self, options: NSMatchingOptions(0), range: NSMakeRange(0, count(self)))
     
     if let range = match?.rangeAtIndex(1) {
       return (self as NSString).substringWithRange(range).lowercaseString
