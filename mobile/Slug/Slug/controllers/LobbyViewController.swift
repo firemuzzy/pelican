@@ -34,40 +34,35 @@ class LobbyViewController: UIViewController, UITableViewDelegate, UITableViewDat
   func loadDrivers() {
     self.clearDrivers()
     
-    switch(SlugUser.currentUser(), UserLocation.sharedInstance.currentLocation) {
-      case (.Some(let user), .Some(let location)):
-        let currentPoint = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    if let user = SlugUser.currentUser(), location = UserLocation.sharedInstance.currentLocation {
+      let currentPoint = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+      
+      let points = [user.home, user.work]
+      
+      if let farthestPoint = LocUtils.farthestPoint(points, from: location) {
+        println("getting drivers from \(currentPoint)")
+        println("getting drivers to \(farthestPoint)")
         
-        let points = [user.home, user.work]
-        
-        if let farthestPoint = LocUtils.farthestPoint(points, from: location) {
-          println("getting drivers from \(currentPoint)")
-          println("getting drivers to \(farthestPoint)")
-          
-          Ride.findNearByDriversInBackground(currentPoint, end: farthestPoint, block: { (objsO, errorO) -> Void in
-            if let objs = objsO {
-              for obj in objs {
-                if let parseObj = obj as? PFObject {
-                  let ride = Ride(parseObj: parseObj)
-                  self.rides.append(ride)
-                }
+        Ride.findNearByDriversInBackground(currentPoint, end: farthestPoint, block: { (objsO, errorO) -> Void in
+          if let objs = objsO {
+            for obj in objs {
+              if let parseObj = obj as? PFObject {
+                let ride = Ride(parseObj: parseObj)
+                self.rides.append(ride)
               }
-            } else if let error = errorO {
-              self.rides = []
-            } else {
-              self.rides = []
             }
-            self.rides.sort({ (one, two) -> Bool in
-              one
-              return true
-            })
-            
-//            self.rides.sort({ (one, two) -> Bool in return one.munutesLeft() < two.munutesLeft() })
-            self.tableView.reloadData()
-          })
-        }
-      default: break
+          } else if let error = errorO {
+            self.rides = []
+          } else {
+            self.rides = []
+          }
+          self.rides.sort({ (one, two) -> Bool in return one.minutesLeft() < two.minutesLeft() })
+          self.tableView.reloadData()
+        })
+      }
+
     }
+
   }
   
   override func viewWillAppear(animated: Bool) {
