@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M03-MH-ISB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M03-MH-ISB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Brandon_bld.otf">
+            <string>BrandonGrotesque-Bold</string>
+            <string>BrandonGrotesque-Bold</string>
             <string>BrandonGrotesque-Bold</string>
             <string>BrandonGrotesque-Bold</string>
         </mutableArray>
@@ -82,25 +84,25 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sluggy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5N-Wt-uHC">
-                                                    <rect key="frame" x="20" y="11.5" width="68" height="37.5"/>
+                                                    <rect key="frame" x="20" y="11" width="68" height="38"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="26"/>
                                                     <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from Slügg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4B-k9-8HR">
-                                                    <rect key="frame" x="96" y="11.5" width="110.5" height="37.5"/>
+                                                    <rect key="frame" x="96" y="11" width="111" height="38"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Light" family="Brandon Grotesque" pointSize="26"/>
                                                     <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFC-st-ykw">
-                                                    <rect key="frame" x="543" y="3" width="49" height="31.5"/>
+                                                    <rect key="frame" x="543" y="1" width="49" height="32"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="22"/>
                                                     <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x seats left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QjP-4M-UpO">
-                                                    <rect key="frame" x="542.5" y="34.5" width="49.5" height="17.5"/>
+                                                    <rect key="frame" x="542" y="33" width="50" height="18"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Light" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -220,7 +222,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from Slügg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cgj-4c-v00">
-                                <rect key="frame" x="102" y="72" width="482" height="43"/>
+                                <rect key="frame" x="103" y="72" width="481" height="43"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Light" family="Brandon Grotesque" pointSize="30"/>
                                 <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -267,16 +269,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIg-iv-VwQ">
                                 <rect key="frame" x="16" y="20" width="568" height="580"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="rM7-rU-Tw6">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="rM7-rU-Tw6">
                                         <rect key="frame" x="254" y="194" width="60" height="42"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get started, sign up with your company email address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwa-UW-u5H">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="To get started, sign up with your company email address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwa-UW-u5H">
                                         <rect key="frame" x="57" y="244" width="454" height="92"/>
                                         <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="32"/>
                                         <color key="textColor" red="0.16862745098039217" green="0.38823529411764707" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="company email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hlE-br-TMh" customClass="BorderedTextField" customModule="Slug" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="company email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hlE-br-TMh" customClass="BorderedTextField" customModule="Slug" customModuleProvider="target">
                                         <rect key="frame" x="57" y="344" width="454" height="46"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -624,45 +626,110 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4f-V7-sX7">
                                 <rect key="frame" x="0.0" y="28" width="600" height="248"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="du9-Qn-11P">
-                                        <rect key="frame" x="232" y="39" width="137" height="130"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="1by-nx-iSl">
-                                        <rect key="frame" x="60" y="177" width="480" height="42"/>
-                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="29"/>
-                                        <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ece-F7-TqO">
+                                        <rect key="frame" x="0.0" y="11" width="600" height="225"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="du9-Qn-11P">
+                                                <rect key="frame" x="245" y="0.0" width="110" height="107"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="1by-nx-iSl">
+                                                <rect key="frame" x="215" y="183" width="169" height="42"/>
+                                                <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="29"/>
+                                                <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="du9-Qn-11P" firstAttribute="centerX" secondItem="1by-nx-iSl" secondAttribute="centerX" id="6Zl-CN-Nj5"/>
+                                            <constraint firstItem="du9-Qn-11P" firstAttribute="top" secondItem="Ece-F7-TqO" secondAttribute="top" id="OFG-Bl-fYd"/>
+                                            <constraint firstAttribute="bottom" secondItem="1by-nx-iSl" secondAttribute="bottom" id="bH8-aE-qDC"/>
+                                            <constraint firstAttribute="centerX" secondItem="du9-Qn-11P" secondAttribute="centerX" id="zFg-ch-tsQ"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJr-c4-Brd">
+                                        <rect key="frame" x="225" y="143" width="150" height="43"/>
+                                        <color key="backgroundColor" red="0.61568627450980395" green="0.73725490196078436" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="20"/>
+                                        <inset key="contentEdgeInsets" minX="26" minY="7" maxX="26" maxY="7"/>
+                                        <state key="normal" title="SET HOME">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.89803921568627454" green="0.92941176470588238" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="du9-Qn-11P" secondAttribute="centerX" id="5h3-z9-gPq"/>
-                                    <constraint firstAttribute="centerY" secondItem="du9-Qn-11P" secondAttribute="centerY" constant="20" id="EsX-Xu-8Az"/>
-                                    <constraint firstItem="1by-nx-iSl" firstAttribute="top" secondItem="du9-Qn-11P" secondAttribute="bottom" constant="8" symbolic="YES" id="kvi-jj-CzI"/>
-                                    <constraint firstItem="1by-nx-iSl" firstAttribute="width" secondItem="y4f-V7-sX7" secondAttribute="width" multiplier="0.8" id="mew-lh-nuf"/>
-                                    <constraint firstAttribute="centerX" secondItem="1by-nx-iSl" secondAttribute="centerX" id="ulA-oJ-ewF"/>
+                                    <constraint firstAttribute="centerX" secondItem="Ece-F7-TqO" secondAttribute="centerX" id="5GP-r2-YYS"/>
+                                    <constraint firstItem="du9-Qn-11P" firstAttribute="centerX" secondItem="SJr-c4-Brd" secondAttribute="centerX" id="5i4-KZ-aYJ"/>
+                                    <constraint firstAttribute="centerY" secondItem="Ece-F7-TqO" secondAttribute="centerY" constant="1" id="7dc-0E-lAJ"/>
+                                    <constraint firstItem="Ece-F7-TqO" firstAttribute="width" secondItem="y4f-V7-sX7" secondAttribute="width" id="BX1-gY-ohg"/>
+                                    <constraint firstItem="SJr-c4-Brd" firstAttribute="top" secondItem="du9-Qn-11P" secondAttribute="bottom" constant="25" id="QeV-YP-PgT"/>
+                                    <constraint firstItem="1by-nx-iSl" firstAttribute="top" secondItem="SJr-c4-Brd" secondAttribute="bottom" id="QpN-k0-s0I"/>
+                                    <constraint firstItem="SJr-c4-Brd" firstAttribute="top" secondItem="du9-Qn-11P" secondAttribute="bottom" constant="25" id="Svn-OA-FZo"/>
+                                    <constraint firstItem="Ece-F7-TqO" firstAttribute="height" secondItem="y4f-V7-sX7" secondAttribute="height" id="iWm-0S-27V"/>
+                                    <constraint firstItem="1by-nx-iSl" firstAttribute="top" secondItem="SJr-c4-Brd" secondAttribute="bottom" constant="8" id="tEM-Sj-KDy"/>
+                                    <constraint firstItem="1by-nx-iSl" firstAttribute="top" secondItem="SJr-c4-Brd" secondAttribute="bottom" id="vlI-vS-CKM"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="iWm-0S-27V"/>
+                                        <exclude reference="Svn-OA-FZo"/>
+                                        <exclude reference="QpN-k0-s0I"/>
+                                        <exclude reference="vlI-vS-CKM"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcd-E4-bTV">
                                 <rect key="frame" x="0.0" y="284" width="600" height="248"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="office" translatesAutoresizingMaskIntoConstraints="NO" id="J12-nP-ZmY">
-                                        <rect key="frame" x="232" y="39" width="137" height="130"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jt-sc-yCV">
-                                        <rect key="frame" x="60" y="177" width="480" height="42"/>
-                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="29"/>
-                                        <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arv-bg-Zzr">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="248"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="office" translatesAutoresizingMaskIntoConstraints="NO" id="J12-nP-ZmY">
+                                                <rect key="frame" x="232" y="0.0" width="137" height="130"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jt-sc-yCV">
+                                                <rect key="frame" x="207" y="206" width="187" height="42"/>
+                                                <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="29"/>
+                                                <color key="textColor" red="0.16862745100000001" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQc-Lh-dwc">
+                                                <rect key="frame" x="226" y="155" width="150" height="43"/>
+                                                <color key="backgroundColor" red="0.61568627450000002" green="0.73725490199999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="20"/>
+                                                <inset key="contentEdgeInsets" minX="26" minY="7" maxX="26" maxY="7"/>
+                                                <state key="normal" title="SET WORK">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="LQc-Lh-dwc" firstAttribute="centerX" secondItem="J12-nP-ZmY" secondAttribute="centerX" id="Qtr-FJ-gKI"/>
+                                            <constraint firstItem="J12-nP-ZmY" firstAttribute="top" secondItem="arv-bg-Zzr" secondAttribute="top" id="RiZ-2B-N8t"/>
+                                            <constraint firstAttribute="bottom" secondItem="7jt-sc-yCV" secondAttribute="bottom" id="ahh-bl-ekw"/>
+                                            <constraint firstItem="7jt-sc-yCV" firstAttribute="top" secondItem="J12-nP-ZmY" secondAttribute="bottom" id="cfA-9H-lt0"/>
+                                            <constraint firstItem="7jt-sc-yCV" firstAttribute="top" secondItem="LQc-Lh-dwc" secondAttribute="bottom" constant="8" id="dpa-ze-83N"/>
+                                            <constraint firstAttribute="centerX" secondItem="7jt-sc-yCV" secondAttribute="centerX" id="nrd-7r-dZZ"/>
+                                            <constraint firstItem="LQc-Lh-dwc" firstAttribute="top" secondItem="J12-nP-ZmY" secondAttribute="bottom" constant="25" id="oT0-zs-e6t"/>
+                                            <constraint firstAttribute="centerX" secondItem="J12-nP-ZmY" secondAttribute="centerX" id="qcm-n8-Z85"/>
+                                            <constraint firstAttribute="centerY" secondItem="LQc-Lh-dwc" secondAttribute="centerY" id="qfu-X7-lZg"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="qfu-X7-lZg"/>
+                                                <exclude reference="cfA-9H-lt0"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="7jt-sc-yCV" firstAttribute="width" secondItem="mcd-E4-bTV" secondAttribute="width" multiplier="0.8" id="1eV-WI-e3c"/>
-                                    <constraint firstItem="7jt-sc-yCV" firstAttribute="top" secondItem="J12-nP-ZmY" secondAttribute="bottom" constant="8" symbolic="YES" id="841-Ro-1Ev"/>
-                                    <constraint firstAttribute="centerX" secondItem="7jt-sc-yCV" secondAttribute="centerX" id="R8p-17-Kp3"/>
-                                    <constraint firstAttribute="centerY" secondItem="J12-nP-ZmY" secondAttribute="centerY" constant="20" id="bV8-qQ-UHI"/>
-                                    <constraint firstAttribute="centerX" secondItem="J12-nP-ZmY" secondAttribute="centerX" id="pan-YV-bx5"/>
+                                    <constraint firstAttribute="width" secondItem="arv-bg-Zzr" secondAttribute="width" id="JXs-91-GtJ"/>
+                                    <constraint firstAttribute="centerY" secondItem="arv-bg-Zzr" secondAttribute="centerY" id="Mim-gB-a2p"/>
+                                    <constraint firstAttribute="centerX" secondItem="arv-bg-Zzr" secondAttribute="centerX" id="gIo-lF-mWZ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -684,13 +751,17 @@
                     <connections>
                         <outlet property="companyName" destination="7jt-sc-yCV" id="91V-9r-ytf"/>
                         <outlet property="homeAddress" destination="1by-nx-iSl" id="ij5-Th-t7X"/>
+                        <outlet property="homeImage" destination="du9-Qn-11P" id="ZSQ-lb-AH8"/>
+                        <outlet property="setHome" destination="SJr-c4-Brd" id="v1x-ll-seA"/>
+                        <outlet property="setWork" destination="LQc-Lh-dwc" id="tDs-XI-oMu"/>
+                        <outlet property="workImage" destination="J12-nP-ZmY" id="tgl-hI-24T"/>
                         <segue destination="XRr-mp-Drt" kind="unwind" identifier="UnwindToRoot" unwindAction="unwind:" id="cFQ-4i-cci"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIX-9N-zMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="XRr-mp-Drt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="978" y="1174"/>
+            <point key="canvasLocation" x="978" y="1195"/>
         </scene>
         <!--Home Setup View Controller-->
         <scene sceneID="e8i-os-iBu">
@@ -752,7 +823,7 @@
     <resources>
         <image name="circleLogo" width="227" height="227"/>
         <image name="email" width="60" height="42"/>
-        <image name="home" width="137" height="130"/>
+        <image name="home" width="110" height="107"/>
         <image name="logoBar" width="20" height="14"/>
         <image name="office" width="137" height="130"/>
         <image name="slug" width="312" height="312"/>

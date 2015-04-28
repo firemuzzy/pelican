@@ -13,11 +13,21 @@ class HomeWorkSetupViewController: UIViewController {
 
   @IBOutlet weak var homeAddress: UILabel!
   @IBOutlet weak var companyName: UILabel!
+  @IBOutlet weak var homeImage: UIImageView!
+  @IBOutlet weak var workImage: UIImageView!
+  @IBOutlet weak var setHome: UIButton!
+  @IBOutlet weak var setWork: UIButton!
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
    
-    self.companyName.text = SlugUser.currentUser()?.companyName()
+    self.companyName.text = SlugUser.currentUser()?.company()?.name
+    
+    if let name = SlugUser.currentUser()?.company()?.name, image = UIImage(named: name.lowercaseString) {
+      workImage.image = image
+      companyName.text = ""
+    }
+
     
     if let location = UserLocation.sharedInstance.currentLocation {
       CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
@@ -32,6 +42,17 @@ class HomeWorkSetupViewController: UIViewController {
         }
       })
     }
+    
+    if let attributedText = setHome.titleLabel?.attributedText as? NSMutableAttributedString {
+      attributedText.addAttribute(NSKernAttributeName, value: 2.3 , range: NSMakeRange(0, attributedText.length))
+      setHome.setAttributedTitle(attributedText, forState: .Normal)
+    }
+    
+    if let attributedText = setWork.titleLabel?.attributedText as? NSMutableAttributedString {
+      attributedText.addAttribute(NSKernAttributeName, value: 2.3, range: NSMakeRange(0, attributedText.length))
+      setWork.setAttributedTitle(attributedText, forState: .Normal)
+    }
+    
   }
   
   @IBAction func doneCLicked(sender: AnyObject) {
