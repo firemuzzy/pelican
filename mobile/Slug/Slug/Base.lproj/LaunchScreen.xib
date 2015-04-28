@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,41 +10,21 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logoBar" translatesAutoresizingMaskIntoConstraints="NO" id="Jqa-yd-93q">
-                    <rect key="frame" x="0.0" y="233" width="480" height="14"/>
-                    <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="OEm-K6-QLq">
                     <rect key="frame" x="127" y="127" width="227" height="227"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="0.89019607840000003" green="0.93333333330000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="Jqa-yd-93q" secondAttribute="centerY" id="4eO-Ku-1DU"/>
                 <constraint firstAttribute="centerX" secondItem="OEm-K6-QLq" secondAttribute="centerX" id="9we-zX-yi3"/>
-                <constraint firstAttribute="centerX" secondItem="Jqa-yd-93q" secondAttribute="centerX" id="EGI-m3-lvI"/>
-                <constraint firstAttribute="centerX" secondItem="Jqa-yd-93q" secondAttribute="centerX" id="Kva-x6-27U"/>
-                <constraint firstAttribute="trailing" secondItem="Jqa-yd-93q" secondAttribute="trailing" id="T5Q-zI-Xzp"/>
-                <constraint firstAttribute="bottom" secondItem="Jqa-yd-93q" secondAttribute="bottom" id="arK-Jt-fNA"/>
                 <constraint firstAttribute="centerY" secondItem="OEm-K6-QLq" secondAttribute="centerY" id="eir-ds-Rs3"/>
-                <constraint firstAttribute="centerY" secondItem="Jqa-yd-93q" secondAttribute="centerY" constant="-50" id="fnW-f3-2ix"/>
-                <constraint firstItem="Jqa-yd-93q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oop-jb-gGO"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="EGI-m3-lvI"/>
-                    <exclude reference="Kva-x6-27U"/>
-                    <exclude reference="arK-Jt-fNA"/>
-                    <exclude reference="fnW-f3-2ix"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
     <resources>
         <image name="circleLogo" width="227" height="227"/>
-        <image name="logoBar" width="20" height="14"/>
     </resources>
 </document>
